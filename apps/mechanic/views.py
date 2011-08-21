@@ -134,9 +134,10 @@ def fetch(request, url):
         content = 'No content'
         content_type = ''
     #finally:
-        #if r.status_code == requests.codes.NOT_FOUND:
-        #    return render_to_response('http_error_not_found.html', {},
-        #        context_instance=RequestContext(request))
+    
+    if r.status_code == requests.codes.NOT_FOUND:
+        return render_to_response('http_error_not_found.html', {},
+            context_instance=RequestContext(request))
         
     return HttpResponse(
         content=content,

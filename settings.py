@@ -114,15 +114,16 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'grappelli',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django.contrib.comments',
+    #'django.contrib.comments',
     'django.contrib.staticfiles',
+    'mechanic',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
