@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     #(r'^grappelli/', include('grappelli.urls')),
     
-    (r'^', include('mechanic.urls')),
+    (r'^mechanic/', include('mechanic.urls')),
     (r'^', include('webtheme.urls')),
 )
 
