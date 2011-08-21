@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block contents %}
+
+			<!-- HEADER -->
+			<!-- image of the kids by horizontal.integration: http://flickr.com/photos/ebolasmallpox/1066368855/in/set-72157601353861692/ -->
+			<div id="header">
+				<div class="intro">
+					<h1>Educate primero... y tus sueños se harán realidad</h1>
+					<p>Portal educativo de Barquin International</p>
+				<form method="get" id="searchform" action="http://www.google.com/search">
+					<div>
+					<input class="searchField" type="text" value="" name="q" />
+					<input class="searchSubmit" type="submit" value="" />
+					<!-- If you want the search form to search your site, change "web-kreation.com" by the url of your site"-->
+                    <input type="hidden" name="sitesearch" value="web-kreation.com" />
+					</div>
+				</form>
+				</div> <!-- / intro -->
+			</div> <!-- /header -->
+
+
+			<!-- CONTENT -->
+			<div id="content">
+				<h1>Sobre este portal</h1>
+				<!-- img by foreversouls -->
+				<img class="alignleft" src="{{ STATIC_URL }}images/temp/post1.jpg" alt="" />				
+				<p>
+				Lorem ipsum dolor sit amet, congue erat dui natoque eu, consequatur nonummy suspendisse dolor felis, lectus arcu. In metus pede sed, orci sollicitudin, ligula justo ultricies consectetuer lorem hymenaeos, odio malesuada, turpis curabitur justo viverra. Ut vitae, elementum purus et integer vehicula, aenean metus elit non morbi urna. Commodo justo quam pretium quam sagittis. Sapien et adipiscing, nam wisi cras id in, risus lorem felis egestas, nec arcu et neque turpis, maecenas curabitur dolor vel ut praesent rutrum. Ut venenatis maecenas sem, dui suscipit pretium vitae mattis porta, per tortor vulputate, quis interdum porta mauris. Suspendisse dignissimos at potenti eget elit massa, ut imperdiet. Malesuada feugiat, pretium mauris id et suspendisse, sit nulla faucibus ridiculus posuere sodales, tristique tristique odio et diam eget pellentesque, nec amet. Mauris occaecat dignissim, leo tincidunt consectetuer sed quis mollis laoreet, mattis erat parturient potenti, felis vitae. Praesent non eu id libero mauris, quis mollitia ridiculus ut. Amet nec donec, vitae volutpat interdum ipsum pharetra, venenatis eu luctus nullam arcu at.				
+				</p>
+				<!--<a class="backToTop" href="#" title="Back To Top">&nbsp;</a>-->
+
+			</div> <!-- / content -->
+
+			<!-- SIDEBAR -->
+			<div id="sidebar">
+				<h2>Noticias y anuncios</h2>
+					<ul id="news">
+                    	<li>
+							<!-- images must be 54x54px -->
+							<a href="#" title="Some title"><!-- img by foreversouls --><img src="{{ STATIC_URL }}images/temp/news1.jpg" alt="" width="54" /> </a>
+                        	<h3>Nuevo rediseño de nuestra página</h3>
+							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium... <br />
+						</li>
+					</ul>
+
+					<!-- Ads -->
+					<!--<h2>Advertising</h2>-->
+   
+			</div> <!-- / Sidebar -->
+
+
+
+
+
+
+
+{% endblock %}
+{% block footer %}
+{% comment %}
+    <div id="footer">
+        <div class="block">
+            <p>Copyright &copy; 2011 Roberto Rosario.</p>
+        </div>
+    </div>
+{% endcomment %}
+{% endblock %}

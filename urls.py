@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     
     (r'^', include('mechanic.urls')),
+    (r'^', include('webtheme.urls')),
 )
 
 if settings.DEVELOPMENT:

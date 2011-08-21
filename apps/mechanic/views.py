@@ -4,6 +4,8 @@ import os
 import urllib
 import posixpath
 import re
+from binascii import hexlify, unhexlify
+from base64 import urlsafe_b64encode, urlsafe_b64decode
 
 from django.utils.translation import ugettext_lazy as _
 from django.http import HttpResponseRedirect, HttpResponse
@@ -14,7 +16,7 @@ from django.views.generic.list_detail import object_list
 from django.core.urlresolvers import reverse
 from django.core.exceptions import PermissionDenied
 from django.utils.encoding import smart_unicode
-
+from django.conf import settings
 
 import requests
 from bs4 import BeautifulSoup
@@ -72,6 +74,8 @@ def is_external_top_level_link(url):
 def compare_elements(elements, element_comparison, rule_dictionary, attribute=None):
     results = []
     for element in elements:
+        #print 'element', element
+        
         if element_comparison.attribute_comparison == COMPARISON_ICONTAINS or element_comparison.attribute_comparison == COMPARISON_CONTAINS:
             if element_comparison.attribute_comparison == COMPARISON_ICONTAINS:
                 flag = re.I
@@ -98,11 +102,15 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
                 
         elif element_comparison.attribute_comparison == COMPARISON_EQUALS:
             if element_comparison.negate:
+                #print 'NEG'
                 if rule_dictionary.get('text', False):
                     if element_comparison.value != element:
                         results.append(element)
                 else:
                     attribute_value = element.get(attribute)
+                    #print 'element', element
+                    #print 'attribute', attribute
+                    #print 'attribute_value', attribute_value
                     if attribute_value:
                         if element_comparison.value != attribute_value:
                             results.append(element)            
@@ -117,7 +125,7 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
                             results.append(element)            
     
     return set(results)
-    
+
 
 def fetch(request, url):
     r = requests.get(url)
@@ -137,12 +145,14 @@ def fetch(request, url):
                 else:
                     href = fix_relative_url(link['href'], url)
                     link['href'] = reverse('fetch', args=[href])
+                    #link['href'] = href
         
         # Convert css links url to absolute and prepend mechanic's url to all links
         for link in soup.findAll('link'):
             if link.get('href'):
                 href = fix_relative_url(link['href'], url)
                 link['href'] = reverse('fetch', args=[href])    
+                #link['href'] = href
 
         for rule in TransformationRule.objects.all():
             rule_dictionary = {}
@@ -160,6 +170,7 @@ def fetch(request, url):
             #print rule.title
             #print rule_dictionary
             elements = soup.findAll(**rule_dictionary)
+            #print elements
             element_comparison_result = None
             first_results = None
             for element_comparison in rule.elementcomparison_set.all():
@@ -175,6 +186,7 @@ def fetch(request, url):
 
             #print element_comparison_result
             for result_element in list(element_comparison_result):
+                #print result_element
                 if rule.action == ACTION_REMOVE:
                     result_element.extract()
                 elif rule.action == ACTION_REPLACE:
@@ -182,14 +194,8 @@ def fetch(request, url):
                         result_element.replaceWith(rule.action_argument)
                     else:
                         if rule.attribute:
-                            result_element['rule.attribute'] = rule.action_argument
-                    
-  
-
+                            result_element[rule.attribute] = rule.action_argument
                
-        #ACTION_REMOVE, ACTION_REPLACE
-
-            #    
         content = unicode(soup)#.prettify()
         #content = soup.prettify()
         content_type = None

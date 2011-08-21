@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     #'django.contrib.comments',
     'django.contrib.staticfiles',
     'mechanic',
+    'webtheme',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
