@@ -29,7 +29,7 @@ class TransformationRule(models.Model):
 class POIComparison(models.Model):
     transformation_rule = models.ForeignKey(TransformationRule, verbose_name=_(u'transformation rule'))
     point_of_origin_comparison_operand = models.CharField(max_length=8, default=OPERAND_AND, choices=OPERAND_CHOICES, verbose_name=_(u'operand'))
-    point_of_origin_comparison = models.CharField(max_length=16, blank=True, choices=COMPARISON_CHOICES, verbose_name=_(u'point of origin comparison'))
+    point_of_origin_comparison = models.CharField(max_length=16, choices=COMPARISON_CHOICES, verbose_name=_(u'point of origin comparison'))
     point_of_origin_comparison_negate = models.BooleanField(verbose_name=_(u'negate'), help_text=_(u'Inverts the point of origin comparison.'))
 
     def __unicode__(self):
@@ -43,7 +43,7 @@ class POIComparison(models.Model):
 class ElementComparison(models.Model):
     transformation_rule = models.ForeignKey(TransformationRule, verbose_name=_(u'transformation rule'))
     attribute_comparison_operand = models.CharField(max_length=8, default=OPERAND_AND, choices=OPERAND_CHOICES, verbose_name=_(u'operand'))
-    attribute_comparison = models.CharField(max_length=16, blank=True, choices=COMPARISON_CHOICES, verbose_name=_(u'attribute comparison'))
+    attribute_comparison = models.CharField(max_length=16, choices=COMPARISON_CHOICES, verbose_name=_(u'attribute comparison'))
     negate = models.BooleanField(verbose_name=_(u'negate'), help_text=_(u'Inverts the attribute comparison.'))
     value = models.TextField(blank=True, verbose_name=_(u'value'))
 

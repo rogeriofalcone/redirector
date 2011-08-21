@@ -20,6 +20,12 @@ import requests
 from bs4 import BeautifulSoup
 from HTMLParser import HTMLParseError
 
+from mechanic.models import TransformationRule
+from mechanic.literals import ATTRIBUTE_CONTENT, COMPARISON_ICONTAINS, \
+    COMPARISON_CONTAINS, COMPARISON_EQUALS, OPERAND_OR, OPERAND_AND, \
+    ACTION_REMOVE, ACTION_REPLACE
+
+
 '''
 def resolveComponents(url):
     """
@@ -63,10 +69,153 @@ def is_external_top_level_link(url):
         return False
 
 
+def compare_elements(elements, element_comparison, rule_dictionary, attribute=None):
+    results = []
+    for element in elements:
+        if element_comparison.attribute_comparison == COMPARISON_ICONTAINS or element_comparison.attribute_comparison == COMPARISON_CONTAINS:
+            if element_comparison.attribute_comparison == COMPARISON_ICONTAINS:
+                flag = re.I
+            else:
+                flag = 0
+            if element_comparison.negate:
+                if rule_dictionary.get('text', False):
+                    if not re.search(element_comparison.value, element, flag):
+                        results.append(element)
+                else:
+                    attribute_value = element.get(attribute)
+                    if attribute_value:
+                        if not re.search(element_comparison.value, attribute_value, flag):
+                            results.append(element)
+            else:
+                if rule_dictionary.get('text', False):
+                    if re.search(element_comparison.value, element, flag):
+                        results.append(element)
+                else:
+                    attribute_value = element.get(attribute)
+                    if attribute_value:
+                        if re.search(element_comparison.value, attribute_value, flag):
+                            results.append(element)
+                
+        elif element_comparison.attribute_comparison == COMPARISON_EQUALS:
+            if element_comparison.negate:
+                if rule_dictionary.get('text', False):
+                    if element_comparison.value != element:
+                        results.append(element)
+                else:
+                    attribute_value = element.get(attribute)
+                    if attribute_value:
+                        if element_comparison.value != attribute_value:
+                            results.append(element)            
+            else:
+                if rule_dictionary.get('text', False):
+                    if element_comparison.value == element:
+                        results.append(element)
+                else:
+                    attribute_value = element.get(attribute)
+                    if attribute_value:
+                        if element_comparison.value == attribute_value:
+                            results.append(element)            
+    
+    return set(results)
+    
+
 def fetch(request, url):
     r = requests.get(url)
     try:
         soup = BeautifulSoup(r.content)
+        
+        # Convert all images' relative path to an absolute path
+        for image in soup.findAll('img'):
+            if image.get('src'):
+                image['src'] = fix_relative_url(image['src'], url)        
+           
+        # Convert links url to absolute and prepend mechanic's url to all links
+        for link in soup.findAll('a'):
+            if link.get('href'):
+                if is_external_top_level_link(link['href']) and not link.get('href').startswith('#'):
+                    link.extract()
+                else:
+                    href = fix_relative_url(link['href'], url)
+                    link['href'] = reverse('fetch', args=[href])
+        
+        # Convert css links url to absolute and prepend mechanic's url to all links
+        for link in soup.findAll('link'):
+            if link.get('href'):
+                href = fix_relative_url(link['href'], url)
+                link['href'] = reverse('fetch', args=[href])    
+
+        for rule in TransformationRule.objects.all():
+            rule_dictionary = {}
+            source_attribute = None
+            
+            if rule.element:
+                rule_dictionary['name'] = rule.element
+
+            if rule.attribute == ATTRIBUTE_CONTENT:
+                rule_dictionary['text'] = True
+            else:
+                if rule.attribute:
+                    source_attribute = rule.attribute
+            
+            #print rule.title
+            #print rule_dictionary
+            elements = soup.findAll(**rule_dictionary)
+            element_comparison_result = None
+            first_results = None
+            for element_comparison in rule.elementcomparison_set.all():
+                results = compare_elements(elements, element_comparison, rule_dictionary, source_attribute)
+                #print 'partial: %s' % results
+                if element_comparison_result is None:
+                    element_comparison_result = results
+                else:
+                    if element_comparison.attribute_comparison_operand == OPERAND_AND:
+                        element_comparison_result &= results
+                    else:
+                        element_comparison_result |= results
+
+            #print element_comparison_result
+            for result_element in list(element_comparison_result):
+                if rule.action == ACTION_REMOVE:
+                    result_element.extract()
+                elif rule.action == ACTION_REPLACE:
+                    if rule.attribute == ATTRIBUTE_CONTENT:
+                        result_element.replaceWith(rule.action_argument)
+                    else:
+                        if rule.attribute:
+                            result_element['rule.attribute'] = rule.action_argument
+                    
+  
+
+               
+        #ACTION_REMOVE, ACTION_REPLACE
+
+            #    
+        content = unicode(soup)#.prettify()
+        #content = soup.prettify()
+        content_type = None
+        #content_type = r.headers['content-type']
+    except (HTMLParseError, UnicodeDecodeError, RuntimeError):
+        content = r.content
+        content_type = r.headers['content-type']
+    except AttributeError:
+        #print 'url', url
+        #print r
+        content = 'No content'
+        content_type = ''
+    #finally:
+    #    pass
+    
+    if r.status_code == requests.codes.NOT_FOUND:
+        return render_to_response('http_error_not_found.html', {},
+            context_instance=RequestContext(request))
+        
+    return HttpResponse(
+        content=content,
+        status=r.status_code,
+        content_type=content_type or 'utf-8'
+    )
+
+'''        
         for txt in soup.findAll(text=True):
             if re.search('Departamento de Educac', txt, re.I):
                 #newtext = 'Barquin International'
@@ -120,27 +269,4 @@ def fetch(request, url):
                 href = fix_relative_url(link['href'], url)
 
                 link['href'] = reverse('fetch', args=[href])    
-
-        content = unicode(soup)#.prettify()
-        #content = soup.prettify()
-        content_type = None
-        #content_type = r.headers['content-type']
-    except (HTMLParseError, UnicodeDecodeError, RuntimeError):
-        content = r.content
-        content_type = r.headers['content-type']
-    except AttributeError:
-        #print 'url', url
-        #print r
-        content = 'No content'
-        content_type = ''
-    #finally:
-    
-    if r.status_code == requests.codes.NOT_FOUND:
-        return render_to_response('http_error_not_found.html', {},
-            context_instance=RequestContext(request))
-        
-    return HttpResponse(
-        content=content,
-        status=r.status_code,
-        content_type=content_type or 'utf-8'
-    )
+'''
