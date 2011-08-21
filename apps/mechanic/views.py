@@ -81,7 +81,7 @@ def fetch(request, url):
                     re.search('p r o y', txt, re.I) or
                     re.search('y e c t o', txt, re.I)
                 ) and re.search('g a r', txt, re.I):
-                newtext = 'Barquin International'
+                newtext = 'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'
                 txt.replaceWith(newtext)
 
             if re.search('ctor a. garc', txt, re.I):# and txt.parent.name != 'a':
