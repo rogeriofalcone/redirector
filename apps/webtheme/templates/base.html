@@ -121,15 +121,13 @@
 				<li>
 					<a href="#" title="">Exámenes<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
 					<!-- submenu -->
-                    {% comment %}
 					<ul>
-					   <li><a class="redirected" href="#" target="" title="">Español</a></li>
-					   <li><a class="redirected" href="#" target="" title="">Inglés</a></li>
-					   <li><a class="redirected" href="#" target="" title="">Matemáticas</a></li>
-					   <li><a class="redirected" href="#" target="" title="">Estudios sociales</a></li>
-					   <li><a class="redirected" href="#" target="" title="">Ciencias</a></li>
+					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Espanol.htm' %}" title="">Español</a></li>
+					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Ingl%C3%A9s.htm' %}" title="">Inglés</a></li>
+					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Matematicas.htm' %}" title="">Matemáticas</a></li>
+					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Estudios_Sociales.htm' %}" title="">Estudios sociales</a></li>
+					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/indice.htm' %}" title="">Ciencias</a></li>
 					</ul>
-                    {% endcomment %}
 				</li>
 				<li>
 					<a href="#" title="">Repasos<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
