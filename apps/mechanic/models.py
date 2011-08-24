@@ -36,7 +36,7 @@ class POIComparison(models.Model):
         return '%s - %s - [%s]' % (self.point_of_origin_comparison_operand, self.point_of_origin_comparison, u'X' if self.point_of_origin_comparison_negate else u' ')
 
     class Meta:
-        verbose_name = ''#_(u'point of origin comparison')
+        verbose_name = ''  #_(u'point of origin comparison')
         verbose_name_plural = _(u'point of origin comparisons')
 
 
@@ -57,5 +57,5 @@ class ElementComparison(models.Model):
         )
 
     class Meta:
-        verbose_name = ''#_(u'element comparison')
+        verbose_name = ''  #_(u'element comparison')
         verbose_name_plural = _(u'element comparisons')

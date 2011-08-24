@@ -1,6 +1,7 @@
 import re
 import urlparse
-from urllib2 import HTTPError
+#from urllib2 import HTTPError
+import logging
 
 from django.core.urlresolvers import reverse
 
@@ -13,39 +14,14 @@ from mechanic.literals import ATTRIBUTE_CONTENT, COMPARISON_ICONTAINS, \
     ACTION_REMOVE, ACTION_REPLACE
 from mechanic.models import TransformationRule
 
-'''
-def resolveComponents(url):
-    """
-    >>> resolveComponents('http://www.example.com/foo/bar/../../baz/bux/')
-    'http://www.example.com/baz/bux/'
-    >>> resolveComponents('http://www.example.com/some/path/../file.ext')
-    'http://www.example.com/some/file.ext'
-    """
-
-    parsed = urlparse.urlparse(url)
-    new_path = posixpath.normpath(parsed.path)
-    if parsed.path.endswith('/'):
-        # Compensate for issue1707768
-        new_path += '/'
-    cleaned = parsed._replace(path=new_path)
-    return cleaned.geturl()
-
-
-def url_fix(s, charset='utf-8'):
-    if isinstance(s, unicode):
-        s = s.encode(charset, 'ignore')
-    scheme, netloc, path, qs, anchor = urlparse.urlsplit(s)
-    path = urllib.quote(path, '/%')
-    qs = urllib.quote_plus(qs, ':&=')
-    return urlparse.urlunsplit((scheme, netloc, path, qs, anchor))
-'''
+logger = logging.getLogger(__name__)
 
 
 def fix_relative_url(url, parent_url):
     scheme, netloc, path, qs, anchor = urlparse.urlsplit(url)
     if not netloc:
         url = urlparse.urljoin(parent_url, url)
-        
+
     return url
 
 
@@ -60,8 +36,7 @@ def is_external_top_level_link(url):
 def compare_elements(elements, element_comparison, rule_dictionary, attribute=None):
     results = []
     for element in elements:
-        #print 'element', element
-        
+       
         if element_comparison.attribute_comparison == COMPARISON_ICONTAINS or element_comparison.attribute_comparison == COMPARISON_CONTAINS:
             if element_comparison.attribute_comparison == COMPARISON_ICONTAINS:
                 flag = re.I
@@ -85,21 +60,17 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
                     if attribute_value:
                         if re.search(element_comparison.value, attribute_value, flag):
                             results.append(element)
-                
+
         elif element_comparison.attribute_comparison == COMPARISON_EQUALS:
             if element_comparison.negate:
-                #print 'NEG'
                 if rule_dictionary.get('text', False):
                     if element_comparison.value != element:
                         results.append(element)
                 else:
                     attribute_value = element.get(attribute)
-                    #print 'element', element
-                    #print 'attribute', attribute
-                    #print 'attribute_value', attribute_value
                     if attribute_value:
                         if element_comparison.value != attribute_value:
-                            results.append(element)            
+                            results.append(element)
             else:
                 if rule_dictionary.get('text', False):
                     if element_comparison.value == element:
@@ -108,11 +79,11 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
                     attribute_value = element.get(attribute)
                     if attribute_value:
                         if element_comparison.value == attribute_value:
-                            results.append(element)            
-    
+                            results.append(element)
+
     return set(results)
-    
-    
+
+
 def transform_url(url):
     transformed_response = {}
     r = requests.get(url)
@@ -120,12 +91,12 @@ def transform_url(url):
     try:
         r.raise_for_status()
         soup = BeautifulSoup(r.content)
-        
+
         # Convert all images' relative path to an absolute path
         for image in soup.findAll('img'):
             if image.get('src'):
-                image['src'] = fix_relative_url(image['src'], url)        
-           
+                image['src'] = fix_relative_url(image['src'], url)
+
         # Convert links url to absolute and prepend mechanic's url to all links
         for link in soup.findAll('a'):
             if link.get('href'):
@@ -133,20 +104,18 @@ def transform_url(url):
                     link.extract()
                 else:
                     href = fix_relative_url(link['href'], url)
-                    link['href'] = reverse('fetch', args=[href])
-                    #link['href'] = href
-        
+                    link['href'] = '%s?url=%s' % (reverse('fetch'), href)
+
         # Convert css links url to absolute and prepend mechanic's url to all links
         for link in soup.findAll('link'):
             if link.get('href'):
                 href = fix_relative_url(link['href'], url)
-                link['href'] = reverse('fetch', args=[href])    
-                #link['href'] = href
+                link['href'] = '%s?url=%s' % (reverse('fetch'), href)
 
         for rule in TransformationRule.objects.all():
             rule_dictionary = {}
             source_attribute = None
-            
+
             if rule.element:
                 rule_dictionary['name'] = rule.element
 
@@ -155,15 +124,11 @@ def transform_url(url):
             else:
                 if rule.attribute:
                     source_attribute = rule.attribute
-            
-            #print rule.title
-            #print rule_dictionary
+
             elements = soup.findAll(**rule_dictionary)
-            #print elements
             element_comparison_result = None
             for element_comparison in rule.elementcomparison_set.all():
                 results = compare_elements(elements, element_comparison, rule_dictionary, source_attribute)
-                #print 'partial: %s' % results
                 if element_comparison_result is None:
                     element_comparison_result = results
                 else:
@@ -172,20 +137,18 @@ def transform_url(url):
                     else:
                         element_comparison_result |= results
 
-            #print element_comparison_result
             for result_element in list(element_comparison_result):
-                #print result_element
                 if rule.action == ACTION_REMOVE:
                     result_element.extract()
                 elif rule.action == ACTION_REPLACE:
+                    eval_result = eval(rule.action_argument, {})
                     if rule.attribute == ATTRIBUTE_CONTENT:
-                        result_element.replaceWith(rule.action_argument)
+                        result_element.replaceWith(eval_result)
                     else:
-                        if rule.attribute:
-                            result_element[rule.attribute] = rule.action_argument
-               
-        transformed_response['content'] = unicode(soup)#.prettify()
-        #content = soup.prettify()
+                        result_element[rule.attribute] = eval_result
+
+        #transformed_response['content'] = unicode(soup)#.prettify()
+        transformed_response['content'] = soup.prettify()
         #transformed_response['content_type'] = None
         #content_type = r.headers['content-type']
     except (HTMLParseError, UnicodeDecodeError, RuntimeError), err:
@@ -193,15 +156,14 @@ def transform_url(url):
         transformed_response['content_type'] = r.headers['content-type']
     #except AttributeError:
     #    transformed_response['content'] = 'No content'
-    #    transformed_response['content_type'] = ''    
+    #    transformed_response['content_type'] = ''
     #except HTTPError:
         #transformed_response['status_core'] = r.status_code
     #    raise
     except Exception, err:
-        print 'Unhandled exception: %s' % err
+        logger.debug('transform_url(): Unhandled exception: %s' % err)
         transformed_response['content'] = r.content
-        transformed_response['content_type'] = r.headers['content-type']        
+        transformed_response['content_type'] = r.headers['content-type']
         raise
-    
+
     return transformed_response
-    

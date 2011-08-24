@@ -1,3 +1,4 @@
+import logging
 from urllib2 import HTTPError
 
 from django.http import HttpResponse
@@ -6,8 +7,12 @@ from django.template import RequestContext
 
 from mechanic.api import transform_url
 
+logger = logging.getLogger(__name__)
 
-def fetch(request, url):
+
+def fetch(request, url=None):
+    url = request.GET.get('url', url)
+    logger.debug('fetch(): url: %s' % url)
     try:
         transformed_response = transform_url(url)
     except HTTPError:
