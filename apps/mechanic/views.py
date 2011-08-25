@@ -4,14 +4,22 @@ from urllib2 import HTTPError
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.utils.http import urlencode
 
 from mechanic.api import transform_url
+from mechanic.utils import decode_url
 
 logger = logging.getLogger(__name__)
 
 
+def fetch_coded(request, coded_url=None):
+    return fetch(request, decode_url(coded_url))
+    
+
 def fetch(request, url=None):
-    url = request.GET.get('url', url)
+    url_query = request.GET
+    if url_query:
+        url = '%s?%s' % (url, urlencode(url_query))
     logger.debug('fetch(): url: %s' % url)
     try:
         transformed_response = transform_url(url)

@@ -11,11 +11,13 @@ class TransformationRule(models.Model):
     """
 
     title = models.CharField(max_length=64, verbose_name=_(u'title'))
+    description = models.TextField(blank=True, verbose_name=_(u'description'))
     point_of_origin = models.CharField(max_length=200, blank=True, verbose_name=_(u'point of origin'))
     element = models.CharField(max_length=16, blank=True, choices=ELEMENT_CHOICES, verbose_name=_(u'element'))
     attribute = models.CharField(max_length=16, choices=ATTRIBUTE_CHOICES, verbose_name=_(u'attribute'))
     action = models.CharField(max_length=16, choices=ACTION_CHOICES, verbose_name=_(u'action'))
     action_argument = models.TextField(blank=True, verbose_name=_(u'action argument'))
+    enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
 
     def __unicode__(self):
         return self.title

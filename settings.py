@@ -78,7 +78,8 @@ STATIC_URL = '/%s-static/' % PROJECT_NAME
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 #ADMIN_MEDIA_PREFIX = '/media/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'v8on)1wz06s9!e0(yr6)lbaa)l16_75#pm2yg8&nyxp+k1#2me'
@@ -113,7 +114,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    #'grappelli',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
