@@ -1,0 +1,751 @@
+[
+    {
+        "pk": 18, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Alterar links en la forma 'Otros diccionarios'", 
+            "attribute": "value", 
+            "action_argument": "'%s%s' % (fetch_url, source)", 
+            "enabled": 1, 
+            "element": "option", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "attribute": "content", 
+            "action_argument": "'Barquin International'", 
+            "enabled": 0, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "attribute": "content", 
+            "action_argument": "'Barquin International'", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Cambiar Hector A. Garcia a Barquin International", 
+            "attribute": "content", 
+            "action_argument": "'Barquin International'", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "attribute": "content", 
+            "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "attribute": "content", 
+            "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Desactivar links que salen del frame", 
+            "attribute": "target", 
+            "action_argument": "''", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Eliminar banner Salon Hogar", 
+            "attribute": "src", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "img", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Eliminar link informe tiempo", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Eliminar logo DE", 
+            "attribute": "src", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "img", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Proyecto Sal\u00f3n Hogar", 
+            "attribute": "content", 
+            "action_argument": "'Barquin International'", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remove dead galery link", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover 'Hector Garcia' in biblioteca", 
+            "attribute": "content", 
+            "action_argument": "'Barquin International'", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover diccionarios externos", 
+            "attribute": "value", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "option", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "Zona ingles, matematicas, estudios sociales, ciencia", 
+            "title": "Remover endoso DE, forma google", 
+            "attribute": "id", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover enlaze externo a galeria de fotos", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover forma de busqueda que usa google", 
+            "attribute": "action", 
+            "action_argument": "'#'", 
+            "enabled": 1, 
+            "element": "form", 
+            "point_of_origin": "", 
+            "action": "replace"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover forma de busqueda que usa google en biblioteca principal", 
+            "attribute": "id", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover forma de busqueda que usa google en zona espa\u00f1ol", 
+            "attribute": "id", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover grado 10", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover link a pagina indice salonhogar", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover link antivirus panda", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover tabla endoso DE", 
+            "attribute": "id", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "Remover texto 'Departament de Educacion'", 
+            "attribute": "content", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover todos los enlaces que no sean de salonhogar", 
+            "attribute": "href", 
+            "action_argument": "'* FORBIDDEN LINK *'", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": null, 
+            "title": "remove link gif animados", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": "", 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "Departamento de Educac", 
+            "transformation_rule": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "proyecto", 
+            "transformation_rule": 2
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "hogar", 
+            "transformation_rule": 2
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "p r o y", 
+            "transformation_rule": 3
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "g a r", 
+            "transformation_rule": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "y e c t o", 
+            "transformation_rule": 4
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "g a r", 
+            "transformation_rule": 4
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "ctor a. garc", 
+            "transformation_rule": 5
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "DE_3.gif", 
+            "transformation_rule": 6
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "pshbanner_ani.gif", 
+            "transformation_rule": 7
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": true, 
+            "attribute_comparison_operand": "and", 
+            "value": "_self", 
+            "transformation_rule": 8
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "www.srh.noaa.gov", 
+            "transformation_rule": 9
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "DE_3.jpg", 
+            "transformation_rule": 6
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "Fundaci\u00f3n H\u00e9ctor A.", 
+            "transformation_rule": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "pandasoftware", 
+            "transformation_rule": 10
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "recursostic.educacion.es", 
+            "transformation_rule": 11
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "Proyecto Sal\u00f3n Hogar", 
+            "transformation_rule": 12
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "www.damisela.com", 
+            "transformation_rule": 13
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "www.pekegifs.com", 
+            "transformation_rule": 14
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "H \u00e9 c", 
+            "transformation_rule": 15
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "G a r c \u00ed", 
+            "transformation_rule": 15
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": true, 
+            "attribute_comparison_operand": "and", 
+            "value": "proyectosalonhogar.com", 
+            "transformation_rule": 16
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "_s10.htm", 
+            "transformation_rule": 17
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "proyectosalonhogar.com", 
+            "transformation_rule": 18
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "index_futuroe.html", 
+            "transformation_rule": 19
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "google.com\r\n", 
+            "transformation_rule": 20
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "Proye", 
+            "transformation_rule": 21
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": true, 
+            "attribute_comparison_operand": "and", 
+            "value": "salonhogar", 
+            "transformation_rule": 22
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "table190", 
+            "transformation_rule": 23
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "table51", 
+            "transformation_rule": 24
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "table75", 
+            "transformation_rule": 25
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "table18", 
+            "transformation_rule": 26
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "table58", 
+            "transformation_rule": 26
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "table35", 
+            "transformation_rule": 26
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "equals", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "table34", 
+            "transformation_rule": 26
+        }
+    }
+]
