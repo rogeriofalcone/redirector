@@ -1,5 +1,19 @@
 [
     {
+        "pk": 1, 
+        "model": "mechanic.pointoforigin", 
+        "fields": {
+            "title": "1roeducate.com"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "mechanic.pointoforigin", 
+        "fields": {
+            "title": "escuelasuperioronline.com"
+        }
+    }, 
+    {
         "pk": 18, 
         "model": "mechanic.transformationrule", 
         "fields": {
@@ -9,7 +23,7 @@
             "action_argument": "'%s%s' % (fetch_url, source)", 
             "enabled": 1, 
             "element": "option", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -23,7 +37,7 @@
             "action_argument": "'Barquin International'", 
             "enabled": 0, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -37,7 +51,7 @@
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -51,7 +65,7 @@
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -65,7 +79,7 @@
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -79,7 +93,7 @@
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -93,7 +107,7 @@
             "action_argument": "''", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -107,7 +121,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "img", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -121,7 +135,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -135,7 +149,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "img", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -149,7 +163,7 @@
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -163,7 +177,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -177,7 +191,7 @@
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -191,7 +205,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "option", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -205,7 +219,35 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "a", 
+            "point_of_origin": 1, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "attribute": "content", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "", 
+            "point_of_origin": 1, 
             "action": "remove"
         }
     }, 
@@ -219,7 +261,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -233,7 +275,7 @@
             "action_argument": "'#'", 
             "enabled": 1, 
             "element": "form", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "replace"
         }
     }, 
@@ -247,7 +289,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -261,21 +303,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
-            "action": "remove"
-        }
-    }, 
-    {
-        "pk": 17, 
-        "model": "mechanic.transformationrule", 
-        "fields": {
-            "description": "", 
-            "title": "Remover grado 10", 
-            "attribute": "href", 
-            "action_argument": "", 
-            "enabled": 1, 
-            "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -289,7 +317,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -303,7 +331,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -317,7 +345,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -331,7 +359,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -345,7 +373,7 @@
             "action_argument": "'* FORBIDDEN LINK *'", 
             "enabled": 1, 
             "element": "a", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -359,7 +387,7 @@
             "action_argument": "", 
             "enabled": 1, 
             "element": "", 
-            "point_of_origin": "", 
+            "point_of_origin": null, 
             "action": "remove"
         }
     }, 
@@ -746,6 +774,61 @@
             "attribute_comparison_operand": "or", 
             "value": "table34", 
             "transformation_rule": 26
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "_s11.htm", 
+            "transformation_rule": 17
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "_12.htm", 
+            "transformation_rule": 17
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "12mo", 
+            "transformation_rule": 27
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "11mo", 
+            "transformation_rule": 27
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "10mo", 
+            "transformation_rule": 27
         }
     }
 ]

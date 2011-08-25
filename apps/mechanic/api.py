@@ -4,6 +4,7 @@ import logging
     
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_unicode, force_unicode, smart_str, DjangoUnicodeDecodeError
+from django.db.models import Q
 
 import mechanize
 from bs4 import BeautifulSoup, UnicodeDammit
@@ -88,7 +89,7 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
     return set(results)
 
 
-def transform_url(url):
+def transform_url(url, point_of_origin):
     transformed_response = {}
     
     if USE_MECHANIZE:
@@ -145,7 +146,8 @@ def transform_url(url):
                     href = fix_relative_url(script['src'], url)
                     script['src'] = form_url(href)
 
-            for rule in TransformationRule.objects.filter(enabled=True):
+            #for rule in TransformationRule.objects.filter(enabled=True):
+            for rule in TransformationRule.objects.filter(Q(enabled=True) & (Q(point_of_origin=None) | Q(point_of_origin=point_of_origin))):
                 rule_dictionary = {}
                 source_attribute = None
 
@@ -199,7 +201,7 @@ def transform_url(url):
 
         #except (HTMLParseError, UnicodeDecodeError, RuntimeError), err:
         except (HTMLParseError, RuntimeError), err:
-            logger.debug('transform_url(): HTMLParseError, or RuntimeError')
+            logger.info('transform_url(): HTMLParseError, or RuntimeError')
             
             transformed_response['content'] = html
             transformed_response['content_type'] = content_type

@@ -2,27 +2,33 @@ import logging
 from urllib2 import HTTPError
 
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.utils.http import urlencode
 
 from mechanic.api import transform_url
 from mechanic.utils import decode_url
+from mechanic.models import PointOfOrigin
 
 logger = logging.getLogger(__name__)
 
 
-def fetch_coded(request, coded_url=None):
-    return fetch(request, decode_url(coded_url))
+def fetch_coded(request, coded_url=None, origin_id=None):
+    return fetch(request, decode_url(coded_url), origin_id=origin_id)
     
 
-def fetch(request, url=None):
+def fetch(request, url=None, origin_id=None):
+    if origin_id:
+        point_of_origin = get_object_or_404(PointOfOrigin, pk=origin_id)
+    else:
+        point_of_origin = None
+        
     url_query = request.GET
     if url_query:
         url = '%s?%s' % (url, urlencode(url_query))
-    logger.debug('fetch(): url: %s' % url)
+    logger.info('fetch(): url: %s' % url)
     try:
-        transformed_response = transform_url(url)
+        transformed_response = transform_url(url, point_of_origin)
     except HTTPError:
         #if status_code == requests.codes.NOT_FOUND:
         return render_to_response('http_error_not_found.html', {},

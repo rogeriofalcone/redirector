@@ -1,15 +1,8 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from mechanic.models import TransformationRule, POIComparison, \
+from mechanic.models import TransformationRule, PointOfOrigin, \
     ElementComparison
-
-
-class POIComparisonInline(admin.StackedInline):
-    model = POIComparison
-    extra = 1
-    classes = ('collapse-open',)
-    allow_add = True
 
 
 class ElementComparisonInline(admin.StackedInline):
@@ -23,7 +16,7 @@ class TransformationRuleAdmin(admin.ModelAdmin):
     model = TransformationRule
     radio_fields = {'action': admin.VERTICAL}
     inlines = [
-        POIComparisonInline, ElementComparisonInline
+        ElementComparisonInline
     ]
     list_display = ('title', 'point_of_origin', 'element', 'attribute', 'action', 'enabled')
     list_display_links = ('title',)
@@ -48,3 +41,4 @@ class TransformationRuleAdmin(admin.ModelAdmin):
 '''    
     
 admin.site.register(TransformationRule, TransformationRuleAdmin)
+admin.site.register(PointOfOrigin)
