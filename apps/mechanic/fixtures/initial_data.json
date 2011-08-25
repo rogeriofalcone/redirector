@@ -17,7 +17,7 @@
         "pk": 21, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
@@ -31,7 +31,7 @@
         "pk": 2, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Cambiar 'salon hogar' a 'Barquin International'", 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
@@ -45,7 +45,7 @@
         "pk": 5, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Cambiar Hector A. Garcia a Barquin International", 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
@@ -59,7 +59,7 @@
         "pk": 3, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
@@ -73,7 +73,7 @@
         "pk": 4, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
@@ -87,7 +87,7 @@
         "pk": 8, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Desactivar links que salen del frame", 
             "attribute": "target", 
             "action_argument": "''", 
@@ -101,7 +101,7 @@
         "pk": 7, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Eliminar banner Salon Hogar", 
             "attribute": "src", 
             "action_argument": "", 
@@ -115,7 +115,7 @@
         "pk": 9, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Eliminar link informe tiempo", 
             "attribute": "href", 
             "action_argument": "", 
@@ -129,7 +129,7 @@
         "pk": 6, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Eliminar logo DE", 
             "attribute": "src", 
             "action_argument": "", 
@@ -143,7 +143,7 @@
         "pk": 12, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Proyecto Sal\u00f3n Hogar", 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
@@ -157,7 +157,7 @@
         "pk": 13, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remove dead galery link", 
             "attribute": "href", 
             "action_argument": "", 
@@ -171,7 +171,7 @@
         "pk": 15, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover 'Hector Garcia' in biblioteca", 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
@@ -185,7 +185,7 @@
         "pk": 16, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover diccionarios externos", 
             "attribute": "value", 
             "action_argument": "", 
@@ -213,7 +213,7 @@
         "pk": 11, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover enlaze externo a galeria de fotos", 
             "attribute": "href", 
             "action_argument": "", 
@@ -227,7 +227,7 @@
         "pk": 20, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover forma de busqueda que usa google", 
             "attribute": "action", 
             "action_argument": "'#'", 
@@ -269,7 +269,7 @@
         "pk": 17, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover grado 10", 
             "attribute": "href", 
             "action_argument": "", 
@@ -283,7 +283,7 @@
         "pk": 19, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover link a pagina indice salonhogar", 
             "attribute": "href", 
             "action_argument": "", 
@@ -297,7 +297,7 @@
         "pk": 10, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover link antivirus panda", 
             "attribute": "href", 
             "action_argument": "", 
@@ -325,7 +325,7 @@
         "pk": 1, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "Remover texto 'Departament de Educacion'", 
             "attribute": "content", 
             "action_argument": "", 
@@ -353,7 +353,7 @@
         "pk": 14, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": null, 
+            "description": "", 
             "title": "remove link gif animados", 
             "attribute": "href", 
             "action_argument": "", 
