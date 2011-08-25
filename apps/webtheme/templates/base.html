@@ -24,31 +24,33 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.dropdownPlain.js"></script>
     <script type="text/javascript">
-        var iframeNegativeHeight = 340
+        var animated_globe_url='{{ STATIC_URL }}images/animated_globe.gif';
+        var barquin_globe_url='{{ STATIC_URL }}images/barquin_globe.png';
+        var iframeHeightDifference=200;
+
+        function resizeIframe(iframe){
+            $('#contents').attr("height", $(window).height()-iframeHeightDifference);
+        }
+        
 		$(document).ready(function() {	
+            $(window).bind('resize', function() {
+                $('#contents').attr("width", $(this).width());
+                $('#contents').attr("height", $(this).height()-iframeHeightDifference);
+            });
+
             $('#contents').hide();
 
-            $("#contents").load(function(){
-                $('#barquin_globe').attr('src', '{{ STATIC_URL }}images/barquin_globe.png');
+            $('#contents').load(function(){
+                $('#barquin_globe').attr('src', barquin_globe_url);
 
                 //$("#contents").contents().find("a").each(function(){
                 //    $(this).addClass('iframe_anchor');
                 //});
-                $("#contents").contents().find("a").bind("click", function(){
-                    $("body", top.document).find('#barquin_globe').attr('src', 'http://127.0.0.1:8000/redirector-static/images/animated_globe.gif');
+                $('#contents').contents().find('a').bind('click', function(){
+                    $('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
                 });
                 
-                
-                $("#contents").height(screen.height - iframeNegativeHeight);
-                // TODO: replace 300 with the height of the header, footer, etc
-                //var iframeDoc = $('#contents').contents().get(0);  
-                //$(iframeDoc).bind('click', function(event) {
-                //    //$('#contents').fadeOut();
-                //    $("body", top.document).find('#barquin_globe').attr('src', 'http://127.0.0.1:8000/redirector-static/images/animated_globe.gif');
-                //});                
-                
-                //$("#contents").fadeIn();
-                
+                resizeIframe();
             });
 
             //$('a.iframe_anchor').live('click', function() {
@@ -57,8 +59,8 @@
             
 			$('a.redirected').live('click', function() {
 				href = $(this).attr('href');
-                $("#contents").height(screen.height - iframeNegativeHeight);
-                $('#barquin_globe').attr('src', '{{ STATIC_URL }}images/animated_globe.gif');
+                resizeIframe();
+                $('#barquin_globe').attr('src', animated_globe_url);
                 $('#contents').attr('src', href);
                 $('#contents').show();
                 $('#block').hide();
