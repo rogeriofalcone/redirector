@@ -167,7 +167,7 @@ img.aligncenter {
 
 /***** TOP PAGE *****/
 #top {
-	height: 90px;
+	height: 80px;
 	padding: 0 25px;
   	background: #F4F4EA url(../images/bg.jpg) repeat-x 0 0;
 }
@@ -176,7 +176,7 @@ img.aligncenter {
   	/*height: 15px;*/
   	float: left;
   	clear: left;
-  	margin-top: 25px;
+  	margin-top: 15px;
     vertical-align: middle;
 }
 
@@ -287,7 +287,7 @@ img.aligncenter {
 	display: block;
 	float: left;
 	clear: left;
-	width: 75%; /*635px;*/
+	width: 74%; /*635px;*/
 	padding: 20px;
 	margin: 0 0 30px 0;
 	clear: both;
@@ -374,7 +374,7 @@ img.aligncenter {
 #content .note,
 #content .error {
 	display: block;
-	width: 585px;
+	width: 100%;
 	min-height: 35px;
 	float: left;
 	margin: 10px 0;
@@ -399,7 +399,7 @@ img.aligncenter {
 #sidebar {
 	display: block;
 	float: left;
-	width: 255px;
+	width: 20%;
 	padding-left: 15px;
 	margin-bottom: 30px;
 	font-size: 0.8em;
@@ -411,7 +411,7 @@ img.aligncenter {
 	font-variant: small-caps;
 	color: #65C80B;
 	border-bottom: 1px solid #ccc;
-	width: 255px;
+	width: 100%;
 	font-weight: bold;
 	margin: 30px 0 10px 0;
 }
@@ -445,7 +445,7 @@ img.aligncenter {
 	margin: 0;
 	display: block;
 	float: left;
-	width: 188px;
+	width: 70%;
 	padding: 0;
 }
 
@@ -504,7 +504,7 @@ img.aligncenter {
 #footer .foot_content {
 	display: block;
 	clear: none;
-	width: 90%;
+	width: 88%;
 	float: left;
 	clear: none;
 	padding: 10px 0 0 0;

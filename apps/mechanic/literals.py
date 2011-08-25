@@ -22,6 +22,7 @@ ATTRIBUTE_CONTENT = 'content'
 ATTRIBUTE_TARGET = 'target'
 ATTRIBUTE_VALUE = 'value'
 ATTRIBUTE_ACTION = 'action'
+ATTRIBUTE_ID = 'id'
 
 ATTRIBUTE_CHOICES = (
     (ATTRIBUTE_SOURCE, _(u'Source')),
@@ -30,6 +31,7 @@ ATTRIBUTE_CHOICES = (
     (ATTRIBUTE_TARGET, _(u'Target')),
     (ATTRIBUTE_VALUE, _(u'Value')),
     (ATTRIBUTE_ACTION, _(u'Action')),
+    (ATTRIBUTE_ID, _(u'ID')),
 )
 
 COMPARISON_ICONTAINS = 'icontains'

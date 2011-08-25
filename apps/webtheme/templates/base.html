@@ -24,6 +24,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.dropdownPlain.js"></script>
     <script type="text/javascript">
+        var iframeNegativeHeight = 340
 		$(document).ready(function() {	
             $('#contents').hide();
 
@@ -38,7 +39,7 @@
                 });
                 
                 
-                $("#contents").height(screen.height - 360);
+                $("#contents").height(screen.height - iframeNegativeHeight);
                 // TODO: replace 300 with the height of the header, footer, etc
                 //var iframeDoc = $('#contents').contents().get(0);  
                 //$(iframeDoc).bind('click', function(event) {
@@ -49,15 +50,14 @@
                 //$("#contents").fadeIn();
                 
             });
-            //alert($("body",top.document).find('#barquin_globe').attr('src'));
 
-            $('a.iframe_anchor').live('click', function() {
-               alert('iframe-click');
-            });
+            //$('a.iframe_anchor').live('click', function() {
+            //   alert('iframe-click');
+            //});
             
 			$('a.redirected').live('click', function() {
 				href = $(this).attr('href');
-
+                $("#contents").height(screen.height - iframeNegativeHeight);
                 $('#barquin_globe').attr('src', '{{ STATIC_URL }}images/animated_globe.gif');
                 $('#contents').attr('src', href);
                 $('#contents').show();
@@ -69,89 +69,93 @@
     </script>
 </head>
 <body>
-		<div id="wrapper">
+    <div id="wrapper">
 		<div id="top">
-			<div class="logo"><a href="{% url home %}" title=""><img id="barquin_globe" src="{{ STATIC_URL }}images/barquin_globe.png" /><span style="font-weight: bold;">Barquin</span>International</a></div>
-				<!-- login -->
-				<!-- If you don't need a login section, just delete it below -->
-				<ul class="login">
-					<li class="left">&nbsp;</li>
-					<li>Bienvenido Usuario X</li>
-					<li>|</li>
-					<li><a href="#">Entradar / Cerrar sessión</a></li>
-				</ul> <!-- / login -->
-			</div> <!-- / top -->
-
-			<!-- MAIN NAVIGATION -->
-			<ul id="nav" class="dropdown">
-				<li><a href="{% url home %}" title="">Inicio</a></li>
-			
-				<li>
-					<a href="#"  title="">Recursos<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
-					<!-- submenu -->
-					<ul>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Diccionario_v2/a.htm' %}" title="">Diccionario</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/banco_imagenes/banco_imagenes_index.htm' %}" title="">Fotos y laminas</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.spellcheck.net/website-spellcheck/' %}" title="">Corrector</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/Diversos_Temas/Mapas_de_referencia.htm' %}" title="">Mapas</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/flash/calculator.swf' %}" title="">Calculadora</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://babelfish.yahoo.com/' %}" title="">Traductor</a></li>
-					</ul>
-				</li> <!-- /end Drop Down Example -->
-				<li>
-					<a href="#" title="">Materias<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
-					<!-- submenu -->
-					<ul>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Espanol/espanol_s.htm' %}" title="">Español</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Ingles/ingles_s.htm' %}" title="">Inglés</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Matematicas/matematica_s.htm' %}" title="">Matemáticas</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Historia/sociales_s.htm' %}" title="">Estudios sociales</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Ciencias/ciencias_s.htm' %}" title="">Ciencias</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#" title="">Exámenes<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
-					<!-- submenu -->
-					<ul>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Espanol.htm' %}" title="">Español</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Ingl%C3%A9s.htm' %}" title="">Inglés</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Matematicas.htm' %}" title="">Matemáticas</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/Estudios_Sociales.htm' %}" title="">Estudios sociales</a></li>
-					   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/1roeducate/Enlaces/indice.htm' %}" title="">Ciencias</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#" title="">Repasos<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
-					<!-- submenu -->
-                    {% comment %}
-					<ul>
-					   <li><a class="redirected" href="#" target="" title="">Repaso 4to año</a></li>
-					   <li><a class="redirected" href="#" target="" title="">College Board</a></li>
-					   <li><a class="redirected" href="#" target="" title="">Otros</a></li>
-					</ul>
-                    {% endcomment %}
-				</li>
-				<li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
-				<li><a href="{% url contact %}" title="">Contáctanos</a></li>
-				<li class="sep">&nbsp;</li>
-			</ul>
-			<!-- / END MAIN NAVIGATION -->
-
-            {#<div id="loadingDiv" class="ui-widget-loading" style="height: 100px;">&nbsp;</div>#}
-            <div id="iframe-container" style="margin: auto; width: 99%;">
-                <iframe class="" src="" name="contents" id="contents" frameborder="0" width="100%" style="width: 100%;">You need a Frames Capable browser to view this content.</iframe> 
-                <div id="block">{% block contents %}{% endblock %}</div>
+			<div class="logo">
+                <a href="{% url home %}" title="">
+                <img id="barquin_globe" src="{{ STATIC_URL }}images/barquin_globe.png" /><span style="font-weight: bold;">Barquin</span>International</a>
+                <span id="barquin_address">452 Ponce de León Ave. Suite 520 San Juan P.R. 00918</span>
             </div>
-			<!-- Footer -->
-			<div id="footer">
-				<div class="foot_l"></div>
-				<div class="foot_content">
-					<p>All contents copyright &copy; Barquin International. All rights reserved.</p>
-                    <p>Website backend by Roberto Rosario. Template by <a href="http://web-kreation.com" title="Web-kreation.com">Web-kreation</a></p>
-				</div>
-				<div class="foot_r">&nbsp;</div>
-				{% comment %}<div class="foot_info debug"></div>{% endcomment %}
+            <!-- login -->
+            <!-- If you don't need a login section, just delete it below -->
+            <ul class="login">
+                <li class="left">&nbsp;</li>
+                <li>Bienvenido Usuario X</li>
+                <li>|</li>
+                <li><a href="#">Entradar / Cerrar sessión</a></li>
+            </ul> <!-- / login -->
+        </div> <!-- / top -->
+
+        <!-- MAIN NAVIGATION -->
+        <ul id="nav" class="dropdown">
+            <li><a href="{% url home %}" title="">Inicio</a></li>
+        
+            <li>
+                <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
+                <!-- submenu -->
+                <ul>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Diccionario_v2/a.htm' %}" title="">Diccionario</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/banco_imagenes/banco_imagenes_index.htm' %}" title="">Fotos y laminas</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.spellcheck.net/website-spellcheck/' %}" title="">Corrector</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/Diversos_Temas/Mapas_de_referencia.htm' %}" title="">Mapas</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.proyectosalonhogar.com/flash/calculator.swf' %}" title="">Calculadora</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://babelfish.yahoo.com/' %}" title="">Traductor</a></li>
+                </ul>
+            </li> <!-- /end Drop Down Example -->
+            <li>
+                <a href="#" title="">Materias<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
+                <!-- submenu -->
+                <ul>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Espanol/espanol_s.htm' %}" title="">Español</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Ingles/ingles_s.htm' %}" title="">Inglés</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Matematicas/matematica_s.htm' %}" title="">Matemáticas</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Historia/sociales_s.htm' %}" title="">Estudios sociales</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/Salones/Ciencias/ciencias_s.htm' %}" title="">Ciencias</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
+                <!-- submenu -->
+                <ul>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/tutorias_en_linea/index.htm' %}" title="">Español</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/tutorias_en_linea/index.htm' %}" title="">Inglés</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/tutorias_en_linea/index.htm' %}" title="">Matemáticas</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/tutorias_en_linea/index.htm' %}" title="">Estudios sociales</a></li>
+                   <li><a class="redirected" href="{% url fetch 'http://www.salonhogar.net/tutorias_en_linea/index.htm' %}" title="">Ciencias</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" title="">Repasos<img src="{{ STATIC_URL }}images/nav_bullet.jpg" alt="" /></a>
+                <!-- submenu -->
+                {% comment %}
+                <ul>
+                   <li><a class="redirected" href="#" target="" title="">Repaso 4to año</a></li>
+                   <li><a class="redirected" href="#" target="" title="">College Board</a></li>
+                   <li><a class="redirected" href="#" target="" title="">Otros</a></li>
+                </ul>
+                {% endcomment %}
+            </li>
+            <li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
+            <li><a href="{% url contact %}" title="">Contáctanos</a></li>
+            <li class="sep">&nbsp;</li>
+        </ul>
+        <!-- / END MAIN NAVIGATION -->
+
+        {#<div id="loadingDiv" class="ui-widget-loading" style="height: 100px;">&nbsp;</div>#}
+        <div id="iframe-container" style="margin: auto; width: 100%;">
+            <iframe class="" src="" name="contents" id="contents" frameborder="0" width="100%" style="width: 100%;">You need a Frames Capable browser to view this content.</iframe> 
+            <div id="block">{% block contents %}{% endblock %}</div>
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            <div class="foot_l"></div>
+            <div class="foot_content">
+                <p>All contents copyright &copy; Barquin International. All rights reserved.</p>
+                <p>Website backend by Roberto Rosario. Template by <a href="http://web-kreation.com" title="Web-kreation.com">Web-kreation</a></p>
+            </div>
+            <div class="foot_r">&nbsp;</div>
+            {% comment %}<div class="foot_info debug"></div>{% endcomment %}
 			</div><!-- / footer -->
 		</div><!-- / wrapper -->
 	</div><!-- / container -->
