@@ -246,18 +246,35 @@ img.aligncenter {
 /***** HEADER *****/
 #header {
 	width: 100%;
-	height: 214px;
-	background: url(../images/header.jpg) no-repeat;
+	height: 200px;
+	background: url(../images/header_m.jpg) repeat-x 0 0;
 	position: relative;
 	z-index: 1;
 	color: white;
 	font-family: "Trebuchet MS",Tahoma, Arial, sans-serif;
 }
 
+
+#header .head_l {
+	background: url(../images/header_l.jpg) no-repeat left top;
+	width: 80px;
+	height: 200px;
+	float: left;
+}
+
+#header .foot_r {
+	background: url(../images/header_r.jpg) no-repeat right top;
+	width: 80px;
+	height: 200px;
+	float: right;
+
+}
+
 #header .intro {
-	width: 500px;
+	width: 30%;
 	height: 130px;
 	padding: 50px 0 0 30px;
+    float: left;
 }
 
 #header .intro h1 {

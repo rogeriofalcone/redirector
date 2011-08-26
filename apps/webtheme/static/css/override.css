@@ -11,3 +11,22 @@
 #barquin_address {
     color: white; font-size: 10px; margin-left: 50px;
 }
+
+
+#featured {
+    top: 10px;
+    /*
+	width: 500px;
+	height: 130px;    
+    float: right;
+    */
+}
+
+div.slider-nav {
+    display: none;
+}
+
+
+div.timer {
+    display: none;
+}
