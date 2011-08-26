@@ -262,11 +262,12 @@ img.aligncenter {
 	float: left;
 }
 
-#header .foot_r {
+#header .head_r {
 	background: url(../images/header_r.jpg) no-repeat right top;
 	width: 80px;
 	height: 200px;
 	float: right;
+    clear: none;
 
 }
 

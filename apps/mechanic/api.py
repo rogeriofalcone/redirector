@@ -174,7 +174,14 @@ def transform_url(url, point_of_origin):
 
                 for result_element in list(element_comparison_result):
                     if rule.action == ACTION_REMOVE:
+                        parent = result_element.parent
                         result_element.extract()
+                        if rule.parent_count:
+                            tag = result_element.parent
+                            for current in range(rule.parent_count):
+                                grand_father = parent.parent
+                                parent.extract()
+                                parent = grand_father
                     elif rule.action == ACTION_REPLACE:
                         try:
                             if rule.attribute == ATTRIBUTE_CONTENT:

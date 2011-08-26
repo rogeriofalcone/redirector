@@ -30,17 +30,19 @@
         var barquin_globe_url='{{ STATIC_URL }}images/barquin_globe.png';
         var iframeHeightDifference=(200-10);
 
-        function resizeIframe(iframe){
+        function resizeIframe(){
             $('#contents').attr("height", $(window).height()-iframeHeightDifference);
         }
 
-         $(window).load(function() {
-             $('#featured').orbit({
-                 captions: true, 			 // do you want captions?
-                 captionAnimation: 'fade', 		 // fade, slideOpen, none
-                 captionAnimationSpeed: 800 	 // if so how quickly should they animate in                 
-             });
-         });
+        $(window).load(function() {
+            $('#orbit-wrapper').show();
+
+            $('#featured').orbit({
+                captions: true, 			 // do you want captions?
+                captionAnimation: 'fade', 		 // fade, slideOpen, none
+                captionAnimationSpeed: 800 	 // if so how quickly should they animate in                 
+            });
+        });
        
 		$(document).ready(function() {	
             $(window).bind('resize', function() {
@@ -73,7 +75,7 @@
                 $('#barquin_globe').attr('src', animated_globe_url);
                 $('#contents').attr('src', href);
                 $('#contents').show();
-                $('#block').hide();
+                $('#block_contents').hide();
                 return false;
 			});
 		});
@@ -157,7 +159,7 @@
         {#<div id="loadingDiv" class="ui-widget-loading" style="height: 100px;">&nbsp;</div>#}
         <div id="iframe-container" style="margin: auto; width: 100%;">
             <iframe class="" src="" name="contents" id="contents" frameborder="0" width="100%" style="width: 100%;">You need a Frames Capable browser to view this content.</iframe> 
-            <div id="block">{% block contents %}{% endblock %}</div>
+            <div id="block_contents">{% block contents %}{% endblock %}</div>
         </div>
         <!-- Footer -->
         <div id="footer">

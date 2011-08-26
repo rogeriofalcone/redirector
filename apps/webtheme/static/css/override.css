@@ -30,3 +30,9 @@ div.slider-nav {
 div.timer {
     display: none;
 }
+
+
+#orbit-wrapper {
+    float: right;
+    display: none;
+}

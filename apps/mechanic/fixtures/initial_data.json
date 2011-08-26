@@ -1,5 +1,146 @@
 [
     {
+        "pk": 9, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "comment", 
+            "name": "comment", 
+            "app_label": "comments"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "commentflag", 
+            "name": "comment flag", 
+            "app_label": "comments"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "contenttype", 
+            "name": "content type", 
+            "app_label": "contenttypes"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "elementcomparison", 
+            "name": "element comparison", 
+            "app_label": "mechanic"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "group", 
+            "name": "group", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "logentry", 
+            "name": "log entry", 
+            "app_label": "admin"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "message", 
+            "name": "message", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "permission", 
+            "name": "permission", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "pointoforigin", 
+            "name": "point of origin", 
+            "app_label": "mechanic"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "sessions"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "site", 
+            "name": "site", 
+            "app_label": "sites"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "transformationrule", 
+            "name": "transformation rule", 
+            "app_label": "mechanic"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": "2d771d8e31d0d59f92c47fe9cc288657", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2011-09-04 14:28:34", 
+            "session_data": "ZDAwMzIzZTU3YjViZGY0YzRlYWJhMWRhMTgwM2ZjODNlZjg4M2ExMDqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+        }
+    }, 
+    {
+        "pk": "ea3ac59744d58a416f35390660df788e", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2011-09-07 03:24:30", 
+            "session_data": "ZDAwMzIzZTU3YjViZGY0YzRlYWJhMWRhMTgwM2ZjODNlZjg4M2ExMDqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "example.com", 
+            "name": "example.com"
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "mechanic.pointoforigin", 
         "fields": {
@@ -19,6 +160,7 @@
         "fields": {
             "description": "", 
             "title": "Alterar links en la forma 'Otros diccionarios'", 
+            "parent_count": null, 
             "attribute": "value", 
             "action_argument": "'%s%s' % (fetch_url, source)", 
             "enabled": 1, 
@@ -33,9 +175,10 @@
         "fields": {
             "description": "", 
             "title": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 0, 
+            "enabled": 1, 
             "element": "", 
             "point_of_origin": null, 
             "action": "replace"
@@ -47,6 +190,7 @@
         "fields": {
             "description": "", 
             "title": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
@@ -61,6 +205,7 @@
         "fields": {
             "description": "", 
             "title": "Cambiar Hector A. Garcia a Barquin International", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
@@ -75,6 +220,7 @@
         "fields": {
             "description": "", 
             "title": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
             "enabled": 1, 
@@ -89,6 +235,7 @@
         "fields": {
             "description": "", 
             "title": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
             "enabled": 1, 
@@ -103,6 +250,7 @@
         "fields": {
             "description": "", 
             "title": "Desactivar links que salen del frame", 
+            "parent_count": null, 
             "attribute": "target", 
             "action_argument": "''", 
             "enabled": 1, 
@@ -117,6 +265,7 @@
         "fields": {
             "description": "", 
             "title": "Eliminar banner Salon Hogar", 
+            "parent_count": null, 
             "attribute": "src", 
             "action_argument": "", 
             "enabled": 1, 
@@ -131,6 +280,7 @@
         "fields": {
             "description": "", 
             "title": "Eliminar link informe tiempo", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -145,6 +295,7 @@
         "fields": {
             "description": "", 
             "title": "Eliminar logo DE", 
+            "parent_count": null, 
             "attribute": "src", 
             "action_argument": "", 
             "enabled": 1, 
@@ -159,6 +310,7 @@
         "fields": {
             "description": "", 
             "title": "Proyecto Sal\u00f3n Hogar", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
@@ -173,6 +325,7 @@
         "fields": {
             "description": "", 
             "title": "Remove dead galery link", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -187,10 +340,26 @@
         "fields": {
             "description": "", 
             "title": "Remover 'Hector Garcia' in biblioteca", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
             "enabled": 1, 
             "element": "a", 
+            "point_of_origin": null, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover 'spacer' horizontal roto en enciclopedia", 
+            "parent_count": null, 
+            "attribute": "src", 
+            "action_argument": "", 
+            "enabled": 1, 
+            "element": "img", 
             "point_of_origin": null, 
             "action": "remove"
         }
@@ -201,6 +370,7 @@
         "fields": {
             "description": "", 
             "title": "Remover diccionarios externos", 
+            "parent_count": null, 
             "attribute": "value", 
             "action_argument": "", 
             "enabled": 1, 
@@ -215,6 +385,7 @@
         "fields": {
             "description": "Zona ingles, matematicas, estudios sociales, ciencia", 
             "title": "Remover endoso DE, forma google", 
+            "parent_count": null, 
             "attribute": "id", 
             "action_argument": "", 
             "enabled": 1, 
@@ -229,6 +400,7 @@
         "fields": {
             "description": "", 
             "title": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -243,6 +415,7 @@
         "fields": {
             "description": "", 
             "title": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "parent_count": 2, 
             "attribute": "content", 
             "action_argument": "", 
             "enabled": 1, 
@@ -257,6 +430,7 @@
         "fields": {
             "description": "", 
             "title": "Remover enlaze externo a galeria de fotos", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -271,6 +445,7 @@
         "fields": {
             "description": "", 
             "title": "Remover forma de busqueda que usa google", 
+            "parent_count": null, 
             "attribute": "action", 
             "action_argument": "'#'", 
             "enabled": 1, 
@@ -285,6 +460,7 @@
         "fields": {
             "description": "", 
             "title": "Remover forma de busqueda que usa google en biblioteca principal", 
+            "parent_count": null, 
             "attribute": "id", 
             "action_argument": "", 
             "enabled": 1, 
@@ -299,6 +475,7 @@
         "fields": {
             "description": "", 
             "title": "Remover forma de busqueda que usa google en zona espa\u00f1ol", 
+            "parent_count": null, 
             "attribute": "id", 
             "action_argument": "", 
             "enabled": 1, 
@@ -313,6 +490,7 @@
         "fields": {
             "description": "", 
             "title": "Remover link a pagina indice salonhogar", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -327,6 +505,7 @@
         "fields": {
             "description": "", 
             "title": "Remover link antivirus panda", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -341,6 +520,7 @@
         "fields": {
             "description": "", 
             "title": "Remover tabla endoso DE", 
+            "parent_count": null, 
             "attribute": "id", 
             "action_argument": "", 
             "enabled": 1, 
@@ -355,6 +535,7 @@
         "fields": {
             "description": "", 
             "title": "Remover texto 'Departament de Educacion'", 
+            "parent_count": null, 
             "attribute": "content", 
             "action_argument": "", 
             "enabled": 1, 
@@ -369,6 +550,7 @@
         "fields": {
             "description": "", 
             "title": "Remover todos los enlaces que no sean de salonhogar", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "'* FORBIDDEN LINK *'", 
             "enabled": 1, 
@@ -383,6 +565,7 @@
         "fields": {
             "description": "", 
             "title": "remove link gif animados", 
+            "parent_count": null, 
             "attribute": "href", 
             "action_argument": "", 
             "enabled": 1, 
@@ -829,6 +1012,3084 @@
             "attribute_comparison_operand": "or", 
             "value": "10mo", 
             "transformation_rule": 27
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "/Salones/Espanol/temas_hor_fill.gif", 
+            "transformation_rule": 28
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "or", 
+            "value": "/Salones/Espanol/temas_hor_fillb.gif", 
+            "transformation_rule": 28
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_logentry", 
+            "name": "Can add log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_logentry", 
+            "name": "Can change log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_logentry", 
+            "name": "Can delete log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_group", 
+            "name": "Can add group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_group", 
+            "name": "Can change group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_group", 
+            "name": "Can delete group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_message", 
+            "name": "Can add message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_message", 
+            "name": "Can change message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_message", 
+            "name": "Can delete message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_permission", 
+            "name": "Can add permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_permission", 
+            "name": "Can change permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_permission", 
+            "name": "Can delete permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_user", 
+            "name": "Can add user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_user", 
+            "name": "Can change user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_user", 
+            "name": "Can delete user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_comment", 
+            "name": "Can add comment", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "can_moderate", 
+            "name": "Can moderate comments", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_comment", 
+            "name": "Can change comment", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_comment", 
+            "name": "Can delete comment", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_commentflag", 
+            "name": "Can add comment flag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_commentflag", 
+            "name": "Can change comment flag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_commentflag", 
+            "name": "Can delete comment flag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_contenttype", 
+            "name": "Can add content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_contenttype", 
+            "name": "Can change content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_contenttype", 
+            "name": "Can delete content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_elementcomparison", 
+            "name": "Can add element comparison", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_elementcomparison", 
+            "name": "Can change element comparison", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_elementcomparison", 
+            "name": "Can delete element comparison", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_pointoforigin", 
+            "name": "Can add point of origin", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_pointoforigin", 
+            "name": "Can change point of origin", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_pointoforigin", 
+            "name": "Can delete point of origin", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_transformationrule", 
+            "name": "Can add transformation rule", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_transformationrule", 
+            "name": "Can change transformation rule", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_transformationrule", 
+            "name": "Can delete transformation rule", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_session", 
+            "name": "Can add session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_session", 
+            "name": "Can change session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_session", 
+            "name": "Can delete session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_site", 
+            "name": "Can add site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_site", 
+            "name": "Can change site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_site", 
+            "name": "Can delete site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 206, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:29:38", 
+            "object_repr": "Remover 'spacer' horizontal roto en enciclopedia", 
+            "object_id": "28", 
+            "change_message": "Changed attribute_comparison_operand for  \"or: src [ ] icontains: \"/Salones/Espanol/temas_hor_fillb.gif\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 205, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:29:12", 
+            "object_repr": "Remover 'spacer' horizontal roto en enciclopedia", 
+            "object_id": "28", 
+            "change_message": "Added  \"and: src [ ] icontains: \"/Salones/Espanol/temas_hor_fillb.gif\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 204, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:27:42", 
+            "object_repr": "Remover 'spacer' horizontal roto en enciclopedia", 
+            "object_id": "28", 
+            "change_message": "Changed value for  \"and: src [ ] icontains: \"/Salones/Espanol/temas_hor_fill.gif\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 203, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-26 02:27:07", 
+            "object_repr": "Remover 'spacer' horizontal roto en enciclopedia", 
+            "object_id": "28", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 202, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:26:00", 
+            "object_repr": "remove link gif animados", 
+            "object_id": "14", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 201, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:26:00", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 200, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:26:00", 
+            "object_repr": "Remover texto 'Departament de Educacion'", 
+            "object_id": "1", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 199, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover tabla endoso DE", 
+            "object_id": "23", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 198, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover link antivirus panda", 
+            "object_id": "10", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 197, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover link a pagina indice salonhogar", 
+            "object_id": "19", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 196, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover forma de busqueda que usa google en zona espa\u00f1ol", 
+            "object_id": "24", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 195, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover forma de busqueda que usa google en biblioteca principal", 
+            "object_id": "25", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 194, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover forma de busqueda que usa google", 
+            "object_id": "20", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 193, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:59", 
+            "object_repr": "Remover enlaze externo a galeria de fotos", 
+            "object_id": "11", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 192, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 191, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "object_id": "17", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 190, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 189, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remover diccionarios externos", 
+            "object_id": "16", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 188, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 187, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 186, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:58", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 185, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 184, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 183, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 182, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 181, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 180, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 179, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:57", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 178, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:56", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 177, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:56", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 176, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:25:56", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 175, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:18", 
+            "object_repr": "remove link gif animados", 
+            "object_id": "14", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 174, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 173, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover texto 'Departament de Educacion'", 
+            "object_id": "1", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 172, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover tabla endoso DE", 
+            "object_id": "23", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 171, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover link antivirus panda", 
+            "object_id": "10", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 170, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover link a pagina indice salonhogar", 
+            "object_id": "19", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 169, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover forma de busqueda que usa google en zona espa\u00f1ol", 
+            "object_id": "24", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 168, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:17", 
+            "object_repr": "Remover forma de busqueda que usa google en biblioteca principal", 
+            "object_id": "25", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 167, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover forma de busqueda que usa google", 
+            "object_id": "20", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 166, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover enlaze externo a galeria de fotos", 
+            "object_id": "11", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 165, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 164, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "object_id": "17", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 163, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 162, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:16", 
+            "object_repr": "Remover diccionarios externos", 
+            "object_id": "16", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 161, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 160, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 159, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 158, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 157, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 156, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:22:15", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 155, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:46", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 154, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:46", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 153, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:22", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 152, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:22", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 151, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:22", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 150, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:21", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 149, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:21:21", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 148, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:44", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 147, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:44", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 146, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:29", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 145, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:29", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 144, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:01", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 143, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:20:01", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 142, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:19:35", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 141, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:19:35", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 140, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:18:47", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 139, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:18:46", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 138, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:18:28", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 137, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:16:42", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 136, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:16:31", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 135, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:15:21", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 134, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:10:35", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 133, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:10:19", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 132, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:10:07", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 131, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:09:46", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 130, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:09:00", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 129, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:08:38", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "object_id": "17", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 128, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-26 02:06:50", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "object_id": "17", 
+            "change_message": "Changed parent_count.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 127, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:54:28", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "No fields changed.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 126, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:53:58", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed attribute_comparison_operand for  \"or: content [ ] icontains: \"12mo\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 125, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:52:38", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Added  \"or: content [ ] icontains: \"11mo\" \". Added  \"or: content [ ] icontains: \"10mo\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 124, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:50:57", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed element.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 123, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:50:24", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed element.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 122, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:50:04", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por texto)", 
+            "object_id": "27", 
+            "change_message": "Changed title and element.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 121, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:49:18", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por text)", 
+            "object_id": "27", 
+            "change_message": "Changed attribute_comparison and value for  \"and: content [ ] icontains: \"12mo\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 120, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 16:48:46", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por text)", 
+            "object_id": "27", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 119, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:48:04", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12 (por enlace)", 
+            "object_id": "17", 
+            "change_message": "Changed title. Changed value for  \"or: href [ ] icontains: \"_12.htm\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 118, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:46:58", 
+            "object_repr": "Remover enlaces grado 10, 11 y 12", 
+            "object_id": "17", 
+            "change_message": "Changed title. Added  \"or: href [ ] icontains: \"_s11.htm\" \". Added  \"or: href [ ] icontains: \"_s12.htm\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 117, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 16:01:53", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "Changed point_of_origin.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 116, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 16:01:22", 
+            "object_repr": "escuelasuperioronline.com", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 115, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 16:01:09", 
+            "object_repr": "1roeducate.com", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 114, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:43:23", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed description. Added  \"or: id [ ] equals: \"table34\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 113, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:42:05", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 112, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:41:45", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 111, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:41:29", 
+            "object_repr": "Remover endoso DE, forma google", 
+            "object_id": "26", 
+            "change_message": "Changed title and description.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 110, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:41:11", 
+            "object_repr": "Remover endoso DE, forma google en zona ingles, matema", 
+            "object_id": "26", 
+            "change_message": "Added  \"or: id [ ] equals: \"table35\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 109, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:40:15", 
+            "object_repr": "Remover endoso DE, forma google en zona ingles, matema", 
+            "object_id": "26", 
+            "change_message": "Changed attribute_comparison_operand for  \"or: id [ ] equals: \"table58\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 108, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:40:08", 
+            "object_repr": "Remover endoso DE, forma google en zona ingles, matema", 
+            "object_id": "26", 
+            "change_message": "Changed title. Added  \"and: id [ ] equals: \"table58\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 107, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 10:36:22", 
+            "object_repr": "Remover endoso DE y forma busqueda google en zona ingles", 
+            "object_id": "26", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 106, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 10:34:40", 
+            "object_repr": "Remover forma de busqueda que usa google en biblioteca principal", 
+            "object_id": "25", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 10:33:23", 
+            "object_repr": "Remover forma de busqueda que usa google en zona espa\u00f1ol", 
+            "object_id": "24", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 10:30:10", 
+            "object_repr": "Remover tabla endoso DE", 
+            "object_id": "23", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:26:29", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:26:29", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:26:29", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:26:28", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 10:26:28", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 09:14:16", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 09:12:12", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:19:24", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:18:48", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed action and action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:18:07", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:15:29", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:14:57", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:12:46", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:12:21", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 08:10:07", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 06:43:19", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 06:42:16", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:11:25", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:11:08", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed enabled and action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:42", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:42", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:42", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:41", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:41", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:10:41", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 05:09:20", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed action.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 04:55:46", 
+            "object_repr": "Remover todos los enlaces que no sean de salonhogar", 
+            "object_id": "22", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:46:57", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:46:50", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:44:39", 
+            "object_repr": "Remover forma de busqueda que usa google", 
+            "object_id": "20", 
+            "change_message": "Changed action and action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:44:00", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:43:44", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "Changed attribute_comparison for  \"and: content [ ] equals: \"Proye\" \". Deleted  \"and: content [ ] icontains: \"Hogar\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 04:42:55", 
+            "object_repr": "Cambiar 'Proyecto salon hogar' a Barquin #3 (enter)", 
+            "object_id": "21", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-25 04:39:19", 
+            "object_repr": "Remover forma de busqueda que usa google", 
+            "object_id": "20", 
+            "change_message": "Changed value for  \"and: action [ ] icontains: \"google.com\r\n\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 04:38:29", 
+            "object_repr": "Remover forma de busqueda que usa google", 
+            "object_id": "20", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-25 04:32:42", 
+            "object_repr": "Remover link a pagina indice salonhogar", 
+            "object_id": "19", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:58", 
+            "object_repr": "remove link gif animados", 
+            "object_id": "14", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:53", 
+            "object_repr": "Remover link antivirus panda", 
+            "object_id": "10", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:48", 
+            "object_repr": "Remover texto 'Departament de Educacion'", 
+            "object_id": "1", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:43", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:37", 
+            "object_repr": "Remover enlaze externo a galeria de fotos", 
+            "object_id": "11", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:31", 
+            "object_repr": "Remover diccionarios externos", 
+            "object_id": "16", 
+            "change_message": "No fields changed.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:31", 
+            "object_repr": "Remover diccionarios externos", 
+            "object_id": "16", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:26", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:22", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:17", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:12", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:07", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:10:02", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:09:57", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:09:53", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:09:48", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:09:43", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 10:09:39", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 09:58:43", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "Changed enabled.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 09:55:03", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 09:50:14", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 09:49:46", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-24 08:32:47", 
+            "object_repr": "Alterar links en la forma 'Otros diccionarios'", 
+            "object_id": "18", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:27:19", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:27:12", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:27:02", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:26:33", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:26:27", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:26:20", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 08:26:13", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 05:07:28", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "Changed attribute. Changed value for  \"and: href [ ] icontains: \"_s10.htm\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 05:06:28", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "Changed value for  \"and: content [ ] icontains: \"10mo\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-24 05:05:53", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "Changed attribute.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-24 05:05:06", 
+            "object_repr": "Remover grado 10", 
+            "object_id": "17", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-24 04:13:39", 
+            "object_repr": "Remover diccionarios externos", 
+            "object_id": "16", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-24 03:26:45", 
+            "object_repr": "Remover 'Hector Garcia' in biblioteca", 
+            "object_id": "15", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 14:48:11", 
+            "object_repr": "remove link gif animados", 
+            "object_id": "14", 
+            "change_message": "Changed value for  \"and: href [ ] icontains: \"www.pekegifs.com\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 14:47:47", 
+            "object_repr": "remove link gif animados", 
+            "object_id": "14", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 14:47:00", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed attribute and action. Changed value for  \"and: href [ ] icontains: \"www.damisela.com\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 14:46:13", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed action and action_argument. Changed value for  \"and: content [ ] icontains: \"&gt;&gt;&gt;&gt\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 14:45:31", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "No fields changed.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 14:45:16", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "Changed value for  \"and: content [ ] icontains: \"&gt;&gt;&gt;&gt;\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 14:44:21", 
+            "object_repr": "Remove dead galery link", 
+            "object_id": "13", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 14:28:54", 
+            "object_repr": "Proyecto Sal\u00f3n Hogar", 
+            "object_id": "12", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 14:02:20", 
+            "object_repr": "Remover enlaze externo a galeria de fotos", 
+            "object_id": "11", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 13:59:42", 
+            "object_repr": "Remover link antivirus panda", 
+            "object_id": "10", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:59:12", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "No fields changed.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:57:41", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "Added  \"or: content [ ] icontains: \"Fundaci\u00f3n H\u00e9ctor A.\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:55:19", 
+            "object_repr": "Cambiar 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed title.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:17:30", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed action_argument.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:01:34", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed attribute.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 13:01:01", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "No fields changed.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 12:56:47", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed attribute.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 10:09:10", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Added  \"or: src [ ] icontains: \"DE_3.jpg\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 10:08:34", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "Changed value for  \"and: src [ ] icontains: \"DE_3.gif\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 09:37:54", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "Changed attribute_comparison for  \"and: content [ ] icontains: \"y e c t o\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:13:50", 
+            "object_repr": "Eliminar link informe tiempo", 
+            "object_id": "9", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 08:12:34", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "Changed attribute_comparison for  \"and: target [not] equals: \"_self\" \".", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:10:51", 
+            "object_repr": "Desactivar links que salen del frame", 
+            "object_id": "8", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:08:20", 
+            "object_repr": "Eliminar banner Salon Hogar", 
+            "object_id": "7", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:07:49", 
+            "object_repr": "Eliminar logo DE", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:07:12", 
+            "object_repr": "Cambiar Hector A. Garcia a Barquin International", 
+            "object_id": "5", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2011-08-21 08:06:35", 
+            "object_repr": "Cambiarn 'salon hogar' a 'Barquin International'", 
+            "object_id": "2", 
+            "change_message": "Changed title.", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:06:21", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios) #2", 
+            "object_id": "4", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 08:05:30", 
+            "object_repr": "Cambiar text 'salon hogar' a Barquin International (espacios)", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 07:57:05", 
+            "object_repr": "Cambian proyecto salon hogar a Barquin International", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2011-08-21 07:55:19", 
+            "object_repr": "Remover texto 'Departament de Educacion'", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "admin", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2011-08-24 03:24:30", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$1a701$76dc79b2f0ab9a3023080869783a79440d05ab88", 
+            "email": "admin@admin.com", 
+            "date_joined": "2011-08-21 07:05:00"
         }
     }
 ]

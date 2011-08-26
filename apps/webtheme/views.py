@@ -6,6 +6,12 @@ from django.core.urlresolvers import reverse
 
 
 def home(request):
+    #import urlparse
+    #print urlparse.urlparse(request.build_absolute_uri(request.get_full_path())).hostname
+    #print request.get_host()
+    #print request.REQUEST.get('page')
+    #print request.META.get('PATH_INFO')
+    
     return render_to_response('home.html', {},
         context_instance=RequestContext(request))
 
