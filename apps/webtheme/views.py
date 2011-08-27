@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 
-from livesettings import config_value    
+from main.models import CurrentSite
 
 
 def home(request):
@@ -14,12 +14,17 @@ def home(request):
     #print request.REQUEST.get('page')
     #print request.META.get('PATH_INFO')
 
-    current_site = config_value('project','CURRENT_SITE')
-    #measurement_system = config_value('project','MEASUREMENT_SYSTEM')
+    #current_site = config_value('project','CURRENT_SITE')
     
-    print current_site
-    return render_to_response('home.html', {},
-        context_instance=RequestContext(request))
+    #print current_site
+    
+    qs = CurrentSite.objects.filter(selected=True)
+    #if 
+    skin = 'educational_site'
+    #skin = 'greenboard'
+    return render_to_response('skins/%s/home.html' % skin, {
+        'skin': skin
+    }, context_instance=RequestContext(request))
 
 
 def about(request):

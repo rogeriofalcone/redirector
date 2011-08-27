@@ -30,7 +30,7 @@ class TransformationRule(models.Model):
     action = models.CharField(max_length=16, choices=ACTION_CHOICES, verbose_name=_(u'action'))
     action_argument = models.TextField(blank=True, verbose_name=_(u'action argument'))
     enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
-    parent_count = models.PositiveIntegerField(blank=True, verbose_name=_(u'parent count'), help_text=_(u'Amount of parents to remove too.'))
+    parent_count = models.PositiveIntegerField(default=0, verbose_name=_(u'parent count'), help_text=_(u'Amount of parents to remove too.'))
 
     def __unicode__(self):
         return self.title

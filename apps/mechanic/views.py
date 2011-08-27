@@ -26,7 +26,7 @@ def fetch(request, url=None, origin_id=None):
     url_query = request.GET
     if url_query:
         url = '%s?%s' % (url, urlencode(url_query))
-    logger.info('fetch(): url: %s' % url)
+    logger.debug('fetch(): url: %s' % url)
     try:
         transformed_response = transform_url(url, point_of_origin)
     except HTTPError:

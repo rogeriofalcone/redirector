@@ -1,14 +1,6 @@
 [
     {
         "pk": 1, 
-        "model": "sites.site", 
-        "fields": {
-            "domain": "example.com", 
-            "name": "example.com"
-        }
-    }, 
-    {
-        "pk": 1, 
         "model": "mechanic.pointoforigin", 
         "fields": {
             "title": "1roeducate.com"
@@ -30,7 +22,7 @@
             "parent_count": 0, 
             "attribute": "value", 
             "action_argument": "'%s%s' % (fetch_url, source)", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "option", 
             "point_of_origin": null, 
             "action": "replace"
@@ -45,10 +37,10 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
-            "action": "replace"
+            "action": "remove"
         }
     }, 
     {
@@ -60,10 +52,10 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
-            "action": "replace"
+            "action": "remove"
         }
     }, 
     {
@@ -75,10 +67,10 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
-            "action": "replace"
+            "action": "remove"
         }
     }, 
     {
@@ -90,10 +82,10 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
-            "action": "replace"
+            "action": "remove"
         }
     }, 
     {
@@ -105,10 +97,10 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'B a r q u i n&nbsp;&nbsp;I n t e r n a t i o n a l'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
-            "action": "replace"
+            "action": "remove"
         }
     }, 
     {
@@ -120,7 +112,7 @@
             "parent_count": 0, 
             "attribute": "target", 
             "action_argument": "''", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "replace"
@@ -130,12 +122,12 @@
         "pk": 7, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": "", 
+            "description": "Remover GIF animado que muerta 'Salon Hogar' en la seccion de bibioteca", 
             "title": "Eliminar banner Salon Hogar", 
             "parent_count": 0, 
             "attribute": "src", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "img", 
             "point_of_origin": null, 
             "action": "remove"
@@ -150,7 +142,7 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "remove"
@@ -165,7 +157,7 @@
             "parent_count": 0, 
             "attribute": "src", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "img", 
             "point_of_origin": null, 
             "action": "remove"
@@ -180,22 +172,22 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "replace"
         }
     }, 
     {
-        "pk": 13, 
+        "pk": 30, 
         "model": "mechanic.transformationrule", 
         "fields": {
             "description": "", 
-            "title": "Remove dead galery link", 
+            "title": "Remove texto 'El Portal Educativo de Am\u00e9rica'", 
             "parent_count": 0, 
-            "attribute": "href", 
+            "attribute": "content", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -210,7 +202,7 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "'Barquin International'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "remove"
@@ -225,7 +217,7 @@
             "parent_count": 0, 
             "attribute": "src", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "img", 
             "point_of_origin": null, 
             "action": "remove"
@@ -240,7 +232,7 @@
             "parent_count": 0, 
             "attribute": "value", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "option", 
             "point_of_origin": null, 
             "action": "remove"
@@ -255,7 +247,22 @@
             "parent_count": 0, 
             "attribute": "id", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
+            "element": "", 
+            "point_of_origin": null, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover enlace muerto a galeria", 
+            "parent_count": 0, 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -270,7 +277,7 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": 1, 
             "action": "remove"
@@ -285,7 +292,7 @@
             "parent_count": 2, 
             "attribute": "content", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": 1, 
             "action": "remove"
@@ -300,7 +307,7 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "remove"
@@ -310,12 +317,12 @@
         "pk": 20, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": "", 
+            "description": "Regla 26 hace esta redundante", 
             "title": "Remover forma de busqueda que usa google", 
             "parent_count": 0, 
             "attribute": "action", 
             "action_argument": "'#'", 
-            "enabled": 1, 
+            "enabled": false, 
             "element": "form", 
             "point_of_origin": null, 
             "action": "replace"
@@ -330,7 +337,7 @@
             "parent_count": 0, 
             "attribute": "id", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -345,7 +352,7 @@
             "parent_count": 0, 
             "attribute": "id", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -360,7 +367,7 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "remove"
@@ -370,12 +377,42 @@
         "pk": 10, 
         "model": "mechanic.transformationrule", 
         "fields": {
-            "description": "", 
+            "description": "Entrada 22 hace esta redundante", 
             "title": "Remover link antivirus panda", 
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": false, 
+            "element": "a", 
+            "point_of_origin": null, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover link gif animados", 
+            "parent_count": 0, 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": true, 
+            "element": "", 
+            "point_of_origin": null, 
+            "action": "remove"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "mechanic.transformationrule", 
+        "fields": {
+            "description": "", 
+            "title": "Remover link terminos registro examenes", 
+            "parent_count": 3, 
+            "attribute": "href", 
+            "action_argument": "", 
+            "enabled": true, 
             "element": "a", 
             "point_of_origin": null, 
             "action": "remove"
@@ -390,7 +427,7 @@
             "parent_count": 0, 
             "attribute": "id", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -405,7 +442,7 @@
             "parent_count": 0, 
             "attribute": "content", 
             "action_argument": "", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "", 
             "point_of_origin": null, 
             "action": "remove"
@@ -420,23 +457,8 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "'* FORBIDDEN LINK *'", 
-            "enabled": 1, 
+            "enabled": true, 
             "element": "a", 
-            "point_of_origin": null, 
-            "action": "remove"
-        }
-    }, 
-    {
-        "pk": 14, 
-        "model": "mechanic.transformationrule", 
-        "fields": {
-            "description": "", 
-            "title": "remove link gif animados", 
-            "parent_count": 0, 
-            "attribute": "href", 
-            "action_argument": "", 
-            "enabled": 1, 
-            "element": "", 
             "point_of_origin": null, 
             "action": "remove"
         }
@@ -904,21 +926,25 @@
         }
     }, 
     {
-        "pk": 1, 
-        "model": "auth.user", 
+        "pk": 43, 
+        "model": "mechanic.elementcomparison", 
         "fields": {
-            "username": "admin", 
-            "first_name": "", 
-            "last_name": "", 
-            "is_active": true, 
-            "is_superuser": true, 
-            "is_staff": true, 
-            "last_login": "2011-08-24 03:24:30", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$1a701$76dc79b2f0ab9a3023080869783a79440d05ab88", 
-            "email": "admin@admin.com", 
-            "date_joined": "2011-08-21 07:05:00"
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "http://www.salonhogar.net/terminos.htm", 
+            "transformation_rule": 29
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "mechanic.elementcomparison", 
+        "fields": {
+            "attribute_comparison": "icontains", 
+            "negate": false, 
+            "attribute_comparison_operand": "and", 
+            "value": "portal educativo de am", 
+            "transformation_rule": 30
         }
     }
 ]

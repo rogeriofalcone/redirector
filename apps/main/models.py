@@ -11,10 +11,9 @@ class CurrentSite(models.Model):
         return unicode(self.site)
         
     def save(self, *args, **kwargs):
-        #if 
-        #CurrentSite.objects.update(selected=False)
+        if self.selected:
+            CurrentSite.objects.update(selected=False)
         super(CurrentSite, self).save(*args, **kwargs)
-        
 
     class Meta:
         verbose_name = _(u'current site')

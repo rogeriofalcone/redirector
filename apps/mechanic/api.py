@@ -177,11 +177,15 @@ def transform_url(url, point_of_origin):
                         parent = result_element.parent
                         result_element.extract()
                         if rule.parent_count:
-                            tag = result_element.parent
-                            for current in range(rule.parent_count):
-                                grand_father = parent.parent
-                                parent.extract()
-                                parent = grand_father
+                            try:
+                                tag = result_element.parent
+                                for current in range(rule.parent_count):
+                                    grand_father = parent.parent
+                                    parent.extract()
+                                    parent = grand_father
+                            except Exception, err:
+                                logger.error('transform_url(): Parent removal error: %s' % err)
+                                
                     elif rule.action == ACTION_REPLACE:
                         try:
                             if rule.attribute == ATTRIBUTE_CONTENT:
@@ -208,7 +212,7 @@ def transform_url(url, point_of_origin):
 
         #except (HTMLParseError, UnicodeDecodeError, RuntimeError), err:
         except (HTMLParseError, RuntimeError), err:
-            logger.info('transform_url(): HTMLParseError, or RuntimeError')
+            logger.error('transform_url(): HTMLParseError, or RuntimeError')
             
             transformed_response['content'] = html
             transformed_response['content_type'] = content_type
