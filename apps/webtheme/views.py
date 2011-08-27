@@ -4,6 +4,8 @@ from django.template import RequestContext
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 
+from livesettings import config_value    
+
 
 def home(request):
     #import urlparse
@@ -11,7 +13,11 @@ def home(request):
     #print request.get_host()
     #print request.REQUEST.get('page')
     #print request.META.get('PATH_INFO')
+
+    current_site = config_value('project','CURRENT_SITE')
+    #measurement_system = config_value('project','MEASUREMENT_SYSTEM')
     
+    print current_site
     return render_to_response('home.html', {},
         context_instance=RequestContext(request))
 

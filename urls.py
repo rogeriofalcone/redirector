@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
-    
+    url(r'^settings/', include('livesettings.urls')),
     (r'^mechanic/', include('mechanic.urls')),
     (r'^', include('webtheme.urls')),
 )
