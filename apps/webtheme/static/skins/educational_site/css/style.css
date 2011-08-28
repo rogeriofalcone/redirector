@@ -177,14 +177,7 @@ img.aligncenter {
   	float: left;
   	clear: left;
   	margin-top: 15px;
-    vertical-align: middle;
 }
-
-/*
-#top .logo a span {
-	color: #66FF00;
-}
-*/
 
 #top .logo a {
 	display: block;
@@ -212,12 +205,12 @@ img.aligncenter {
   	color: white;
   	font-size: 80%;
 	text-align: center;
-  	background: url(../images/login_r.jpg) no-repeat right 0;
+  	background: url(../images/login_r.png) no-repeat right 0;
 	padding-right: 40px;
 }
 
 #top ul.login li.left {
-  	background: url(../images/login_l.jpg) no-repeat left 0;
+  	background: url(../images/login_l.png) no-repeat left 0;
   	height: 36px;
 	width: 40px;
 	padding: 0;
@@ -232,11 +225,11 @@ img.aligncenter {
 	display: block;
 	float: left;
 	height: 36px;
-  	background: url(../images/login_bg.jpg) repeat-x 0 0;
+  	background: url(../images/login_bg.png) repeat-x 0 0;
 }
 
 #top ul.login li a {
-	color: #4444FF;
+	color: #aaa;
 }
 
 #top ul.login li a:hover {
@@ -480,26 +473,26 @@ img.aligncenter {
 #footer {
 	clear: both;
 	width: 100%;
-	height: 70px;
-	background: #F4F4EA url(../images/footer_bg.jpg) repeat-x 0 0;
-	color: #999;
+	height: 42px;
+	background: #F4F4EA url(../images/footer_bg.png) repeat-x 0 0;
+	color: #ddd;
 	font-size: 0.9em;
 }
 
 #footer a {
-	color: #999;
+	color: #ddd;
 	border-bottom: 1px dotted #555;
 }
 
 #footer a:hover {
-	color: #bbb;
+	color: #fff;
 	border-bottom: none;
 }
 
 #footer .foot_l {
-	background: url(../images/footer_l.jpg) no-repeat left top;
+	background: #070e16 url(../images/footer_l.png) no-repeat left top;
 	width: 80px;
-	height: 74px;
+	height: 42px;
 	float: left;
 }
 
@@ -512,9 +505,9 @@ img.aligncenter {
 }
 
 #footer .foot_r {
-	background: url(../images/footer_r.jpg) no-repeat right top;
+	background: #070e16 url(../images/footer_r.png) no-repeat right top;
 	width: 26px;
-	height: 74px;
+	height: 42px;
 	float: right;
 	clear: none;
 }
@@ -525,7 +518,7 @@ img.aligncenter {
 	width: 88%;
 	float: left;
 	clear: none;
-	padding: 10px 0 0 0;
+	padding: 6px 0 0 0;
 	text-align: center;
 }
 

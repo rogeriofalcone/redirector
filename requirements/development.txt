@@ -8,3 +8,4 @@ django-rosetta-grappelli==1.0.1
 requests==0.6.1
 wsgiref==0.1.2
 mechanize==0.2.5
+django-pagination==1.0.7

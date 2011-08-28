@@ -3,7 +3,7 @@
 
 #nav {
 	display: block;
-	background: transparent url(../images/nav_bg.jpg) repeat-x left top;
+	background: transparent url(../images/nav_bg.png) repeat-x left top;
 	padding: 0;
 	margin: 0;
 	height: 34px;
@@ -36,7 +36,7 @@
 }
 
 #nav li a:hover {
-	background: url(../images/nav_over.jpg) repeat-x 0 0;
+	background: url(../images/nav_over.png) repeat-x 0 0;
 	color: white;
 }
 
@@ -102,7 +102,7 @@
 }
 
 #nav li ul li a:hover {
-  	color: #99FF00;
+  	color: #599be0;
   	background: #111;
 }
 

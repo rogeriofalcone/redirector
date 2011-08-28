@@ -5,13 +5,15 @@
 /* .ui-widget-loading { background: #f5f3e5 url(../images/globe64.gif) 50% no-repeat; top }*/
 
 #barquin_globe {
-    vertical-align: middle; margin-right: 5px;
+    margin-right: 2px;
 }
 
 #barquin_address {
     color: white; font-size: 10px; margin-left: 50px;
 }
 
+#barquin_logo_words {
+}
 
 #featured {
     top: 10px;

@@ -10,7 +10,7 @@ sys.path.append(os.path.join(PROJECT_ROOT, 'apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, 'shared_apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, '3rd_party_apps'))
 
-PROJECT_TITLE = 'Redirector'
+PROJECT_TITLE = 'Barquin International :: Primero Educate'
 PROJECT_NAME = 'redirector'
 
 DEBUG = False
@@ -44,7 +44,7 @@ TIME_ZONE = 'America/Puerto_Rico'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 #LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 
 ugettext = lambda s: s
 
@@ -104,6 +104,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'common.middleware.login_required_middleware.LoginRequiredMiddleware',
+    'permissions.middleware.permission_denied_middleware.PermissionDeniedMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -124,6 +127,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pagination',
+    'permissions',
+    'navigation',
+    'user_management',
+    'project_setup',
+    'smart_settings',
+    'common',
     'mechanic',
     'webtheme',
     'main',
@@ -139,6 +149,37 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 #=================================
 SENDFILE_BACKEND = 'sendfile.backends.simple'
 GRAPPELLI_ADMIN_TITLE = PROJECT_TITLE
+#--------- Django -------------------
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+#-------- LoginRequiredMiddleware ----------
+LOGIN_EXEMPT_URLS = (
+    r'^favicon\.ico$',
+    r'^about\.html$',
+    r'^legal/',  # allow the entire /legal/* subsection
+    r'^%s-static/' % PROJECT_NAME,
+
+    r'^accounts/register/$',
+    r'^accounts/register/complete/$',
+    r'^accounts/register/closed/$',
+
+    r'^accounts/activate/complete/',
+    r'^accounts/activate/(?P<activation_key>\w+)/$',
+
+    r'^password/reset/$',
+    r'^password/reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$',
+    r'^password/reset/complete/$',
+    r'^password/reset/done/$',
+    
+    r'^home/$',
+    r'^/$',
+    r'^$',
+    r'^about/$',
+    r'^contact/$',
+    r'^top_redirect',
+)
+#--------- Pagination ----------------
+PAGINATION_INVALID_PAGE_RAISES_404 = True
 
 try:
     from settings_local import *

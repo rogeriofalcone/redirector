@@ -9,7 +9,12 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^mechanic/', include('mechanic.urls')),
+    (r'^smart_settings/', include('smart_settings.urls')),
+    (r'^user_management/', include('user_management.urls')),
+    (r'^project_setup/', include('project_setup.urls')),
+    (r'^permissions/', include('permissions.urls')),
     (r'^', include('webtheme.urls')),
+    (r'^', include('common.urls')),
 )
 
 if settings.DEVELOPMENT:

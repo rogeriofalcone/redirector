@@ -5,8 +5,7 @@ urlpatterns = patterns('webtheme.views',
     url(r'^$', 'home', (), 'home'),
     url(r'^about/$', 'about', (), 'about'),
     url(r'^contact/$', 'contact', (), 'contact'),
-)
-
-urlpatterns += patterns('',
-    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%s%s' % (settings.STATIC_URL, 'images/favicon.ico')}),
+    url(r'^favicon\.ico$', 'favicon', (), 'favicon'),
+    url(r'^top_redirect/(?P<url>.*)$', 'top_redirect', (), 'top_redirect'),
+    url(r'^top_redirect/$', 'top_redirect', (), 'top_redirect'),
 )

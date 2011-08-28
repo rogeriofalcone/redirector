@@ -1,3 +1,9 @@
+{% extends "web_theme_base.html" %}
+{% load i18n %}
+{% load settings %}
+{% load navigation_tags %}
+{% load project_tags %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,29 +16,34 @@
 |____________________________________________________________|
 -->
 
-<head>
-	<title>Barquin International :: Primero Educate</title>
+{% block web_theme_head %}
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="author" content="Jeremie Tisseau" />
 	<meta name="author" content="Roberto Rosario" />
 	<meta name="keywords" content="educational, game, school, kids, children" />
   	<meta name="description" content="Educational portal for schools." />
 	<link rel="shorcut icon" href="/favicon.ico" />
+{% endblock %}
+
+{% block web_theme_stylesheets %}
 	<link rel="stylesheet" href="{{ STATIC_URL }}skins/educational_site/css/style.css" type="text/css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}skins/educational_site/css/dropdown_jquery.css" type="text/css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}skins/educational_site/css/override.css" type="text/css" />
+{% endblock %}
 
-	<script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
+{% block web_theme_javascript %}
+	{#<script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>#}
 	<script type="text/javascript" src="{{ STATIC_URL }}skins/educational_site/js/jquery.dropdownPlain.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
     <script type="text/javascript">
         var animated_globe_url='{{ STATIC_URL }}skins/educational_site/images/animated_globe.gif';
         var barquin_globe_url='{{ STATIC_URL }}skins/educational_site/images/barquin_globe.png';
-        var iframeHeightDifference=(200-10);
+        //var iframeHeightDifference=(200-10-25-5);
+        var iframeHeightDifference;
 
         function resizeIframe(){
-            $('#contents').attr("height", $(window).height()-iframeHeightDifference);
+            $('#iframe_portal').attr("height", $(window).height()-iframeHeightDifference);
         }
 
         $(window).load(function() {
@@ -46,20 +57,22 @@
         });
        
 		$(document).ready(function() {	
+            iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+5;
+
             $(window).bind('resize', function() {
-                $('#contents').attr("width", $(this).width());
-                $('#contents').attr("height", $(this).height()-iframeHeightDifference);
+                $('#iframe_portal').attr("width", $(this).width());
+                $('#iframe_portal').attr("height", $(this).height()-iframeHeightDifference);
             });
 
-            $('#contents').hide();
+            $('#iframe_portal').hide();
 
-            $('#contents').load(function(){
+            $('#iframe_portal').load(function(){
                 $('#barquin_globe').attr('src', barquin_globe_url);
 
                 //$("#contents").contents().find("a").each(function(){
                 //    $(this).addClass('iframe_anchor');
                 //});
-                $('#contents').contents().find('a').bind('click', function(){
+                $('#iframe_portal').contents().find('a').bind('click', function(){
                     $('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
                 });
                 
@@ -71,35 +84,48 @@
             //});
             
 			$('a.redirected').live('click', function() {
-				href = $(this).attr('href');
                 resizeIframe();
                 $('#barquin_globe').attr('src', animated_globe_url);
-                $('#contents').attr('src', href);
-                $('#contents').show();
-                $('#block_contents').hide();
+                $('#iframe_portal').attr('src', $(this).attr('href'));
+                $('#iframe_portal').show();
+                $('#contents').hide();
                 return false;
 			});
 		});
-            
     </script>
-</head>
-<body>
+{% endblock %}
+
+{% block html_title %}{% project_name %}{{ request.new_window_url }}{% block title %}{% endblock %}{% endblock %}
+
+{% block web_theme_content %}
     <div id="wrapper">
 		<div id="top">
 			<div class="logo">
                 <a href="{% url home %}" title="">
-                <img id="barquin_globe" src="{{ STATIC_URL }}skins/educational_site/images/barquin_globe.png" /><span style="font-weight: bold;">Barquin</span>International</a>
+                    <img id="barquin_globe" src="{{ STATIC_URL }}skins/educational_site/images/barquin_globe.png" /><img id="barquin_logo_words" src="{{ STATIC_URL }}skins/educational_site/images/barquin_logo_words.png" />
+                </a>
                 <span id="barquin_address">452 Ponce de León Ave. Suite 520 San Juan P.R. 00918</span>
             </div>
             <!-- login -->
             <!-- If you don't need a login section, just delete it below -->
             <ul class="login">
                 <li class="left">&nbsp;</li>
-                <li>Bienvenido Usuario X</li>
+                
+                <li><strong>{% trans "User" %}:</strong>
+                    {% if user.is_anonymous %}
+                        {% trans "Anonymous" %}
+                    {% else %}
+                        {{ user.get_full_name|default:user }}
+                            <a href="{% url current_user_details %}" title="{% trans 'User details' %}"><span class="famfam active famfam-vcard"></span></a>
+                    {% endif %}
+                </li>
+                
                 <li>|</li>
-                <li><a href="#">Entradar / Cerrar sessión</a></li>
+                {% get_setting "LOGIN_URL" as login_url %}
+                <li><a class="logout redirected" href="{% if user.is_anonymous %}{% url login_view %}?next={% url top_redirect  %}{% else %}{% url logout_view %}?next_page={% url top_redirect %}{% endif %}">{% if user.is_anonymous %}{% trans "Login" %}{% else %}{% trans "Logout" %}{% endif %}</a></li>
             </ul> <!-- / login -->
         </div> <!-- / top -->
+
 
         <!-- MAIN NAVIGATION -->
         <ul id="nav" class="dropdown">
@@ -111,7 +137,7 @@
                 <ul>
                    <li><a class="redirected" href="{% url fetch 1 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
                    <li><a class="redirected" href="{% url fetch 1 'http://www.salonhogar.net/Diccionario_v2/a.htm' %}" title="">Diccionario</a></li>
-                   <li><a class="redirected" href="{% url fetch 1 'http://www.proyectosalonhogar.com/banco_imagenes/banco_imagenes_index.htm' %}" title="">Fotos y laminas</a></li>
+                   {#<li><a class="redirected" href="{% url fetch 1 'http://www.proyectosalonhogar.com/banco_imagenes/banco_imagenes_index.htm' %}" title="">Fotos y laminas</a></li>#}
                    <li><a class="redirected" href="http://revisor.com.ar/" title="">Corrector</a></li>
                    <li><a class="redirected" href="{% url fetch 1 'http://www.proyectosalonhogar.com/Diversos_Temas/Mapas_de_referencia.htm' %}" title="">Mapas</a></li>
                    <li><a class="redirected" href="{% url fetch 1 'http://www.proyectosalonhogar.com/flash/calculator.swf' %}" title="">Calculadora</a></li>
@@ -141,28 +167,52 @@
                    <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/tutorias_en_linea/index.htm" title="">Ver todos</a></li>
                 </ul>
             </li>
-            {% comment %}
             <li>
                 <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/educational_site/images/nav_bullet.jpg" alt="" /></a>
                 <!-- submenu -->
                 <ul>
-                   <li><a class="redirected" href="#" target="" title="">Repaso 4to año</a></li>
-                   <li><a class="redirected" href="#" target="" title="">College Board</a></li>
-                   <li><a class="redirected" href="#" target="" title="">Otros</a></li>
+                   <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
+                   <li><a class="redirected" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
+                   <li><a class="redirected" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
                 </ul>
             </li>
-                {% endcomment %}
+
             <li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
             <li><a href="{% url contact %}" title="">Contáctanos</a></li>
+            
+            {#{% block web_theme_main_navigation %}#}
+                {% get_top_menu_links %}
+                {% for link in menu_links %}
+                    {% with "true" as as_li %}
+                    {% with "true" as hide_active_anchor %}
+                    {% with "active" as li_class_active %}
+                    {% with "first" as li_class_first %}
+                        {% include "generic_subnavigation.html" %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                {% endfor %}
+            {#{% endblock %}#}
+
             <li class="sep">&nbsp;</li>
+            
         </ul>
         <!-- / END MAIN NAVIGATION -->
 
         {#<div id="loadingDiv" class="ui-widget-loading" style="height: 100px;">&nbsp;</div>#}
-        <div id="iframe-container" style="margin: auto; width: 100%;">
-            <iframe class="" src="" name="contents" id="contents" frameborder="0" width="100%" style="width: 100%;">You need a Frames Capable browser to view this content.</iframe> 
-            <div id="block_contents">{% block contents %}{% endblock %}</div>
+        <div id="iframe-container" style="margin: auto; width: 100%; z-index:998;">
+            <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999;">You need a Frames Capable browser to view this content.</iframe> 
+            <div id="contents">{% block content %}{% endblock %}</div>
         </div>
+        
+        {% comment %}
+			<!-- SIDEBAR -->
+			<div id="sidebar">
+                {% block sidebar %}{% endblock %}
+			</div> <!-- / Sidebar -->
+                    
+        {% endcomment %}
         <!-- Footer -->
         <div id="footer">
             <div class="foot_l"></div>
@@ -171,9 +221,9 @@
                 <p>Portal captivo por <a href="http://www.about.me/roberto.rosario">Roberto Rosario</a>. Plantilla por <a href="http://web-kreation.com" title="Web-kreation.com">Web-kreation</a></p>
             </div>
             <div class="foot_r">&nbsp;</div>
-            {% comment %}<div class="foot_info debug"></div>{% endcomment %}
+            
 			</div><!-- / footer -->
 		</div><!-- / wrapper -->
 	</div><!-- / container -->
-</body>
-</html>
+
+{% endblock %}
