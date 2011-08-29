@@ -45,9 +45,11 @@
                 </div>
             </div>
         </div>
+        {% comment %}
         {% get_web_theme_setting "VERBOSE_LOGIN" as verbose_login %}
         {% if verbose_login %}
-            {% include "verbose_login.html" %}
+            {% include "verbose_lodgin.html" %}
         {% endif %}
+        {% endcomment %}
     {% endif %}
 {% endblock %}
