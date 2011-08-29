@@ -16,7 +16,6 @@ class SetVarNode(template.Node):
         #context[self.var_name] = value
         # Global context varialbe, accesble from outside it's own block
         context.dicts[0][self.var_name] = value
-        print context
 
         return u''
         

@@ -45,7 +45,6 @@ class TemplateViewModeNode(template.Node):
  
     def render(self, context):
         try:
-            print context
             template_id = template.Variable('template_id').resolve(context)
             mode = TEMPLATE_VIEW_MODES.get(SiteSkin.objects.get_current_skin(), {}).get(template_id, TEMPLATE_VIEW_MODE_FULL)
         except template.VariableDoesNotExist:

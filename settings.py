@@ -19,7 +19,7 @@ PROJECT_NAME = 'redirector'
 
 DEBUG = False
 DEVELOPMENT = False
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ADMINS = ()
 SENTRY_ADMINS = ('root@localhost',)
@@ -141,6 +141,8 @@ INSTALLED_APPS = (
     'mechanic',
     'webtheme',
     'main',
+    'sentry',
+    'sentry.client',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

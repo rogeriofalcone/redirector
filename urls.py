@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     (r'^permissions/', include('permissions.urls')),
     (r'^', include('webtheme.urls')),
     (r'^', include('common.urls')),
+    (r'^sentry/', include('sentry.web.urls')),
 )
 
 if settings.DEVELOPMENT:
