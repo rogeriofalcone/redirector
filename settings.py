@@ -1,6 +1,10 @@
 # Django settings for redirector project.
 import os
 import sys
+from django.core.urlresolvers import reverse
+from django.utils.functional import lazy
+
+reverse_lazy = lazy(reverse, str)
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), './'))
 
@@ -150,8 +154,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SENDFILE_BACKEND = 'sendfile.backends.simple'
 GRAPPELLI_ADMIN_TITLE = PROJECT_TITLE
 #--------- Django -------------------
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = reverse_lazy('login_view')  # '/login/'
+LOGIN_REDIRECT_URL = reverse_lazy('top_redirect')
 #-------- LoginRequiredMiddleware ----------
 LOGIN_EXEMPT_URLS = (
     r'^favicon\.ico$',

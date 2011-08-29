@@ -178,11 +178,12 @@ def login_view(request, *args, **kwargs):
     Control how the use is to be authenticated, options are 'email' and 
     'username'
     """        
-    kwargs = {'template_name': 'login.html'}
+    kwargs['template_name'] = 'login.html'
     
     if LOGIN_METHOD == 'email':
         kwargs['authentication_form'] = EmailAuthenticationForm
-
+    
+    kwargs.setdefault('extra_context', {'template_id': 'login'})
     return login(request, *args, **kwargs)
 
 

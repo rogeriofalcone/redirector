@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from mechanic.models import TransformationRule, PointOfOrigin, \
-    ElementComparison
+from mechanic.models import TransformationRule, ElementComparison
 
 
 class ElementComparisonInline(admin.StackedInline):
@@ -18,10 +17,11 @@ class TransformationRuleAdmin(admin.ModelAdmin):
     inlines = [
         ElementComparisonInline
     ]
-    list_display = ('title', 'point_of_origin', 'element', 'attribute', 'action', 'enabled')
+    list_display = ('title', 'element', 'attribute', 'action', 'enabled')
     list_display_links = ('title',)
-    list_filter = ('point_of_origin', 'enabled', 'element', 'attribute', 'action')
+    list_filter = ('sites', 'enabled', 'element', 'attribute', 'action')
     list_editable = ('enabled', 'action',)
+    filter_horizontal = ('sites',)
 '''
     fieldsets = (
         (None, {
@@ -41,4 +41,3 @@ class TransformationRuleAdmin(admin.ModelAdmin):
 '''    
     
 admin.site.register(TransformationRule, TransformationRuleAdmin)
-admin.site.register(PointOfOrigin)

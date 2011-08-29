@@ -89,7 +89,7 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
     return set(results)
 
 
-def transform_url(url, point_of_origin):
+def transform_url(url, site):
     transformed_response = {}
     
     if USE_MECHANIZE:
@@ -132,22 +132,21 @@ def transform_url(url, point_of_origin):
                         #link.extract()
                     else:
                         href = fix_relative_url(link['href'], url)
-                        link['href'] = form_url(href)
+                        link['href'] = form_url(href, site)
 
             # Convert css links url to absolute and prepend mechanic's url to all links
             for link in soup.findAll('link'):
                 if link.get('href'):
                     href = fix_relative_url(link['href'], url)
-                    link['href'] = form_url(href)
+                    link['href'] = form_url(href, site)
                     
             # Convert scripts links url to absolute and prepend mechanic's url to all links
             for script in soup.findAll('script'):
                 if script.get('src'):
                     href = fix_relative_url(script['src'], url)
-                    script['src'] = form_url(href)
+                    script['src'] = form_url(href, site)
 
-            #for rule in TransformationRule.objects.filter(enabled=True):
-            for rule in TransformationRule.objects.filter(Q(enabled=True) & (Q(point_of_origin=None) | Q(point_of_origin=point_of_origin))):
+            for rule in TransformationRule.objects.filter(Q(enabled=True) & (Q(sites=None) | Q(sites=site))):
                 rule_dictionary = {}
                 source_attribute = None
 
@@ -238,32 +237,38 @@ def transform_url(url, point_of_origin):
     return transformed_response
     
     
-def form_url(url):
-    return reverse('fetch', args=[url])
+def form_url(url, site=None):
+    if site:
+        return reverse('fetch', kwargs={'site_domain': site.domain, 'url': url})
+    else:
+        return reverse('fetch', args=[url])    
 
 
-def encode_urls(soup):
+def encode_urls(soup, site=None):
     for image in soup.findAll('img'):
         if image.get('src'):
-            image['src'] = form_final_url(image['src'])
+            image['src'] = form_final_url(image['src'], site)
 
     # Convert links url to absolute and prepend mechanic's url to all links
     for link in soup.findAll('a'):
         if link.get('href'):
-            link['href'] = form_final_url(link['href'])
+            link['href'] = form_final_url(link['href'], site)
 
     # Convert css links url to absolute and prepend mechanic's url to all links
     for link in soup.findAll('link'):
         if link.get('href'):
-            link['href'] = form_final_url(link['href'])
+            link['href'] = form_final_url(link['href'], site)
             
     # Convert scripts links url to absolute and prepend mechanic's url to all links
     for script in soup.findAll('script'):
         if script.get('src'):
-            script['src'] = form_final_url(script['src'])    
+            script['src'] = form_final_url(script['src'], site)
     
     return soup
     
     
-def form_final_url(url):
-    return reverse('fetch_coded', args=[encode_url(url)])
+def form_final_url(url, site=None):
+    if site:
+        return reverse('fetch_coded', args={'site_domain': site.domain, 'url': encode_url(url)})
+    else:
+        return reverse('fetch_coded', args=[encode_url(url)])

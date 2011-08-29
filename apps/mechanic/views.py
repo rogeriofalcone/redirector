@@ -5,10 +5,10 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.utils.http import urlencode
+from django.contrib.sites.models import Site
 
 from mechanic.api import transform_url
 from mechanic.utils import decode_url
-from mechanic.models import PointOfOrigin
 
 logger = logging.getLogger(__name__)
 
@@ -17,18 +17,18 @@ def fetch_coded(request, coded_url=None, origin_id=None):
     return fetch(request, decode_url(coded_url), origin_id=origin_id)
     
 
-def fetch(request, url=None, origin_id=None):
-    if origin_id:
-        point_of_origin = get_object_or_404(PointOfOrigin, pk=origin_id)
+def fetch(request, url=None, site_domain=None):
+    if site_domain:
+        site = get_object_or_404(Site, domain=site_domain)
     else:
-        point_of_origin = None
+        site = None
         
     url_query = request.GET
     if url_query:
         url = '%s?%s' % (url, urlencode(url_query))
     logger.debug('fetch(): url: %s' % url)
     try:
-        transformed_response = transform_url(url, point_of_origin)
+        transformed_response = transform_url(url, site)
     except HTTPError:
         #if status_code == requests.codes.NOT_FOUND:
         return render_to_response('http_error_not_found.html', {},

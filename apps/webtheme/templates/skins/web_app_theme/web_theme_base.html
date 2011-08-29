@@ -12,7 +12,7 @@
         {% block web_theme_head %}{% endblock %}	
 
         <link rel="stylesheet" href="{{ STATIC_URL }}web_theme_media/stylesheets/base.css" type="text/css" media="screen" />
-        {#<link rel="stylesheet" id="current-theme" href="{{ STATIC_URL }}web_theme_media/stylesheets/themes/{{ web_theme }}/style.css" type="text/css" media="screen" />#}
+        <link rel="stylesheet" id="current-theme" href="{{ STATIC_URL }}web_theme_media/stylesheets/themes/{{ web_theme }}/style.css" type="text/css" media="screen" />
         <style type="text/css">
             .message span.dismiss {
                 padding:0 5px;
@@ -33,7 +33,7 @@
         </style> 
         {% block web_theme_stylesheets %}{% endblock %}
 
-        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}web_theme_media/javascripts/jquery-1.5.2.min.js"></script>
         {% if enable_scroll_js %}
             <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}web_theme_media/javascripts/jquery.scrollTo.js"></script>
             <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}web_theme_media/javascripts/jquery.localscroll.js"></script>
@@ -62,9 +62,13 @@
 	</head>
 	<body>
         <div id="container">
-
+            {% if web_theme_plain_mode %}
+                <div id="box">
+                    {% block web_theme_content %}{% endblock %}
+                </div>
+            {% else %}
                 {% if not web_theme_hide_menus %}
-                    <div id="web_theme_header">
+                    <div id="header">
                         <h1><a href="{% url home %}">{% block web_theme_project_name %}{% endblock %}</a></h1>
                             <div id="user-navigation">
                                 <ul class="wat-cf">
@@ -104,13 +108,11 @@
                         </div><!--end .block #block-text-->  
                         {% block web_theme_footer %}{% endblock %}
                     </div><!--end #main-->
-                    {% comment %}
                     <div id="sidebar">
                         {% block web_theme_sidebar %}{% endblock %}
                     </div><!--end #sidebar-->                 
-                    {% endcomment %}
                 </div><!--end #wrapper .wat-cf-->
-
+            {% endif %}
         </div><!--end #container-->
     </body>
 </html>

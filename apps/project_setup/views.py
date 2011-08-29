@@ -11,6 +11,7 @@ def setup_list(request):
     context = {
         'object_list': [button_navigation_widget(request, item) for item in setup_items],
         'title': _(u'setup items'),
+        'template_id': u'setup_list'
     }
 
     return render_to_response('generic_list_horizontal.html', context,

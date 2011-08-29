@@ -28,6 +28,7 @@ def user_list(request):
         queryset=User.objects.exclude(is_superuser=True).exclude(is_staff=True).order_by('username'),
         template_name='generic_list.html',
         extra_context={
+            'template_id': u'user_list',
             'title': _(u'users'),
             'hide_link': True,
             'extra_columns': [
@@ -68,6 +69,7 @@ def user_edit(request, user_id):
         form = UserForm(instance=user)
 
     return render_to_response('generic_form.html', {
+        'template_id': u'user_edit',
         'title': _(u'edit user: %s') % user,
         'form': form,
         'object': user,
@@ -89,6 +91,7 @@ def user_add(request):
         form = UserForm()
 
     return render_to_response('generic_form.html', {
+        'template_id': u'user_add',
         'title': _(u'create new user'),
         'form': form,
     },
@@ -127,6 +130,7 @@ def user_delete(request, user_id=None, user_id_list=None):
         return HttpResponseRedirect(next)
 
     context = {
+        'template_id': u'user_delete',
         'object_name': _(u'user'),
         'delete_view': True,
         'previous': previous,
@@ -190,6 +194,7 @@ def user_set_password(request, user_id=None, user_id_list=None):
         form = PasswordForm()
 
     context = {
+        'template_id': u'user_set_password',    
         'object_name': _(u'user'),
         'next': next,
         'form': form,
@@ -219,6 +224,7 @@ def group_list(request):
         queryset=Group.objects.all(),
         template_name='generic_list.html',
         extra_context={
+            'template_id': u'group_list',
             'title': _(u'groups'),
             'hide_link': True,
             'extra_columns': [
@@ -246,6 +252,7 @@ def group_edit(request, group_id):
         form = GroupForm(instance=group)
 
     return render_to_response('generic_form.html', {
+        'template_id': u'group_edit',
         'title': _(u'edit group: %s') % group,
         'form': form,
         'object': group,
@@ -267,6 +274,7 @@ def group_add(request):
         form = GroupForm()
 
     return render_to_response('generic_form.html', {
+        'template_id': u'group_add',
         'title': _(u'create new group'),
         'form': form,
     },
@@ -302,6 +310,7 @@ def group_delete(request, group_id=None, group_id_list=None):
         return HttpResponseRedirect(next)
 
     context = {
+        'template_id': u'group_delete',
         'object_name': _(u'group'),
         'delete_view': True,
         'previous': previous,
@@ -346,6 +355,7 @@ def group_members(request, group_id):
         right_list_title=_(u'members of group: %s') % group,
         decode_content_type=True,
         extra_context={
+            'template_id': u'group_members',
             'object': group,
             'object_name': _(u'group'),
         }
