@@ -238,13 +238,7 @@ img.aligncenter {
 
 /***** HEADER *****/
 #header {
-	width: 100%;
-	height: 200px;
-	background: url(../images/header_m.jpg) repeat-x 0 0;
-	position: relative;
-	z-index: 1;
-	color: white;
-	font-family: "Trebuchet MS",Tahoma, Arial, sans-serif;
+
 }
 
 
@@ -265,7 +259,7 @@ img.aligncenter {
 }
 
 #header .intro {
-	width: 30%;
+	width: 40%;
 	height: 130px;
 	padding: 50px 0 0 30px;
     float: left;
@@ -299,7 +293,8 @@ img.aligncenter {
 	float: left;
 	clear: left;
 	width: 74%; /*635px;*/
-	padding: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
 	margin: 0 0 30px 0;
 	clear: both;
 	text-align: justify;
@@ -385,7 +380,7 @@ img.aligncenter {
 #content .note,
 #content .error {
 	display: block;
-	width: 100%;
+	width: 90%;
 	min-height: 35px;
 	float: left;
 	margin: 10px 0;
@@ -413,6 +408,7 @@ img.aligncenter {
 	width: 20%;
 	padding-left: 15px;
 	margin-bottom: 30px;
+    margin-top: 10px;
 	font-size: 0.8em;
 	background: url(../images/sidebar_bg.jpg) no-repeat 0 0;
 }
@@ -424,7 +420,7 @@ img.aligncenter {
 	border-bottom: 1px solid #ccc;
 	width: 100%;
 	font-weight: bold;
-	margin: 30px 0 10px 0;
+	margin: 0px 0 10px 0;
 }
 
 /* News */

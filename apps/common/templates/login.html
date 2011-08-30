@@ -28,7 +28,7 @@
         </div>
     {% else %}
         <div id="box">
-            <h1>{% block project_name %}{% endblock %}</h1>
+            <h1>{% project_name %}</h1>
             <div class="block" id="block-login">
                 <h2>{% trans "Login" %}</h2>
                 <div class="content login">
@@ -38,7 +38,7 @@
                             <input type="hidden" name="next" value="{{ next|escape }}" />
                             <div class="group navform wat-cf">
                             <button class="button" type="submit">
-                                <img src="{{ STATIC_URL }}web_theme_media/images/icons/key.png" alt="Save" /> Login
+                                <img src="{{ STATIC_URL }}skins/educational_site/images/icons/key.png" alt="Save" /> Login
                             </button>
                         </div>
                     </form>

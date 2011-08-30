@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from smart_settings.api import register_settings
 
 from webtheme.literals import TEMPLATE_VIEW_MODE_FULL, \
-    TEMPLATE_VIEW_MODE_PLAIN
+    TEMPLATE_VIEW_MODE_PLAIN, TEMPLATE_VIEW_MODE_BARE
 
 register_settings(
     namespace=u'webtheme',
@@ -18,7 +18,7 @@ register_settings(
 
 TEMPLATE_VIEW_MODES = {
     'educational_site': {
-        'login': TEMPLATE_VIEW_MODE_PLAIN,
+        'login': TEMPLATE_VIEW_MODE_BARE,
         'setup_list': TEMPLATE_VIEW_MODE_PLAIN,
         'user_list': TEMPLATE_VIEW_MODE_PLAIN,
         'user_add': TEMPLATE_VIEW_MODE_PLAIN,
@@ -30,5 +30,13 @@ TEMPLATE_VIEW_MODES = {
         'group_edit': TEMPLATE_VIEW_MODE_PLAIN,
         'group_delete': TEMPLATE_VIEW_MODE_PLAIN,
         'group_members': TEMPLATE_VIEW_MODE_PLAIN,
+        
+        'role_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_permissions': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_create': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        'permission_grant_revoke': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_members': TEMPLATE_VIEW_MODE_PLAIN,
     }
 }

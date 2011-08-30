@@ -38,3 +38,43 @@ div.timer {
     float: right;
     display: none;
 }
+
+#iframe_portal {
+    background: white;
+}
+
+#home_header_wrapper {
+	width: 100%;
+	height: 200px;
+	background: url(../images/header_m.jpg) repeat-x 0 0;
+	position: relative;
+	z-index: 1;
+	color: white;
+	font-family: "Trebuchet MS",Tahoma, Arial, sans-serif;
+}
+
+#content {
+    background: white;
+}
+
+#sidebar {
+    background: white;
+}
+
+.message span.dismiss {
+    padding:0 5px;
+    cursor:pointer;
+    float:right;
+    margin-right:10px;
+}
+.message span.dismiss-all {
+    padding:0 5px;
+    cursor:pointer;
+    float:right;
+    margin-right:10px;
+}
+.message a {
+    text-decoration:none;
+    font-weight:bold
+}
+

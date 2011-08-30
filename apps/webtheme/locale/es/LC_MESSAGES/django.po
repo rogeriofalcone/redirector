@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-30 01:39-0400\n"
+"PO-Revision-Date: 2011-08-30 01:43\n"
+"Last-Translator:   <x@x.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.6.2\n"
+
+#: literals.py:7
+msgid "TemplateMo.com's `green board`"
+msgstr ""
+
+#: literals.py:8
+msgid "Web-kreation's `educational site`"
+msgstr ""
+
+#: models.py:22
+msgid "site"
+msgstr "sitio"
+
+#: models.py:23
+msgid "skin"
+msgstr "piel"
+
+#: models.py:31
+msgid "site skin"
+msgstr "piel de sitio"
+
+#: models.py:32
+msgid "site skins"
+msgstr "pieles de los sitios"
+
+#: conf/settings.py:13
+msgid ""
+"CSS theme to apply, options are: amro, bec, bec-green, blue, default, "
+"djime-cerulean, drastic-dark, kathleene, olive, orange, red, reidb-"
+"greenish and warehouse."
+msgstr ""
+
+#: conf/settings.py:15
+msgid "Display extra information in the login screen."
+msgstr ""
+
+#: templates/skins/educational_site/base.html:130
+msgid "User"
+msgstr "Usuario"
+
+#: templates/skins/educational_site/base.html:132
+msgid "Anonymous"
+msgstr "Anónimo"
+
+#: templates/skins/educational_site/base.html:135
+msgid "User details"
+msgstr "Detalles del usuario"
+
+#: templates/skins/educational_site/base.html:141
+#: templates/skins/web_app_theme/web_theme_login.html:12
+#: templates/skins/web_app_theme/web_theme_login.html:33
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: templates/skins/educational_site/base.html:141
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: templates/skins/educational_site/base.html:231
+#: templates/skins/web_app_theme/web_theme_base.html:94
+msgid "dismiss all notifications"
+msgstr "descartar todas las notificaciones"
+
+#: templates/skins/educational_site/base.html:231
+#: templates/skins/web_app_theme/web_theme_base.html:94
+msgid "close all"
+msgstr "cerrar todos"
+
+#: templates/skins/educational_site/base.html:232
+#: templates/skins/web_app_theme/web_theme_base.html:95
+msgid "dismiss this notification"
+msgstr "descartar esta notificación"
+
+#: templates/skins/educational_site/base.html:232
+#: templates/skins/web_app_theme/web_theme_base.html:95
+msgid "close"
+msgstr "cerrar"
+
+#: templates/skins/educational_site/base.html:249
+msgid "Secondary menu"
+msgstr "Menú secundario"
+
+#: templates/skins/educational_site/base.html:266
+#, python-format
+msgid "Actions for %(name)s: %(navigation_object)s"
+msgstr "Acciones para %(name)s: %(navigation_object)s "
+
+#: templates/skins/educational_site/base.html:268
+#: templates/skins/educational_site/base.html:300
+#, python-format
+msgid "Actions for: %(navigation_object)s"
+msgstr "Acciones para: %(navigation_object)s "
+
+#: templates/skins/educational_site/base.html:271
+msgid "Available actions"
+msgstr "Acciones disponibles"
+
+#: templates/skins/educational_site/base.html:283
+#: templates/skins/educational_site/base.html:315
+msgid "Related actions"
+msgstr "Acciones relacionadas"
+
+#: templates/skins/educational_site/base.html:298
+#, python-format
+msgid "Actions for %(object_name)s: %(navigation_object)s"
+msgstr "Acciones para %(object_name)s: %(navigation_object)s "
+
+#: templates/skins/educational_site/base.html:303
+msgid "Actions"
+msgstr "Acciones"
+
+#: templates/skins/educational_site/base.html:327
+msgid "Other available actions"
+msgstr "Otras acciones disponibles"
+
+#: templates/skins/educational_site/pagination/pagination.html:6
+#: templates/skins/educational_site/pagination/pagination.html:8
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/skins/educational_site/pagination/pagination.html:26
+#: templates/skins/educational_site/pagination/pagination.html:28
+msgid "Next"
+msgstr "Próximo"
+
+#: templates/skins/web_app_theme/web_theme_login.html:17
+msgid "You are already logged in"
+msgstr "Usted ya está registrado"
+
+#: templates/skins/web_app_theme/web_theme_login.html:20
+msgid "Redirecting you to the website entry point in 5 seconds."
+msgstr "Redirigiendole a la entrada principal del sitio web en 5 segundos."
+
+#: templates/skins/web_app_theme/web_theme_login.html:23
+#, python-format
+msgid ""
+"Or click <a href=\"%(LOGIN_REDIRECT_URL)s\">here</a> if redirection "
+"doesn't work."
+msgstr ""
+"O haga clic <a href=\"%(LOGIN_REDIRECT_URL)s\">aquí</a> si la "
+"redirección no funciona."

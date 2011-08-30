@@ -1,9 +1,9 @@
 {% extends "skins/educational_site/base.html" %}
 {% load i18n %}
-{% block content %}
+{% block header %}
     <!-- HEADER -->
     <!-- image of the kids by horizontal.integration: http://flickr.com/photos/ebolasmallpox/1066368855/in/set-72157601353861692/ -->
-    <div id="header">
+    <div id="home_header_wrapper">
         <div class="head_l"></div>
         <div class="intro">
             <h1>Educate primero... y tus sueños se harán realidad</h1>
@@ -20,17 +20,20 @@
             </div>
             <span class="orbit-caption" id="book_ladder_caption">Conocimiento, la esclara a tu futuro.</span>
         </div>
-    </div> <!-- /header -->
+    </div>
+{% endblock %}
+
+{% block content %}    
     <!-- CONTENT -->
-    <div id="content">
         <h1>Sobre este portal</h1>
         <img class="alignleft" src="{{ STATIC_URL }}skins/educational_site/images/hands.jpg" alt="" />				
         <p>
             1roEducate.com un proyecto de Barquin International que busca fomentar el aprendizaje a traves del facil acceso a la información.  Barquin tiene una experiencia sin igual de más de medio siglo en el campo de la educación en Puerto Rico, el Caribe y los Estados Unidos. Entre sus ejecutivos se encuentran también los fundadores y directivos de más de una veintena de instituciones educativas exitosas y lideres en su campo. Habiendo sido asesores y suplidores responsables y exitosos del Departamento de Educación, conocen la cultura, retos y oportunidades del sistema educativo. Con influencia por los últimos 70 años en Washington DC y con oficinas propias sirviendo al gobierno federal, Barquin mantiene acceso directo a la dirección del Departamento de Educación de los Estados Unidos, el Congreso y la Oficina de Asuntos Federales de Puerto Rico (PRFAA). 
         </p>
-    </div>
+{% endblock %}
+
+{% block sidebar %}    
     <!-- SIDEBAR -->
-    <div id="sidebar">
         <h2>Noticias y anuncios</h2>
         <ul id="news">
             <li>
@@ -40,5 +43,4 @@
                 <p>Completamente nuevo sistema de navegación y apariecia visual.</p>
             </li>
         </ul>
-    </div> <!-- / Sidebar -->
 {% endblock %}

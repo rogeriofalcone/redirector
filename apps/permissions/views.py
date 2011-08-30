@@ -30,6 +30,7 @@ def role_list(request):
         queryset=Role.objects.all(),
         template_name='generic_list.html',
         extra_context={
+            'template_id': u'role_list',
             'title': _(u'roles'),
             'hide_link': True,
         },
@@ -64,6 +65,7 @@ def role_permissions(request, role_id):
     ]
 
     return render_to_response('generic_detail.html', {
+        'template_id': u'role_permissions',
         'form': form,
         'object': role,
         'object_name': _(u'role'),
@@ -76,6 +78,7 @@ def role_edit(request, role_id):
 
     return update_object(request, template_name='generic_form.html',
         form_class=RoleForm, object_id=role_id, extra_context={
+        'template_id': u'role_edit',
         'object_name': _(u'role')})
 
 
@@ -84,7 +87,11 @@ def role_create(request):
 
     return create_object(request, model=Role,
         template_name='generic_form.html',
-        post_save_redirect=reverse('role_list'))
+        post_save_redirect=reverse('role_list'),
+        extra_context={
+            'template_id': u'role_create',
+        }
+    )
 
 
 def role_delete(request, role_id):
@@ -97,6 +104,7 @@ def role_delete(request, role_id):
         template_name='generic_confirm.html',
         post_delete_redirect=reverse('role_list'),
         extra_context={
+            'template_id': u'role_delete',
             'delete_view': True,
             'next': next,
             'previous': previous,
@@ -148,6 +156,7 @@ def permission_grant_revoke(request, permission_id, app_label, module_name, pk, 
         return HttpResponseRedirect(next)
 
     return render_to_response('generic_confirm.html', {
+        'template_id': u'permission_grant_revoke',
         'object': requester,
         'next': next,
         'previous': previous,
@@ -199,6 +208,7 @@ def role_members(request, role_id):
         left_list_title=_(u'non members of role: %s') % role,
         right_list_title=_(u'members of role: %s') % role,
         extra_context={
+            'template_id': u'role_members',
             'object': role,
             'object_name': _(u'role'),
         }
