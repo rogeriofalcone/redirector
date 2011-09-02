@@ -89,6 +89,37 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
     return set(results)
 
 
+def fix_links(soup, site, url):
+    # Convert all images' relative path to an absolute path
+    for image in soup.findAll('img'):
+        if image.get('src'):
+            image['src'] = fix_relative_url(image['src'], url)
+
+    # Convert links url to absolute and prepend mechanic's url to all links
+    for link in soup.findAll('a'):
+        if link.get('href'):
+            if is_external_top_level_link(link['href']) and not link.get('href').startswith('#'):
+                pass
+                #link.extract()
+            else:
+                href = fix_relative_url(link['href'], url)
+                link['href'] = form_url(href, site)
+
+    # Convert css links url to absolute and prepend mechanic's url to all links
+    for link in soup.findAll('link'):
+        if link.get('href'):
+            href = fix_relative_url(link['href'], url)
+            link['href'] = form_url(href, site)
+            
+    # Convert scripts links url to absolute and prepend mechanic's url to all links
+    for script in soup.findAll('script'):
+        if script.get('src'):
+            href = fix_relative_url(script['src'], url)
+            script['src'] = form_url(href, site)    
+    
+    return soup
+    
+
 def transform_url(url, site):
     transformed_response = {}
     
@@ -117,34 +148,10 @@ def transform_url(url, site):
             except DjangoUnicodeDecodeError:
                 pass
             soup = BeautifulSoup(html)
+            
             #, smartQuotesTo=None)
             #, fromEncoding="windows-1252")
-            # Convert all images' relative path to an absolute path
-            for image in soup.findAll('img'):
-                if image.get('src'):
-                    image['src'] = fix_relative_url(image['src'], url)
 
-            # Convert links url to absolute and prepend mechanic's url to all links
-            for link in soup.findAll('a'):
-                if link.get('href'):
-                    if is_external_top_level_link(link['href']) and not link.get('href').startswith('#'):
-                        pass
-                        #link.extract()
-                    else:
-                        href = fix_relative_url(link['href'], url)
-                        link['href'] = form_url(href, site)
-
-            # Convert css links url to absolute and prepend mechanic's url to all links
-            for link in soup.findAll('link'):
-                if link.get('href'):
-                    href = fix_relative_url(link['href'], url)
-                    link['href'] = form_url(href, site)
-                    
-            # Convert scripts links url to absolute and prepend mechanic's url to all links
-            for script in soup.findAll('script'):
-                if script.get('src'):
-                    href = fix_relative_url(script['src'], url)
-                    script['src'] = form_url(href, site)
 
             for rule in TransformationRule.objects.filter(Q(enabled=True) & (Q(sites=None) | Q(sites=site))):
                 rule_dictionary = {}
@@ -206,8 +213,10 @@ def transform_url(url, site):
                         except Exception, err:
                             raise Exception('Error handling rule: "%s"; error: %s' % (rule, err))
 
+            soup = fix_links(soup, site, url)
             #soup = encode_urls(soup)
-            transformed_response['content'] = soup.prettify()
+            #transformed_response['content'] = soup.prettify()
+            transformed_response['content'] = unicode(soup)
 
         #except (HTMLParseError, UnicodeDecodeError, RuntimeError), err:
         except (HTMLParseError, RuntimeError), err:
