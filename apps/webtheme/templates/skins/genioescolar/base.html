@@ -1,0 +1,92 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN">
+<head>
+<meta http-equiv="Content-language" content="cs" >
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<meta name="description" content="" >
+<meta name="keywords" content="" >
+<title>Genio Escolar</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}skins/genioescolar/css.css" >
+</head>
+	<body>
+        <div id="WholePage">
+            <div id="Container">
+                <div id="Top">
+                    <div id="Header">
+                        <div id="RightHeader">
+                            <a href="" id="home">Inicio</a>
+                            <a href="" id="sitemap">Mapa</a>
+                            <a href="" id="contacts">Contactos</a>
+                        </div>
+                        <span class="name">Genio Escolar</span><br/>
+                        <span class="adress">www.GenioEscolar.com</span>
+                    </div>
+
+                    <div id="Inter">
+                        <ul>
+                            <li>1</li>
+                            <li>2 </li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div id="Menu">
+                        <a href="#"  title="">Recursos</a>
+                        <a href="#" title="">Materias</a>
+                        <a href="#" title="">Exámenes</a>
+                        <a href="#" title="">Repasos</a>
+                        <a href="{% url about %}" title="">Sobre nosotros</a>
+{% comment %}                        
+                        <a class="" href=""><span>Nuestro servicios</span></a>
+                        <a class="" href=""><span>Centro de ayuda</span></a>
+                        <a class="" href=""><span>Noticias</span></a>
+                        <a class="" href=""><span>Nuevos usuarios</span></a>
+{% endcomment %}                        
+                    </div>
+                </div>
+{% comment %}                
+                <div id="Left">
+                    <div id="LeftMenu">
+                        <div class="LeftHeader">Menú princuipal</div>	    
+                            <ul>
+								<li><a href="">new</a></li>
+								<li><a href="">new</a></li>
+								<li><a href=""> new</a></li>
+                            </ul>
+                            <span>Next information</span>
+                            <ul>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+								<li><a href="">new registration</a></li>
+                            </ul>
+                            <span>Links to friends</span>
+                            <a class="Links" href="">new registration</a>
+                        </div>
+                    </div>
+{% endcomment %}                    
+                    <div id="Middle">
+                        <div id="Page">
+                            <div id="Content">
+                                {% block contents %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Footer">
+                    <div id="Bottom">
+                        <span><a href="http://www.sunlight.cz">©2011 Genio Escolar- www.genioescolar.com - All Rights Reserved</a></span>
+                    </div>
+                </div>
+            </div>
+        <div>
+	</body>
+</html>

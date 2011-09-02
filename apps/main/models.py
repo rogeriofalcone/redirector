@@ -6,7 +6,7 @@ from django.contrib.sites.models import Site
 class CurrentSiteManager(models.Manager):
     def get_current_site(self):
         try:
-            return self.model.objects.get(selected=True)
+            return self.get(selected=True).site
         except CurrentSite.DoesNotExist:
             return None
     

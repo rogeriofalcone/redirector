@@ -22,12 +22,12 @@
     	
         <div id="header">
         	<div id="sitetitle">
-	        	<a href="{% url home %}"><img src="{{ STATIC_URL }}skins/greenboard/images/barquin_logo.jpg" alt="LOGO" /></a>
+	        	<a href="{% url home %}"><img src="{{ STATIC_URL }}skins/greenboard/images/barquin_logo.png" alt="LOGO" /></a>
             </div>
             {#<a class="header_menu" href="http://www.facebook.com/templatemo"><img src="{{ STATIC_URL }}skins/greenboard/images/twitter_header.png" alt="Twitter" /></a>#}
             {#<a class="header_menu" href="#contactus"><img src="{{ STATIC_URL }}skins/greenboard/images/contactus.png" alt="contact us" /></a>#}
             {#<a class="header_menu" href="#contactus">Frase</a>#}
-            <p>test</p>
+            {#<p>test</p>#}
         </div>
         
         <div id="content">
@@ -37,15 +37,17 @@
                 
                     <div class="panel" id="home">
                     	<div class="col_550 float_l">
-                            <h1>Welcome to Green Board</h1>    
-                            
+                            <h1>Bienvenido a EscuelaSuperiorOnline.com</h1>    
+{% comment %}
                             <p><em>Nullam at erat ipsum, quis tincidunt mauris. Nunc sit amet sapien eget eros iaculis hendrerit quis a enim. Vestibulum at leo ante, vel auctor velit.</em></p>
                             <p>Green Board is a Free CSS Template from <a href="http://www.templatemo.com" target="_parent">templatemo.com</a>. You may edit and apply this template for your websites. Credits go to <a href="http://www.photovaco.com" target="_blank">Free Photos</a> and <a href="http://jwloh.deviantart.com/art/Social-me-90694011" target="_blank">Social Icons</a>. Nullam eu metus libero, et pretium massa.</p>
                             <div class="cleaner_h30"></div>
                             <h2>Our Services</h2>
+{% endcomment %}                            
                             <div class="image_wrapper image_fl"><img src="{{ STATIC_URL }}skins/greenboard/images/templatemo_image_01.jpg" alt="Image 1" /></div>
                             <p>Vivamus scelerisque consectetur nunc, nec vehicula lorem fermentum. Cras sodales arcu est, ac vulputate quam. Maecenas non turpis ipsum, viverra posuere. Ut vestibulum dictum tellus. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p> <div class="btn_more"><a href="#services">Read more</a></div>
 						</div>
+                        
                         
                         <div class="col_300 float_r">
                             <h2>About Us</h2> 
@@ -54,10 +56,11 @@
                             <div class="btn_more"><a href="#aboutus">Read more</a></div>
                             
                             <div class="cleaner_h30"></div>
-                            
+{% comment %}                            
                             <h2>Featured Work</h2>
                             <div class="image_wrapper"><img src="{{ STATIC_URL }}skins/greenboard/images/templatemo-image-02.jpg" alt="Image 2" /></div>
                             <div class="btn_more"><a href="#gallery">Read more</a></div>
+{% endcomment %}                            
                         </div>
                     </div> <!-- end of home -->
                     
@@ -202,10 +205,11 @@
         <div id="menu">
             <ul class="navigation">
                 <li><a href="#home" class="selected">Inicio<span class="ui_icon home"></span></a></li>
-                <li><a href="#aboutus">Sobre nosotros<span class="ui_icon aboutus"></span></a></li>
-                <li><a href="#services">Services<span class="ui_icon services"></span></a></li>
-                <li><a href="#gallery">Gallery<span class="ui_icon gallery"></span></a></li>
-                <li><a href="#contactus">Contáctanos<span  class="ui_icon contactus"></span></a></li>
+                <li><a href="#aboutus">Recursos<span class="ui_icon aboutus"></span></a></li>
+                <li><a href="#services">Materias<span class="ui_icon services"></span></a></li>
+                <li><a href="#gallery">Exámenes<span class="ui_icon gallery"></span></a></li>
+                <li><a href="#contactus">Repasos<span  class="ui_icon contactus"></span></a></li>
+                <li><a href="#contactus">Sobre nosotros<span  class="ui_icon contactus"></span></a></li>
             </ul>
         </div>
         

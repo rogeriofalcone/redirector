@@ -6,11 +6,12 @@ from main.models import CurrentSite
 
 from webtheme.literals import SKIN_CHOICES
 
+
 class SiteSkinManager(models.Manager):
     def get_current_skin(self):
         current_site = CurrentSite.objects.get_current_site()
         try:
-            return self.model.objects.get(site=current_site).skin
+            return self.get(site=current_site).skin
         except SiteSkin.DoesNotExist:
             return u''            
         
