@@ -245,7 +245,7 @@ def form_url(url, encode=False, site=None):
 
 @print_timing       
 def intercept_links(soup, url, encode=False, site=None):
-    #if encode:
+    if encode:
         # Encode images path
         for image in soup.findAll('img'):
             if image.get('src'):
