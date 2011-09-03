@@ -34,14 +34,16 @@ ATTRIBUTE_CHOICES = (
     (ATTRIBUTE_ID, _(u'ID')),
 )
 
-COMPARISON_ICONTAINS = 'icontains'
 COMPARISON_CONTAINS = 'contains'
+COMPARISON_ICONTAINS = 'icontains'
 COMPARISON_EQUALS = 'equals'
+COMPARISON_IEQUALS = 'iequals'
 
 COMPARISON_CHOICES = (
     (COMPARISON_ICONTAINS, _(u'Contains')),
     (COMPARISON_CONTAINS, _(u'Contains (case sensitive)')),
-    (COMPARISON_EQUALS, _(u'Equals')),
+    (COMPARISON_IEQUALS, _(u'Equals')),
+    (COMPARISON_EQUALS, _(u'Equals (case sensitive)')),
 )
 
 OPERAND_OR = 'or'

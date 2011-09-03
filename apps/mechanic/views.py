@@ -13,8 +13,8 @@ from mechanic.utils import decode_url
 logger = logging.getLogger(__name__)
 
 
-def fetch_coded(request, coded_url=None, origin_id=None):
-    return fetch(request, decode_url(coded_url), origin_id=origin_id)
+def fetch_coded(request, coded_url=None, site_domain=None):
+    return fetch(request, decode_url(coded_url), site_domain=site_domain)
     
 
 def fetch(request, url=None, site_domain=None):
