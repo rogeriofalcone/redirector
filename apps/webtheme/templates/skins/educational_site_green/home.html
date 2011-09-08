@@ -1,0 +1,46 @@
+{% extends "skins/educational_site_green/base.html" %}
+{% load i18n %}
+{% block header %}
+    <!-- HEADER -->
+    <!-- image of the kids by horizontal.integration: http://flickr.com/photos/ebolasmallpox/1066368855/in/set-72157601353861692/ -->
+    <div id="home_header_wrapper">
+        <div class="head_l"></div>
+        <div class="intro">
+            <h1>Educate primero... y tus sueños se harán realidad</h1>
+            <p>Portal educativo de 1roEducate.com</p>
+        </div> <!-- / intro -->
+        <div class="head_r">&nbsp;</div>
+        <div id="orbit-wrapper">
+            <div id="featured"> 
+                 <img src="{{ STATIC_URL }}skins/{{ skin }}/images/kids_green.jpg"  />
+                 <img src="{{ STATIC_URL }}skins/{{ skin }}/images/back2school.jpg" />
+                 <img src="{{ STATIC_URL }}skins/{{ skin }}/images/book_ladder.jpg" data-caption="#book_ladder_caption" />
+                 <img src="{{ STATIC_URL }}skins/{{ skin }}/images/teacher_student.jpg" />
+                 <img src="{{ STATIC_URL }}skins/{{ skin }}/images/jump.jpg" />
+            </div>
+            <span class="orbit-caption" id="book_ladder_caption">Conocimiento, la esclara a tu futuro.</span>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}    
+    <!-- CONTENT -->
+        <h1>Sobre este portal</h1>
+        <img class="alignleft" src="{{ STATIC_URL }}skins/{{ skin }}/images/hands.jpg" alt="" />				
+        <p>
+            1roEducate.com un proyecto de Barquin International que busca fomentar el aprendizaje a traves del facil acceso a la información.  Barquin tiene una experiencia sin igual de más de medio siglo en el campo de la educación en Puerto Rico, el Caribe y los Estados Unidos. Entre sus ejecutivos se encuentran también los fundadores y directivos de más de una veintena de instituciones educativas exitosas y lideres en su campo. Habiendo sido asesores y suplidores responsables y exitosos del Departamento de Educación, conocen la cultura, retos y oportunidades del sistema educativo. Con influencia por los últimos 70 años en Washington DC y con oficinas propias sirviendo al gobierno federal, Barquin mantiene acceso directo a la dirección del Departamento de Educación de los Estados Unidos, el Congreso y la Oficina de Asuntos Federales de Puerto Rico (PRFAA). 
+        </p>
+{% endblock %}
+
+{% block sidebar %}    
+    <!-- SIDEBAR -->
+        <h2>Noticias y anuncios</h2>
+        <ul id="news">
+            <li>
+                <!-- images must be 54x54px -->
+                <a href="#"><img src="{{ STATIC_URL }}skins/{{ skin }}/images/temp/news1.jpg" alt="" width="54" /> </a>
+                <h3>Nuevo rediseño de nuestra página</h3>
+                <p>Completamente nuevo sistema de navegación y apariecia visual.</p>
+            </li>
+        </ul>
+{% endblock %}

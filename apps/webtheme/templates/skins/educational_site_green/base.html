@@ -1,0 +1,370 @@
+{#{% extends "web_theme_base.html" %}#}
+{% load i18n %}
+{% load settings %}
+{% load navigation_tags %}
+{% load project_tags %}
+{% load template_view_mode_tags %}
+{% load variable_tags %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+ ____________________________________________________________
+|                                                            |
+|    DESIGN : Jeremie Tisseau { http://web-kreation.com }    |
+|      DATE : 2008.05.06                                     |
+|     EMAIL : webmaster@web-kreation.com                     |
+|____________________________________________________________|
+-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="Jeremie Tisseau" />
+        <meta name="author" content="Roberto Rosario" />
+        <meta name="keywords" content="educational, game, school, kids, children" />
+        <meta name="description" content="Educational portal for schools." />
+        <link rel="shorcut icon" href="/favicon.ico" />
+
+        <title>{% project_name %}{{ request.new_window_url }}{% block title %}{% endblock %}</title>
+        
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/famfamfam-silk-sprite.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/base.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/blue.css" type="text/css" />
+
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/dropdown_jquery.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/override.css" type="text/css" />
+
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ skin }}/js/jquery.dropdownPlain.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
+        <script type="text/javascript">
+            var animated_globe_url='{{ STATIC_URL }}skins/{{ skin }}/images/animated_globe.gif';
+            var barquin_globe_url='{{ STATIC_URL }}skins/{{ skin }}/images/barquin_globe.png';
+            var iframeHeightDifference;
+
+            function resizeIframe(){
+                $('#iframe_portal').attr("height", $(window).height()-iframeHeightDifference);
+            }
+
+            $(window).load(function() {
+                $('#orbit-wrapper').show();
+
+                $('#featured').orbit({
+                    captions: false, 			 // do you want captions?
+                    captionAnimation: 'fade', 		 // fade, slideOpen, none
+                    captionAnimationSpeed: 800 	 // if so how quickly should they animate in                 
+                });
+            });
+           
+            $(document).ready(function() {
+                $(".button_link").click(function(){
+                    location.href = $(this).parent().attr('href');
+                });
+                
+                $(".message").fadeIn("slow");
+                $(".dismiss").click(function(){
+                    $(this).parent().parent().fadeOut("slow"); return false;
+                });
+                $(".dismiss-all").click(function(){
+                    $(".message").each(function(){
+                        $(this).fadeOut("slow");
+                    });     
+                    return false;
+                });
+                $('th input:checkbox').click(function(e) {
+                    var table = $(e.target).closest('table');
+                    $('td input:checkbox', table).attr('checked', e.target.checked);
+                });                
+                	
+                iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+5;
+
+                $(window).bind('resize', function() {
+                    $('#iframe_portal').attr("width", $(this).width());
+                    $('#iframe_portal').attr("height", $(this).height()-iframeHeightDifference);
+                });
+
+                $('#iframe_portal').hide();
+
+                $('#iframe_portal').load(function(){
+                    $('#barquin_globe').attr('src', barquin_globe_url);
+                   
+                    $('#iframe_portal').contents().find('a').bind('click', function(){
+                        //TODO:  exclude links with '#' as their href
+                        $('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
+                    });
+                    
+                    resizeIframe();
+                });
+
+                $('a').live('click', function() {
+                    $('#barquin_globe').attr('src', animated_globe_url);
+                });
+               
+                $('a.redirected').live('click', function() {
+                    resizeIframe();
+                    $('#iframe_portal').attr('src', $(this).attr('href'));
+                    $('#iframe_portal').show();
+                    $('#contents').hide();
+                    return false;
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            {% template_view_mode %}
+            {% if template_view_mode != 'plain' and template_view_mode != 'bare'%}
+                <div id="top">
+                    <div class="logo">
+                        <a href="{% url home %}" title="">
+                            <img id="barquin_globe" src="{{ STATIC_URL }}skins/{{ skin }}/images/barquin_globe.png" /><img id="barquin_logo_words" src="{{ STATIC_URL }}skins/{{ skin }}/images/barquin_logo_words.png" />
+                        </a>
+                        <span id="barquin_address">452 Ponce de León Ave. Suite 520 San Juan P.R. 00918</span>
+                    </div>
+                    <!-- login -->
+                    <!-- If you don't need a login section, just delete it below -->
+                    <ul class="login">
+                        <li class="left">&nbsp;</li>
+                        
+                        <li><strong>{% trans "User" %}:</strong>
+                            {% if user.is_anonymous %}
+                                {% trans "Anonymous" %}
+                            {% else %}
+                                {{ user.get_full_name|default:user }}
+                                    <a href="{% url current_user_details %}" title="{% trans 'User details' %}"><span class="famfam active famfam-vcard"></span></a>
+                            {% endif %}
+                        </li>
+                        
+                        <li>|</li>
+                        {% get_setting "LOGIN_URL" as login_url %}
+                        <li><a class="logout redirected" href="{% if user.is_anonymous %}{% url login_view %}?next={% url top_redirect  %}{% else %}{% url logout_view %}?next_page={% url top_redirect %}{% endif %}">{% if user.is_anonymous %}{% trans "Login" %}{% else %}{% trans "Logout" %}{% endif %}</a></li>
+                    </ul> <!-- / login -->
+                </div> <!-- / top -->
+
+
+                <!-- MAIN NAVIGATION -->
+                <ul id="nav" class="dropdown">
+                    <li><a href="{% url home %}" title="">Inicio</a></li>
+                
+                    <li>
+                        <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <!-- submenu -->
+                        <ul>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Diccionario_v2/a.htm' %}" title="">Diccionario</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.proyectosalonhogar.com/banco_imagenes/banco_imagenes_index.htm' %}" title="">Fotos y laminas</a></li>
+                           <li><a class="redirected" href="http://revisor.com.ar/" title="">Corrector</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.proyectosalonhogar.com/Diversos_Temas/Mapas_de_referencia.htm' %}" title="">Mapas</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.proyectosalonhogar.com/flash/calculator.swf' %}" title="">Calculadora</a></li>
+                           <li><a class="redirected" href="http://babelfish.yahoo.com/" title="">Traductor</a></li>
+                        </ul>
+                    </li> <!-- /end Drop Down Example -->
+                    <li>
+                        <a href="#" title="">Materias<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <!-- submenu -->
+                        <ul>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Espanol/espanol_s.htm' %}" title="">Español</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Ingles/ingles_s.htm' %}" title="">Inglés</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Matematicas/matematica_s.htm' %}" title="">Matemáticas</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Historia/sociales_s.htm' %}" title="">Estudios sociales</a></li>
+                           <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Ciencias/ciencias_s.htm' %}" title="">Ciencias</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <!-- submenu -->
+                        <ul>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Espanol.htm" title="">Español</a></li>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Ingl%C3%A9s.htm" title="">Inglés</a></li>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Matematicas.htm" title="">Matemáticas</a></li>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Estudios_Sociales.htm" title="">Estudios sociales</a></li>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/indice.htm" title="">Ciencias</a></li>
+                           <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/tutorias_en_linea/index.htm" title="">Ver todos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <!-- submenu -->
+                        <ul>
+                           <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
+                           <li><a class="redirected" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
+                           <li><a class="redirected" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
+                    {#<li><a href="{% url contact %}" title="">Contáctanos</a></li>#}
+                    {% get_top_menu_links %}
+                    {% for link in menu_links %}
+                        {% with "true" as as_li %}
+                        {% with "true" as hide_active_anchor %}
+                        {% with "active" as li_class_active %}
+                        {% with "first" as li_class_first %}
+                        {% with "redirected" as inherited_class %}
+                            {% include "generic_subnavigation.html" %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                    <li class="sep">&nbsp;</li>
+                </ul>
+                <!-- / END MAIN NAVIGATION -->
+
+                <div id="iframe-container" style="margin: auto; width: 100%; z-index:998;">
+                    <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999;">You need a Frames Capable browser to view this content.</iframe> 
+                </div>
+            {% endif %}
+
+            <div id="contents">
+                <div id="header">
+                    {% block header %}{% endblock %}
+
+                        {% if messages %}
+                            <div class="inner">
+                                <div class="flash">
+                                    {% for message in messages %}
+                                        <div class="message{% if message.tags %}{% if 'success' in message.tags %} notice{% endif %} {{ message.tags }}{% else %} notice{% endif %}" style="display: none;">
+                                            <p>
+                                                {{ message }}
+                                                <span class="dismiss-all"><a title={% trans "dismiss all notifications" %}>[{% trans "close all" %}]</a></span>
+                                                <span class="dismiss"><a title={% trans "dismiss this notification" %}>[{% trans "close" %}]</a></span>
+                                            </p>
+                                         </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    
+                </div>
+                <div id="content" {% if template_view_mode == 'bare' %}style="width: 100%;"{% endif %}>
+                    {% block content %}{% endblock %}
+                </div>            
+                {% if template_view_mode != 'bare' %}
+                    <div id="sidebar">
+                        {% get_object_navigation_links "secondary_menu" as object_navigation_links %}
+                        {% if object_navigation_links %}
+                            <div class="block">
+                                <h2>{% trans "Secondary menu" %}</h2>
+                                <ul class="navigation">
+                                    {% with "true" as as_li %}
+                                        {% include "generic_navigation.html" %}
+                                    {% endwith %}
+                                </ul>
+                            </div>
+                        {% endif %}
+        
+                         {% if navigation_object_list %}
+                            {% for navigation_object_dict in navigation_object_list %}
+                                {% copy_variable navigation_object_dict.object as "navigation_object_name" %}
+                                {% get_object_navigation_links as object_navigation_links %}
+                                {% if object_navigation_links %}
+                                    <div class="block">
+                                        {% if navigation_object %}
+                                            {% if navigation_object_dict.name %}
+                                                <h2>{% blocktrans with navigation_object_dict.name as name %}Actions for {{ name }}: {{ navigation_object }}{% endblocktrans %}</h2>
+                                            {% else %}
+                                                <h2>{% blocktrans %}Actions for: {{ navigation_object }}{% endblocktrans %}</h2>
+                                            {% endif %}
+                                        {% else %}
+                                            <h2>{% trans "Available actions" %}</h2>
+                                        {% endif %}
+                                        <ul class="navigation">
+                                            {% with "true" as as_li %}
+                                                {% include "generic_navigation.html" %}
+                                            {% endwith %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                                 {% get_object_navigation_links "related" as object_navigation_links %}
+                                    {% if object_navigation_links %}
+                                    <div class="block">
+                                        <h2>{% trans "Related actions" %}</h2>
+                                        <ul class="navigation">
+                                            {% with "true" as as_li %}
+                                                {% include "generic_navigation.html" %}
+                                            {% endwith %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            {% get_object_navigation_links as object_navigation_links %}
+                            {% if object_navigation_links %}
+                                <div class="block">
+                                    {% if navigation_object %}
+                                        {% if object_name %}
+                                            <h2>{% blocktrans %}Actions for {{ object_name }}: {{ navigation_object }}{% endblocktrans %}</h2>
+                                        {% else %}
+                                            <h2>{% blocktrans %}Actions for: {{ navigation_object }}{% endblocktrans %}</h2>
+                                        {% endif %}
+                                    {% else %}
+                                        <h2>{% trans "Actions" %}</h2>
+                                    {% endif %}
+                                    <ul class="navigation">
+                                        {% with "true" as as_li %}
+                                            {% include "generic_navigation.html" %}
+                                        {% endwith %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            {% get_object_navigation_links "related" as object_navigation_links %}
+                                {% if object_navigation_links %}
+                                <div class="block">
+                                    <h2>{% trans "Related actions" %}</h2>
+                                    <ul class="navigation">
+                                        {% with "true" as as_li %}
+                                            {% include "generic_navigation.html" %}
+                                        {% endwith %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% get_object_navigation_links "sidebar" as object_navigation_links %}
+                            {% if object_navigation_links %}
+                            <div class="block">
+                                <h2>{% trans "Other available actions" %}</h2>
+                                <ul class="navigation">
+                                    {% with "true" as as_li %}
+                                        {% include "generic_navigation.html" %}
+                                    {% endwith %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        {% get_sidebar_templates as sidebar_templates %}
+                        {% for template in sidebar_templates %}
+                            {% with "true" as side_bar %}
+                                {% include template %}
+                            {% endwith %}
+                        {% endfor %}
+
+                        {% block sidebar %}{% endblock %}
+                    </div> <!-- / Sidebar -->     
+                {% endif %}
+            </div>
+            <div style="clear: both;"></div>
+            {% if template_view_mode != 'plain' and template_view_mode != 'bare' %}
+                <!-- Footer -->
+                <div id="footer">
+                    <div class="foot_l"></div>
+                    <div class="foot_content">
+                        <p>Portal captivo por <a href="http://www.about.me/roberto.rosario">Roberto Rosario</a>. Plantilla por <a href="http://web-kreation.com" title="Web-kreation.com">Web-kreation</a></p>
+                    </div>
+                    <div class="foot_r">&nbsp;</div>
+                    
+                </div><!-- / footer -->
+            {% endif %}
+
+            </div><!-- / wrapper -->
+    </body>
+</html>
+
+
+{% comment %}
+
+    {% endcomment %}
