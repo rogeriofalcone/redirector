@@ -78,3 +78,9 @@ div.timer {
     font-weight:bold
 }
 
+#center_logo_wrapper {
+    width: 100%;
+    text-align: center;
+	background: url(../images/center_logo_bg.png) repeat-x 0 0;
+    
+}

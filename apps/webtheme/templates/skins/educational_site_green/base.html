@@ -28,20 +28,20 @@
         <title>{% project_name %}{{ request.new_window_url }}{% block title %}{% endblock %}</title>
         
         <link rel="stylesheet" href="{{ STATIC_URL }}css/famfamfam-silk-sprite.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/base.css" type="text/css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/blue.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/base.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/blue.css" type="text/css" />
 
-        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/style.css" type="text/css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/dropdown_jquery.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/dropdown_jquery.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ skin }}/css/override.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/override.css" type="text/css" />
 
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
-        <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ skin }}/js/jquery.dropdownPlain.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ current_skin }}/js/jquery.dropdownPlain.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
         <script type="text/javascript">
-            var animated_globe_url='{{ STATIC_URL }}skins/{{ skin }}/images/animated_globe.gif';
-            var barquin_globe_url='{{ STATIC_URL }}skins/{{ skin }}/images/barquin_globe.png';
+            var animated_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/animated_globe.gif';
+            var barquin_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/barquin_globe.png';
             var iframeHeightDifference;
 
             function resizeIframe(){
@@ -78,7 +78,7 @@
                     $('td input:checkbox', table).attr('checked', e.target.checked);
                 });                
                 	
-                iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+5;
+                iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+$('#center_logo_wrapper').height()+5;
 
                 $(window).bind('resize', function() {
                     $('#iframe_portal').attr("width", $(this).width());
@@ -88,18 +88,18 @@
                 $('#iframe_portal').hide();
 
                 $('#iframe_portal').load(function(){
-                    $('#barquin_globe').attr('src', barquin_globe_url);
+                    //$('#barquin_globe').attr('src', barquin_globe_url);
                    
                     $('#iframe_portal').contents().find('a').bind('click', function(){
                         //TODO:  exclude links with '#' as their href
-                        $('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
+                        //$('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
                     });
                     
                     resizeIframe();
                 });
 
                 $('a').live('click', function() {
-                    $('#barquin_globe').attr('src', animated_globe_url);
+                    //$('#barquin_globe').attr('src', animated_globe_url);
                 });
                
                 $('a.redirected').live('click', function() {
@@ -118,11 +118,13 @@
             {% template_view_mode %}
             {% if template_view_mode != 'plain' and template_view_mode != 'bare'%}
                 <div id="top">
+
                     <div class="logo">
-                        <a href="{% url home %}" title="">
-                            <img id="barquin_globe" src="{{ STATIC_URL }}skins/{{ skin }}/images/barquin_globe.png" /><img id="barquin_logo_words" src="{{ STATIC_URL }}skins/{{ skin }}/images/barquin_logo_words.png" />
-                        </a>
-                        <span id="barquin_address">452 Ponce de León Ave. Suite 520 San Juan P.R. 00918</span>
+                        {#<a href="{% url home %}" title="">#}
+                            {#<img id="barquin_globe" src="{{ STATIC_URL }}skins/{{ current_skin }}/images/barquin_globe.png" /><img id="barquin_logo_words" src="{{ STATIC_URL }}skins/{{ current_skin}}/images/barquin_logo_words.png" />#}
+                        {#</a>#}
+                        {#<span id="barquin_address">452 Ponce de León Ave. Suite 520 San Juan P.R. 00918</span>#}
+                        
                     </div>
                     <!-- login -->
                     <!-- If you don't need a login section, just delete it below -->
@@ -144,13 +146,15 @@
                     </ul> <!-- / login -->
                 </div> <!-- / top -->
 
-
+            <div id="center_logo_wrapper">
+                <img style="" class="" id="" src="{{ STATIC_URL }}skins/{{ current_skin }}/images/center_logo.png" />
+            </div>
                 <!-- MAIN NAVIGATION -->
                 <ul id="nav" class="dropdown">
                     <li><a href="{% url home %}" title="">Inicio</a></li>
                 
                     <li>
-                        <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
@@ -163,7 +167,7 @@
                         </ul>
                     </li> <!-- /end Drop Down Example -->
                     <li>
-                        <a href="#" title="">Materias<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Materias<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Espanol/espanol_s.htm' %}" title="">Español</a></li>
@@ -174,7 +178,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Espanol.htm" title="">Español</a></li>
@@ -186,7 +190,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>

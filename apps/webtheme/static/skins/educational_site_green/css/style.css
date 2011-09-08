@@ -167,16 +167,17 @@ img.aligncenter {
 
 /***** TOP PAGE *****/
 #top {
-	height: 80px;
-	padding: 0 25px;
-  	background: #F4F4EA url(../images/bg.jpg) repeat-x 0 0;
+	height: 40px;
+	/*padding: 0 25px;*/
+  	background: #F4F4EA url(../images/header-bg.png) repeat-x 0 0;
 }
 
 #top .logo {
   	/*height: 15px;*/
   	float: left;
   	clear: left;
-  	margin-top: 15px;
+  	margin-top: 45px;
+    margin-left: auto;
 }
 
 #top .logo a {
