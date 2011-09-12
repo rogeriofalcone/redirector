@@ -3,10 +3,10 @@
 
 #nav {
 	display: block;
-	background: transparent url(../images/nav_bg.png) repeat-x left top;
+	background: transparent url(../images/menu-background.png) repeat-x left top;
 	padding: 0;
 	margin: 0;
-	height: 34px;
+	height: 38px;
 	z-index: 100;
   	position: relative;
 	width: 100%;
@@ -18,11 +18,11 @@
 	text-align: center;
 	display: block;
 	float: left;
-	height: 34px;
+	height: 38px;
 	margin: 0;
 	padding: 0;
   	position: relative;
-	background: url(../images/nav_sep.jpg) no-repeat 0 0;
+	background: url(../images/menu-devider.png) no-repeat 0 0;
 }
 
 #nav li a {
@@ -30,7 +30,7 @@
 	height: 25px;
 	padding: 0 15px;
 	padding-top: 9px;
-	color: #ccc;
+	color: #D2E288;
 	font-size: 0.9em;
 	margin-left: 2px;
 }
@@ -47,12 +47,12 @@
 }
 
 #nav li.sep {
-	background: url(../images/nav_sep.jpg) no-repeat 0 0;
-	width: 2px;
+	background: url(../images/menu-devider.png) no-repeat 0 0;
+	width: 1px;
 	height: 34px;
 	float: left;
 }
-
+/*
 #nav li.left {
 	background: url(../images/nav_l.jpg) no-repeat left top;
 	width: 36px;
@@ -66,11 +66,11 @@
 	height: 34px;
 	float: right;
 }
-
+*/
 #nav li ul {
 	width: 170px;
 	position: absolute;
-	top: 34px;
+	top: 38px;
 	left: 0;
 	margin: 0;
 	padding: 0;
@@ -95,21 +95,21 @@
   	border-top: 1px #333 solid;
   	white-space: nowrap;
   	background: #000;
-  	color: white;
+  	color: #D2E288;
   	text-align: left;
   	line-height: 25px;
   	font-weight: normal;
 }
 
 #nav li ul li a:hover {
-  	color: #599be0;
+  	color: white;
   	background: #111;
 }
 
 /* Hacks for Opera to fix the drop down menu problem */
 html:first-child #nav li a {
 	float: none;
-	height: 34px;
+	height: 38px;
 	padding-top: 0;
 	line-height: 34px;
 	display: block;

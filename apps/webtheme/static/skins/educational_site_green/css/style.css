@@ -167,9 +167,11 @@ img.aligncenter {
 
 /***** TOP PAGE *****/
 #top {
-	height: 40px;
+	height: 37px;
 	/*padding: 0 25px;*/
-  	background: #F4F4EA url(../images/header-bg.png) repeat-x 0 0;
+  	/*background: #F4F4EA url(../images/header-bg.png) repeat-x 0 0;*/
+  	background: url(../images/login_bg.png) repeat-x 0 0;
+    
 }
 
 #top .logo {
@@ -206,12 +208,14 @@ img.aligncenter {
   	color: white;
   	font-size: 80%;
 	text-align: center;
-  	background: url(../images/login_r.png) no-repeat right 0;
+/*  	background: url(../images/login_r.png) no-repeat right 0;*/
+  	background: url(../images/login_bg.png) repeat-x 0 0;
 	padding-right: 40px;
 }
 
 #top ul.login li.left {
-  	background: url(../images/login_l.png) no-repeat left 0;
+  	/*background: url(../images/login_l.png) no-repeat left 0;*/
+  	background: url(../images/login_bg.png) repeat-x 0 0;
   	height: 36px;
 	width: 40px;
 	padding: 0;
@@ -230,7 +234,7 @@ img.aligncenter {
 }
 
 #top ul.login li a {
-	color: #aaa;
+	color: #D2E288;
 }
 
 #top ul.login li a:hover {
@@ -472,13 +476,14 @@ img.aligncenter {
 	width: 100%;
 	height: 42px;
 	background: #F4F4EA url(../images/footer_bg.png) repeat-x 0 0;
-	color: #ddd;
+	color: #D2E288;
 	font-size: 0.9em;
 }
 
 #footer a {
-	color: #ddd;
+	color: #D2E288;
 	border-bottom: 1px dotted #555;
+    font-weight: bold;
 }
 
 #footer a:hover {
