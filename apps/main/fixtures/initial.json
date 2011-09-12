@@ -393,7 +393,7 @@
             "parent_count": 0, 
             "attribute": "href", 
             "action_argument": "", 
-            "enabled": true, 
+            "enabled": false, 
             "sites": [], 
             "element": "a", 
             "action": "remove"
@@ -408,7 +408,7 @@
             "parent_count": 2, 
             "attribute": "content", 
             "action_argument": "'10CIMO'", 
-            "enabled": true, 
+            "enabled": false, 
             "sites": [], 
             "element": "a", 
             "action": "remove"
@@ -1152,7 +1152,7 @@
         "model": "webtheme.siteskin", 
         "fields": {
             "site": 1, 
-            "skin": "educational_site"
+            "skin": "educational_site_green"
         }
     }, 
     {
