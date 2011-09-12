@@ -44,8 +44,11 @@
             var barquin_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/barquin_globe.png';
             var iframeHeightDifference;
 
-            function resizeIframe(){
+            function resizeIframeToWindow(){
                 $('#iframe_portal').attr("height", $(window).height()-iframeHeightDifference);
+            }
+
+            function resizeIframeToContent(){
             }
 
             $(window).load(function() {
@@ -82,7 +85,7 @@
 
                 $(window).bind('resize', function() {
                     $('#iframe_portal').attr("width", $(this).width());
-                    $('#iframe_portal').attr("height", $(this).height()-iframeHeightDifference);
+                //    $('#iframe_portal').attr("height", $(this).height()-iframeHeightDifference);
                 });
 
                 $('#iframe_portal').hide();
@@ -94,16 +97,23 @@
                         //TODO:  exclude links with '#' as their href
                         //$('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
                     });
-                    
-                    resizeIframe();
+                    //resizeIframeToContent();
+                    $(this).contents().find('body').css({"min-height": "100", "overflow" : "hidden"});
+                    $(this).height($(this).contents().find('body').height());
+                    //$(top.document).scrollTop();
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 });
 
+                $('#iframe_portal').resize(function(){
+                   alert('sized'); 
+                });
+                    
                 $('a').live('click', function() {
                     //$('#barquin_globe').attr('src', animated_globe_url);
                 });
                
                 $('a.redirected').live('click', function() {
-                    resizeIframe();
+                    resizeIframeToWindow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
                     $('#contents').hide();
@@ -154,7 +164,7 @@
                     <li><a href="{% url home %}" title="">Inicio</a></li>
                 
                     <li>
-                        <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#"  title="">Recursos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Diversos_Temas/NuevaEnciclopedia.htm' %}" title="">Biblioteca</a></li>
@@ -167,7 +177,7 @@
                         </ul>
                     </li> <!-- /end Drop Down Example -->
                     <li>
-                        <a href="#" title="">Materias<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Materias<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="{% url fetch '1roeducate.com' 'http://www.salonhogar.net/Salones/Espanol/espanol_s.htm' %}" title="">Español</a></li>
@@ -178,7 +188,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Exámenes<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="http://www.salonhogar.net/1roeducate/Enlaces/Espanol.htm" title="">Español</a></li>
@@ -190,7 +200,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.jpg" alt="" /></a>
+                        <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
                            <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
@@ -219,7 +229,7 @@
                 <!-- / END MAIN NAVIGATION -->
 
                 <div id="iframe-container" style="margin: auto; width: 100%; z-index:998;">
-                    <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999;">You need a Frames Capable browser to view this content.</iframe> 
+                    <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999;" scrolling="no">You need a Frames Capable browser to view this content.</iframe> 
                 </div>
             {% endif %}
 
