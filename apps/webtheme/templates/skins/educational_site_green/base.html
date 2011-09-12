@@ -35,10 +35,12 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/dropdown_jquery.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/override.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.css" type="text/css" />
 
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ current_skin }}/js/jquery.dropdownPlain.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
+        <script src="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.min.js"></script>
         <script type="text/javascript">
             var animated_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/animated_globe.gif';
             var barquin_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/barquin_globe.png';
@@ -96,23 +98,27 @@
                     $('#iframe_portal').contents().find('a').bind('click', function(){
                         //TODO:  exclude links with '#' as their href
                         //$('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
+                        $('#center_logo_wrapper').mask('Loading...');
+                        document.body.style.cursor = 'progress'; 
                     });
                     //resizeIframeToContent();
                     $(this).contents().find('body').css({"min-height": "100", "overflow" : "hidden"});
                     $(this).height($(this).contents().find('body').height());
                     //$(top.document).scrollTop();
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $('html, body').animate({ scrollTop: 0 }, 0);
+                    $('#center_logo_wrapper').unmask();
+                    document.body.style.cursor = 'auto'; 
                 });
-
-                $('#iframe_portal').resize(function(){
-                   alert('sized'); 
-                });
-                    
+                   
                 $('a').live('click', function() {
-                    //$('#barquin_globe').attr('src', animated_globe_url);
+                    //$('#center_logo_wrapper').attr('src', animated_globe_url);
+                    $('#center_logo_wrapper').mask('Loading...');
+                    document.body.style.cursor = 'progress';                     
                 });
                
                 $('a.redirected').live('click', function() {
+                    //$('#iframe-container').loadingOverlay();
+                    document.body.style.cursor = 'progress';                     
                     resizeIframeToWindow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
@@ -122,7 +128,6 @@
             });
         </script>
     </head>
-
     <body>
         <div id="wrapper">
             {% template_view_mode %}
