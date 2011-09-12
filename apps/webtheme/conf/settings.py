@@ -38,5 +38,27 @@ TEMPLATE_VIEW_MODES = {
         'role_delete': TEMPLATE_VIEW_MODE_PLAIN,
         'permission_grant_revoke': TEMPLATE_VIEW_MODE_PLAIN,
         'role_members': TEMPLATE_VIEW_MODE_PLAIN,
-    }
+    },
+    'educational_site_green': {
+        'login': TEMPLATE_VIEW_MODE_BARE,
+        'setup_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'user_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'user_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'user_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'user_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        'user_set_password': TEMPLATE_VIEW_MODE_PLAIN,
+        'group_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'group_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'group_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'group_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        'group_members': TEMPLATE_VIEW_MODE_PLAIN,
+        
+        'role_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_permissions': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_create': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        'permission_grant_revoke': TEMPLATE_VIEW_MODE_PLAIN,
+        'role_members': TEMPLATE_VIEW_MODE_PLAIN,
+    }    
 }

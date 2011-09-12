@@ -1,0 +1,46 @@
+{% extends "skins/educational_site_green/base.html" %}
+{% load i18n %}
+{% block header %}
+    <!-- HEADER -->
+    <!-- image of the kids by horizontal.integration: http://flickr.com/photos/ebolasmallpox/1066368855/in/set-72157601353861692/ -->
+    <div id="home_header_wrapper">
+        <div class="head_l"></div>
+        <div class="intro">
+            <h1>Educate primero... y tus sueños se harán realidad</h1>
+            <p>Portal educativo cibernético</p>
+        </div> <!-- / intro -->
+        <div class="head_r">&nbsp;</div>
+        <div id="orbit-wrapper">
+            <div id="featured"> 
+                 <img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/kids_green.jpg"  />
+                 <img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/back2school.jpg" />
+                 <img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/book_ladder.jpg" data-caption="#book_ladder_caption" />
+                 <img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/teacher_student.jpg" />
+                 <img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/jump.jpg" />
+            </div>
+            <span class="orbit-caption" id="book_ladder_caption">Conocimiento, la esclara a tu futuro.</span>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}    
+    <!-- CONTENT -->
+        <h1>Sobre este portal</h1>
+        <img class="alignleft" src="{{ STATIC_URL }}skins/{{ current_skin }}/images/hands.jpg" alt="" />				
+        <p>
+            Primero Edúcate un proyecto que busca fomentar el aprendizaje a través del fácil acceso a la información utilizando las ultimas tecnologías disponibles, para sumergir al estudiante en un mar de conocimientos organizados, revisados en niveles y temas para la mejor absorción de éstos.
+        </p>
+{% endblock %}
+
+{% block sidebar %}    
+    <!-- SIDEBAR -->
+        <h2>Noticias y anuncios</h2>
+        <ul id="news">
+            <li>
+                <!-- images must be 54x54px -->
+                <a href="#"><img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/temp/news1.jpg" alt="" width="54" /> </a>
+                <h3>Nuevo rediseño de nuestra página</h3>
+                <p>Completamente nuevo sistema de navegación y apariecia visual.</p>
+            </li>
+        </ul>
+{% endblock %}
