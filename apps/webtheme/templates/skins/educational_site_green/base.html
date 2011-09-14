@@ -53,12 +53,14 @@
         
             function loadingAnimationShow() {
                 $('#center_logo_wrapper').mask('Loading...');
-                document.body.style.cursor = 'progress';                 
+                $('body').css('cursor', 'progress');
+                $('#iframe_portal').contents().find('body').css('cursor', 'progress');
             }
 
             function loadingAnimationHide() {
                 $('#center_logo_wrapper').unmask();
-                document.body.style.cursor = 'auto';             
+                $('body').css('cursor', 'auto');
+                $('#iframe_portal').contents().find('body').css('cursor', 'auto');
             }
 
             $(window).load(function() {
@@ -78,18 +80,18 @@
                 $('iframe').iframeAutoHeight({debug: false});
                 
                 //
-                $(".button_link").click(function(){
+                $('.button_link').click(function(){
                     location.href = $(this).parent().attr('href');
                 });
                 
                 //Message handling
-                $(".message").fadeIn("slow");
-                $(".dismiss").click(function(){
-                    $(this).parent().parent().fadeOut("slow"); return false;
+                $('.message').fadeIn('slow');
+                $('.dismiss').click(function(){
+                    $(this).parent().parent().fadeOut('slow'); return false;
                 });
-                $(".dismiss-all").click(function(){
-                    $(".message").each(function(){
-                        $(this).fadeOut("slow");
+                $('.dismiss-all').click(function(){
+                    $('.message').each(function(){
+                        $(this).fadeOut('slow');
                     });     
                     return false;
                 });
@@ -103,13 +105,11 @@
                 //Frame resize on browser resize
                 $(window).bind('resize', function() {
                     $('#iframe_portal').attr("width", $(this).width());
-                //    $('#iframe_portal').attr("height", $(this).height()-iframeHeightDifference);
                 });
 
                 $('#iframe_portal').load(function(){
                     $('#iframe_portal').contents().find('a').bind('click', function(){
                         //TODO:  exclude links with '#' as their href
-                        //$('body', top.document).find('#barquin_globe').attr('src', animated_globe_url);
                         loadingAnimationShow();
                     });
                     $('html, body').animate({scrollTop: 0}, 0);
@@ -118,7 +118,7 @@
                    
                 $('a.redirected').live('click', function() {
                     loadingAnimationShow();
-                    resizeIframeToWindow();
+                    //resizeIframeToWindow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
                     $('#contents').hide();
