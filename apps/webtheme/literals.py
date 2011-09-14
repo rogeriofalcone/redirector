@@ -14,4 +14,4 @@ SKIN_CHOICES = (
 
 TEMPLATE_VIEW_MODE_FULL = u'full'
 TEMPLATE_VIEW_MODE_PLAIN = u'plain'  # No title, footer
-TEMPLATE_VIEW_MODE_BARE = u'bare'  # No title, footer, sidebar (for login)
+TEMPLATE_VIEW_MODE_BARE = u'bare'  # No title, footer, or sidebar (for login)
