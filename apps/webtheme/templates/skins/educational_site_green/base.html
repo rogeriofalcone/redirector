@@ -43,16 +43,14 @@
         <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.min.js"></script>
         <script type="text/javascript">
-            var animated_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/animated_globe.gif';
-            var barquin_globe_url='{{ STATIC_URL }}skins/{{ current_skin }}/images/barquin_globe.png';
-            var iframeHeightDifference;
+            //var iframeHeightDifference;
 
             function resizeIframeToWindow(){
                 $('#iframe_portal').attr("height", $(window).height()-iframeHeightDifference);
             }
         
             function loadingAnimationShow() {
-                $('#center_logo_wrapper').mask('Loading...');
+                $('#center_logo_wrapper').mask('{% trans "Loading..." %}');
                 $('body').css('cursor', 'progress');
                 $('#iframe_portal').contents().find('body').css('cursor', 'progress');
             }
@@ -74,10 +72,11 @@
             });
            
             $(document).ready(function() {
-                iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+$('#center_logo_wrapper').height()+5;
-
-                // Automatically resize iframe heigh on new content
-                $('iframe').iframeAutoHeight({debug: false});
+                iframeHeightDifference=$('#top').height()+$('#nav').height()+$('#footer').height()+$('#center_logo_wrapper').height();
+                iframeHeight = $(window).height()-iframeHeightDifference;
+                
+                // Automatically resize iframe height on new content
+                $('iframe').iframeAutoHeight({minHeight: iframeHeight});
                 
                 //
                 $('.button_link').click(function(){
@@ -108,7 +107,7 @@
                 });
 
                 $('#iframe_portal').load(function(){
-                    $('#iframe_portal').contents().find('a').bind('click', function(){
+                    $(this).contents().find('a').bind('click', function(){
                         //TODO:  exclude links with '#' as their href
                         loadingAnimationShow();
                     });
@@ -118,7 +117,7 @@
                    
                 $('a.redirected').live('click', function() {
                     loadingAnimationShow();
-                    //resizeIframeToWindow();
+                    resizeIframeToWindow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
                     $('#contents').hide();

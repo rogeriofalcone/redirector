@@ -15,9 +15,6 @@ class SiteSkinManager(models.Manager):
         except SiteSkin.DoesNotExist:
             return u''            
         
-        #return u'educational_site'
-        #return u'greenboard'
-        
 
 class SiteSkin(models.Model):
     site = models.ForeignKey(Site, unique=True, verbose_name=_(u'site'))
