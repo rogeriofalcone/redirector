@@ -11,7 +11,8 @@ html, body {border: 0; margin: 0; padding: 0;}
 
 body {
   	font: 90%/1 arial, helvetica, sans-serif;
-	background: url(../images/bg_repeat.jpg) repeat 0 0;
+	background: white;
+    
   	line-height: 130%;
   	width: 100%;
   	min-width: 970px;
@@ -474,9 +475,9 @@ img.aligncenter {
 #footer {
 	clear: both;
 	width: 100%;
-	height: 42px;
-	background: #F4F4EA url(../images/footer_bg.png) repeat-x 0 0;
-	color: #D2E288;
+	height: 32px;
+	background: white url(../images/footer-background.png) repeat-x 0 0;
+	color: white;
 	font-size: 0.9em;
 }
 
@@ -490,7 +491,7 @@ img.aligncenter {
 	color: #fff;
 	border-bottom: none;
 }
-
+/*
 #footer .foot_l {
 	background: #070e16 url(../images/footer_l.png) no-repeat left top;
 	width: 80px;
@@ -513,11 +514,11 @@ img.aligncenter {
 	float: right;
 	clear: none;
 }
-
+*/
 #footer .foot_content {
 	display: block;
 	clear: none;
-	width: 88%;
+	width: 100%;
 	float: left;
 	clear: none;
 	padding: 6px 0 0 0;
@@ -529,7 +530,7 @@ img.aligncenter {
 	padding: 0;
 	line-height: 20px;
 }
-
+/*
 #footer .foot_content .logo {
 	display: block;
 	width: 196px;
@@ -551,7 +552,7 @@ img.aligncenter {
 	display: block;
 	background: url(../images/footer_logo.jpg) no-repeat 0 -38px;
 }
-
+*/
 /*
 #footer .foot_info {
 	display: block;
