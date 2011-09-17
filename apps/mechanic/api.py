@@ -46,8 +46,7 @@ def compare_elements(elements, element_comparison, rule_dictionary, attribute=No
             s2 = element
         else:
             # Compare an attribute of the element
-            attribute_value = element.get(attribute)
-            s2 = attribute_value
+            s2 = element.get(attribute)
         
         if s2:
             if COMPARISON_FUNCTIONS[element_comparison.attribute_comparison](element_comparison.value, s2):
@@ -164,7 +163,6 @@ def retrieve_html(url):
         content = response.read()
         content_type = response._headers.typeheader
     else:
-        transformed_response = {}
         response = requests.get(url, allow_redirects=True)
         status_code = response.status_code
         content = response.content

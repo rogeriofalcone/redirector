@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from mechanic.models import TransformationRule, ElementComparison
+from mechanic.models import TransformationRule, ElementComparison, Link
 
 
 class ElementComparisonInline(admin.StackedInline):
@@ -38,6 +38,12 @@ class TransformationRuleAdmin(admin.ModelAdmin):
             'fields': ('action', 'action_argument',)
         }),        
     )
-'''    
+''' 
+class LinkAdmin(admin.ModelAdmin):
+    model = Link
+    list_display = ('title', 'site', 'url', 'enabled')
+    #list_editable = ('title', 'action',)
+   
     
 admin.site.register(TransformationRule, TransformationRuleAdmin)
+admin.site.register(Link, LinkAdmin)

@@ -49,3 +49,32 @@ class ElementComparison(models.Model):
     class Meta:
         verbose_name = ''  #_(u'element comparison')
         verbose_name_plural = _(u'element comparisons')
+
+
+class Link(models.Model):
+    """
+    Define intercepted links
+    """
+    
+    title = models.CharField(max_length=64, verbose_name=_(u'title'))
+    description = models.TextField(blank=True, verbose_name=_(u'description'))
+    site = models.ForeignKey(Site, blank=True, null=True, verbose_name=_(u'sites'))
+    url = models.CharField(max_length=200, verbose_name=_(u'url'))
+    enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
+    
+    def __unicode__(self):
+        return '%s: %s [%s]' % (
+            self.title,
+            self.site,
+            'x' if self.enabled else u' ',
+        )
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('fetch', [self.site, self.url])
+
+    class Meta:
+        verbose_name = _(u'link')
+        verbose_name_plural = _(u'links')
+        ordering = ['title', 'site', 'url'] 
+    
