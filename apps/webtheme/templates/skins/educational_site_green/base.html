@@ -2,7 +2,6 @@
 {% load i18n %}
 {% load settings %}
 {% load navigation_tags %}
-{% load project_tags %}
 {% load template_view_mode_tags %}
 {% load variable_tags %}
 
@@ -25,7 +24,7 @@
         <meta name="description" content="Educational portal for schools." />
         <link rel="shorcut icon" href="/favicon.ico" />
 
-        <title>{% project_name %}{{ request.new_window_url }}{% block title %}{% endblock %}</title>
+        <title>{{ current_site.name }}{{ request.new_window_url }}{% block title %}{% endblock %}</title>
         
         <link rel="stylesheet" href="{{ STATIC_URL }}css/famfamfam-silk-sprite.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/base.css" type="text/css" />

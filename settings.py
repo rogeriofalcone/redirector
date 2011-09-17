@@ -152,6 +152,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
     'webtheme.context_processors.current_skin',
+    'common.context_processors.current_site',
 )
 
 #=================================
