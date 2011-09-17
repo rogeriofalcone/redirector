@@ -14,7 +14,7 @@ sys.path.append(os.path.join(PROJECT_ROOT, 'apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, 'shared_apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, '3rd_party_apps'))
 
-PROJECT_TITLE = 'Barquin International :: Primero Educate'
+PROJECT_TITLE = 'Redirector'
 PROJECT_NAME = 'redirector'
 
 DEBUG = False
@@ -152,6 +152,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
     'webtheme.context_processors.current_skin',
+    'common.context_processors.current_site',
 )
 
 #=================================

@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load project_tags %}
 {% load theme_tags %}
 
 {% get_login_redirect_url %}
@@ -11,7 +10,7 @@
     {% endif %}
 {% endblock %}
 
-{% block html_title %}{% project_name %} :: {% trans "Login" %}{% endblock %}
+{% block html_title %}{{ current_site.name }} :: {% trans "Login" %}{% endblock %}
 
 {% block content %}
     {% if not user.is_anonymous %}
@@ -28,7 +27,7 @@
         </div>
     {% else %}
         <div id="box">
-            <h1>{% project_name %}</h1>
+            <h1>{{ current_site.name }}</h1>
             <div class="block" id="block-login">
                 <h2>{% trans "Login" %}</h2>
                 <div class="content login">
