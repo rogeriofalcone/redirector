@@ -8,4 +8,7 @@ urlpatterns = patterns('menu_manager.views',
     url(r'^menu/(?P<menu_entry_id>\d+)/edit/$', 'menu_edit', (), 'menu_edit'),
     url(r'^menu/(?P<menu_entry_id>\d+)/delete/$', 'menu_delete', (), 'menu_delete'),
     url(r'^menu/multiple/delete/$', 'menu_multiple_delete', (), 'menu_multiple_delete'),
+    url(r'^menu/(?P<menu_entry_id>\d+)/promote/$', 'menu_promote', (), 'menu_promote'),
+    url(r'^menu/(?P<menu_entry_id>\d+)/demote/$', 'menu_demote', (), 'menu_demote'),
+
 )

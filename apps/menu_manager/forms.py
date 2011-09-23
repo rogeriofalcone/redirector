@@ -7,4 +7,4 @@ from menu_manager.models import MenuEntry
 class MenuEntryForm(forms.ModelForm):
     class Meta:
         model = MenuEntry
-        exclude = ('content_type', 'object_id', 'parent')
+        exclude = ('content_type', 'object_id', 'parent', 'order')

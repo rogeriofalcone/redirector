@@ -20,6 +20,11 @@ from common.views import assign_remove
 
 from menu_manager.models import MenuEntry
 from menu_manager.forms import MenuEntryForm
+from menu_manager import menu_promote as menu_promote_link
+from menu_manager import menu_demote as menu_demote_link
+from menu_manager import menu_edit as menu_edit_link
+from menu_manager import menu_delete as menu_delete_link
+from menu_manager import menu_add_child as menu_add_child_links
 
 
 def menu_list(request, parent_menu_entry_id=None):
@@ -51,6 +56,7 @@ def menu_list(request, parent_menu_entry_id=None):
         'multi_select_as_buttons': True,
         'object': parent_menu_entry,
         'object_name': _(u'menu entry'),
+        'navigation_object_links': [menu_promote_link, menu_demote_link, menu_edit_link, menu_delete_link],
     }
 
     return object_list(
@@ -68,9 +74,12 @@ def menu_edit(request, menu_entry_id):
     if request.method == 'POST':
         form = MenuEntryForm(instance=menu_entry, data=request.POST)
         if form.is_valid():
-            form.save()
+            menu_entry = form.save()
             messages.success(request, _(u'Menu entry "%s" updated successfully.') % menu_entry)
-            return HttpResponseRedirect(reverse('menu_list'))
+            if menu_entry.parent:
+                return HttpResponseRedirect(reverse('menu_details', args=[menu_entry.parent.pk]))
+            else:
+                return HttpResponseRedirect(reverse('menu_list'))            
     else:
         form = MenuEntryForm(instance=menu_entry)
 
@@ -174,3 +183,21 @@ def menu_multiple_delete(request):
     return menu_delete(
         request, menu_entry_id_list=request.GET.get('id_list', [])
     )
+
+
+def menu_promote(request, menu_entry_id):
+    menu_entry = get_object_or_404(MenuEntry, pk=menu_entry_id)
+    menu_entry.promote()
+    if menu_entry.parent:
+        return HttpResponseRedirect(reverse('menu_details', args=[menu_entry.parent.pk]))
+    else:
+        return HttpResponseRedirect(reverse('menu_list'))
+
+        
+def menu_demote(request, menu_entry_id):
+    menu_entry = get_object_or_404(MenuEntry, pk=menu_entry_id)
+    menu_entry.demote()
+    if menu_entry.parent:
+        return HttpResponseRedirect(reverse('menu_details', args=[menu_entry.parent.pk]))
+    else:
+        return HttpResponseRedirect(reverse('menu_list'))    

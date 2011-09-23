@@ -38,6 +38,26 @@ class MenuEntry(MPTTModel):
            
         super(MenuEntry, self).save(*args, **kwargs)
 
+    def promote(self):
+        if self.order > 1:
+            siblings = MenuEntry.objects.filter(parent=self.parent)
+            if siblings:
+                displaced = siblings.get(order=self.order - 1)
+                displaced.order += 1
+                displaced.save()
+                self.order -= 1
+                self.save()
+
+    def demote(self):
+        siblings = MenuEntry.objects.filter(parent=self.parent)
+        if self.order < siblings.count():
+            if siblings:
+                displaced = siblings.get(order=self.order + 1)
+                displaced.order -= 1
+                displaced.save()
+                self.order += 1
+                self.save()
+
     @models.permalink
     def get_absolute_url(self):
         return ('menu_details', [self.pk])

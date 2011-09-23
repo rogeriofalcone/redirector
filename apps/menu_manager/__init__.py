@@ -24,6 +24,8 @@ menu_delete = {u'text': _('delete'), 'view': 'menu_delete', 'args': 'object.id',
 menu_multiple_delete = {u'text': _('delete'), 'view': 'menu_multiple_delete', 'famfam': 'tab_delete'}#, 'permissions': [PERMISSION_USER_DELETE]}
 menu_add_child = {'text': _(u'new menu entry'), 'view': 'menu_add_child', 'args': 'object.id', 'famfam': 'tab_add'}#, 'permissions': [PERMISSION_USER_CREATE]}
 menu_setup = {'text': _(u'menus'), 'view': 'menu_list', 'icon': 'menu.png'}#, 'permissions': [PERMISSION_USER_VIEW]}
+menu_promote = {'text': _(u'up'), 'view': 'menu_promote', 'args': 'object.id', 'famfam': 'arrow_up'}#, 'permissions': [PERMISSION_USER_CREATE]}
+menu_demote = {'text': _(u'down'), 'view': 'menu_demote', 'args': 'object.id', 'famfam': 'arrow_down'}#, 'permissions': [PERMISSION_USER_CREATE]}
 
 register_links(MenuEntry, [menu_edit, menu_delete, menu_add_child])
 register_links(['menu_list', 'menu_details', 'menu_add', 'menu_add_child', 'menu_edit', 'menu_delete', 'menu_multiple_delete'], [menu_list, menu_add], menu_name=u'sidebar')
