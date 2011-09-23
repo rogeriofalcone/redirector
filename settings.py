@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'smart_settings',
     'common',
     'mechanic',
+    'menu_manager',
     'webtheme',
     'main',
     'sentry',

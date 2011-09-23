@@ -62,37 +62,4 @@ class URL(models.Model):
     class Meta:
         verbose_name = _(u'url')
         verbose_name_plural = _(u'urls')
-        ordering = ['title', 'url'] 
-        
-        
-class Tree(MPTTModel):
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
-    title = models.CharField(max_length=64, verbose_name=_(u'title'))
-    slug = models.SlugField(blank=True, verbose_name=_(u'slug'))
-    description = models.TextField(blank=True, verbose_name=_(u'description'))
-    enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
-    content_type = models.ForeignKey(ContentType, null=True, blank=True)
-    object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
-    order = models.PositiveIntegerField(default=0, verbose_name=_(u'order'))
-
-    def __unicode__(self):
-        return '%s -> "%s" (%s) [%s]' % (
-            self.parent.title if self.parent else ugettext(u'Root'),
-            self.title,
-            self.slug,
-            'x' if self.enabled else u' ',
-        )
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super(Tree, self).save(*args, **kwargs)
-
-    class MPTTMeta:
-        order_insertion_by=['order']        
-
-    class Meta:
-        verbose_name = _(u'tree')
-        verbose_name_plural = _(u'trees')
-        ordering = ('order',)
+        ordering = ['title', 'url']
