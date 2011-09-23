@@ -60,5 +60,11 @@ TEMPLATE_VIEW_MODES = {
         'role_delete': TEMPLATE_VIEW_MODE_PLAIN,
         'permission_grant_revoke': TEMPLATE_VIEW_MODE_PLAIN,
         'role_members': TEMPLATE_VIEW_MODE_PLAIN,
+        
+        'menu_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'menu_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'menu_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'menu_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        
     }    
 }
