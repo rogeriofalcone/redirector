@@ -20,7 +20,7 @@ from common.views import assign_remove
 
 from main.models import URL
 from main.forms import URLForm
-#from menu_manager import menu_edit as menu_edit_link
+from main import url_edit as url_edit_link
 #from menu_manager import menu_delete as menu_delete_link
 #from menu_manager import menu_add_child as menu_add_child_links
 
@@ -43,7 +43,7 @@ def url_list(request):
             },
         ],
         'multi_select_as_buttons': True,
-        #'navigation_object_links': [menu_promote_link, menu_demote_link, menu_edit_link, menu_delete_link],
+        'navigation_object_links': [url_edit_link],
     }
 
     return object_list(
