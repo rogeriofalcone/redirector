@@ -49,14 +49,10 @@ class URL(models.Model):
     enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
     
     def __unicode__(self):
-        return '%s: [%s]' % (
-            self.title,
-            'x' if self.enabled else u' ',
-        )
+        return self.title
 
     @models.permalink
     def get_absolute_url(self):
-        #return ('fetch', [self.site, self.url])
         return self.url
 
     class Meta:
