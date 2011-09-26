@@ -65,6 +65,11 @@ TEMPLATE_VIEW_MODES = {
         'menu_add': TEMPLATE_VIEW_MODE_PLAIN,
         'menu_edit': TEMPLATE_VIEW_MODE_PLAIN,
         'menu_delete': TEMPLATE_VIEW_MODE_PLAIN,
+
+        'url_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'url_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'url_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'url_delete': TEMPLATE_VIEW_MODE_PLAIN,
         
     }    
 }
