@@ -36,26 +36,3 @@ class CurrentSite(models.Model):
         verbose_name = _(u'current site')
         verbose_name_plural = _(u'current site')
         ordering = ['site']
-
-
-class URL(models.Model):
-    """
-    Define an object based URL wrapper
-    """
-    
-    title = models.CharField(max_length=64, verbose_name=_(u'title'))
-    description = models.TextField(blank=True, verbose_name=_(u'description'))
-    url = models.CharField(max_length=200, verbose_name=_(u'url'))
-    enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
-    
-    def __unicode__(self):
-        return self.title
-
-    @models.permalink
-    def get_absolute_url(self):
-        return self.url
-
-    class Meta:
-        verbose_name = _(u'url')
-        verbose_name_plural = _(u'urls')
-        ordering = ['title', 'url']

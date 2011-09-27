@@ -18,23 +18,23 @@ from common.views import assign_remove
 #    PERMISSION_GROUP_DELETE
 #from user_management.forms import UserForm, PasswordForm, GroupForm
 
-from main.models import URL
-from main.forms import URLForm
-from main import url_edit as url_edit_link
+from static_urls.models import URL
+from static_urls.forms import URLForm
+from static_urls import url_edit as url_edit_link
 #from menu_manager import menu_delete as menu_delete_link
 #from menu_manager import menu_add_child as menu_add_child_links
 
 
 def url_list(request):
 #    check_permissions(request.user, [PERMISSION_USER_VIEW])
-    title = _(u'URLs')
+    title = _(u'static link')
        
     context = {
         'template_id': u'url_list',
         'title': title,
         'extra_columns': [
             {
-                'name': _(u'link'),
+                'name': _(u'URL'),
                 'attribute': 'url'
             },
             {
@@ -42,6 +42,7 @@ def url_list(request):
                 'attribute': encapsulate(lambda x: two_state_template(x.enabled)),
             },
         ],
+        'hide_link': True,
         'multi_select_as_buttons': True,
         'navigation_object_links': [url_edit_link],
     }
@@ -57,13 +58,13 @@ def url_list(request):
 def url_add(request):
     #check_permissions(request.user, [PERMISSION_USER_CREATE])
 
-    title = _(u'create new URL')
+    title = _(u'create new static link')
 
     if request.method == 'POST':
         form = URLForm(request.POST)
         if form.is_valid():
             url = form.save()
-            messages.success(request, _(u'URL "%s" created successfully.') % url)
+            messages.success(request, _(u'Static link "%s" created successfully.') % url)
             return HttpResponseRedirect(reverse('url_list'))
     else:
         form = URLForm()
@@ -72,7 +73,7 @@ def url_add(request):
         'template_id': u'url_add',
         'title': title,
         'form': form,
-        'object_name': _(u'URL'),        
+        'object_name': _(u'static link'),        
     },
     context_instance=RequestContext(request))
 
@@ -85,17 +86,17 @@ def url_edit(request, url_id):
         form = URLForm(instance=url, data=request.POST)
         if form.is_valid():
             url = form.save()
-            messages.success(request, _(u'URL "%s" updated successfully.') % url)
+            messages.success(request, _(u'Static link "%s" updated successfully.') % url)
             return HttpResponseRedirect(reverse('url_list'))            
     else:
         form = URLForm(instance=url)
 
     return render_to_response('generic_form.html', {
         'template_id': u'url_edit',
-        'title': _(u'edit url: %s') % url,
+        'title': _(u'edit static link: %s') % url,
         'form': form,
         'object': url,
-        'object_name': _(u'URL'),
+        'object_name': _(u'static link'),
     },
     context_instance=RequestContext(request))
 
@@ -110,7 +111,7 @@ def url_delete(request, url_id=None, url_id_list=None):
     elif url_id_list:
         urls = [get_object_or_404(URL, pk=url_id) for url_id in url_id_list.split(',')]
     else:
-        messages.error(request, _(u'Must provide at least one url.'))
+        messages.error(request, _(u'Must provide at least one link.'))
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
     previous = request.POST.get('previous', request.GET.get('previous', request.META.get('HTTP_REFERER', '/')))
@@ -120,9 +121,9 @@ def url_delete(request, url_id=None, url_id_list=None):
         for url in urls:
             try:
                 url.delete()
-                messages.success(request, _(u'URL "%s" deleted successfully.') % url)
+                messages.success(request, _(u'Static link "%s" deleted successfully.') % url)
             except Exception, e:
-                messages.error(request, _(u'Error deleting URL "%(url)s": %(error)s') % {
+                messages.error(request, _(u'Error deleting static link "%(url)s": %(error)s') % {
                     'url': url, 'error': e
                 })
 
@@ -130,7 +131,7 @@ def url_delete(request, url_id=None, url_id_list=None):
 
     context = {
         'template_id': u'url_delete',
-        'object_name': _(u'URL'),
+        'object_name': _(u'static link'),
         'delete_view': True,
         'previous': previous,
         'next': next,
@@ -138,9 +139,9 @@ def url_delete(request, url_id=None, url_id_list=None):
     }
     if len(urls) == 1:
         context['object'] = urls[0]
-        context['title'] = _(u'Are you sure you wish to delete the URL: %s?') % ', '.join([unicode(d) for d in urls])
+        context['title'] = _(u'Are you sure you wish to delete the static link: %s?') % ', '.join([unicode(d) for d in urls])
     elif len(urls) > 1:
-        context['title'] = _(u'Are you sure you wish to delete the URLs: %s?') % ', '.join([unicode(d) for d in urls])
+        context['title'] = _(u'Are you sure you wish to delete the static links: %s?') % ', '.join([unicode(d) for d in urls])
 
     return render_to_response('generic_confirm.html', context,
         context_instance=RequestContext(request))
