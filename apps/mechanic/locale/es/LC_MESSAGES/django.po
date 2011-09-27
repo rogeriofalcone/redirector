@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-27 00:56-0400\n"
+"PO-Revision-Date: 2011-09-27 00:58\n"
+"Last-Translator:   <x@x.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.6.2\n"
+
+#: __init__.py:9 views.py:63
+msgid "intercepted links"
+msgstr "enlaces interceptados"
+
+#: __init__.py:10
+msgid "intercepted links list"
+msgstr "lista de enlaces interceptados"
+
+#: __init__.py:11
+msgid "new intercepted link"
+msgstr "nuevo enlace interceptado "
+
+#: __init__.py:12
+msgid "edit"
+msgstr "editar"
+
+#: __init__.py:13 __init__.py:14
+msgid "delete"
+msgstr "eliminar"
+
+#: literals.py:11
+msgid "Anchor"
+msgstr "Ancla"
+
+#: literals.py:12
+msgid "Form"
+msgstr "Forma"
+
+#: literals.py:13
+msgid "Image"
+msgstr "Imagen"
+
+#: literals.py:14
+msgid "Link"
+msgstr "Enlace"
+
+#: literals.py:15
+msgid "Script"
+msgstr ""
+
+#: literals.py:16
+msgid "Option"
+msgstr "Opción"
+
+#: literals.py:28
+msgid "Source"
+msgstr ""
+
+#: literals.py:29
+msgid "HRef"
+msgstr "HRef"
+
+#: literals.py:30
+msgid "Content"
+msgstr "Contenido"
+
+#: literals.py:31
+msgid "Target"
+msgstr ""
+
+#: literals.py:32
+msgid "Value"
+msgstr "Valor"
+
+#: literals.py:33
+msgid "Action"
+msgstr "Acción"
+
+#: literals.py:34
+msgid "ID"
+msgstr ""
+
+#: literals.py:43
+msgid "Contains"
+msgstr "Contiene"
+
+#: literals.py:44
+msgid "Contains (case sensitive)"
+msgstr "Contiene (mayúsculas y minúsculas)"
+
+#: literals.py:45
+msgid "Equals"
+msgstr "Es igual"
+
+#: literals.py:46
+msgid "Equals (case sensitive)"
+msgstr "Es igual (mayúsculas y minúsculas)"
+
+#: literals.py:53
+msgid "or"
+msgstr "o"
+
+#: literals.py:54
+msgid "and"
+msgstr "y"
+
+#: literals.py:62
+msgid "Remove"
+msgstr "Remover"
+
+#: literals.py:63
+msgid "Replace"
+msgstr "Reemplazar"
+
+#: models.py:14 models.py:59
+msgid "title"
+msgstr "título"
+
+#: models.py:15 models.py:60
+msgid "description"
+msgstr "descripción"
+
+#: models.py:16 models.py:61
+msgid "sites"
+msgstr "sitios"
+
+#: models.py:17
+msgid "element"
+msgstr "elemento"
+
+#: models.py:18
+msgid "attribute"
+msgstr "atributo"
+
+#: models.py:19
+msgid "action"
+msgstr "acción"
+
+#: models.py:20
+msgid "action argument"
+msgstr "argumento de la acción"
+
+#: models.py:21 models.py:63 views.py:74
+msgid "enabled"
+msgstr "activado"
+
+#: models.py:22
+msgid "parent count"
+msgstr "conteo de padres"
+
+#: models.py:22
+msgid "Amount of parents to remove too."
+msgstr "Cantidad de padres para quitar también."
+
+#: models.py:28 models.py:34
+msgid "transformation rule"
+msgstr "regla de transformación"
+
+#: models.py:29
+msgid "transformation rules"
+msgstr "reglas de transformación"
+
+#: models.py:35
+msgid "operand"
+msgstr "operando"
+
+#: models.py:36
+msgid "attribute comparison"
+msgstr "comparación de atributo"
+
+#: models.py:37
+msgid "negate"
+msgstr "negar"
+
+#: models.py:37
+msgid "Inverts the attribute comparison."
+msgstr "Invierte la comparación de atributos."
+
+#: models.py:38
+msgid "value"
+msgstr "valor"
+
+#: models.py:44
+msgid "not"
+msgstr "no"
+
+#: models.py:51
+msgid "element comparisons"
+msgstr "comparaciones de elemento"
+
+#: models.py:62
+msgid "url"
+msgstr "url"
+
+#: models.py:73
+msgid "link"
+msgstr "enlace"
+
+#: models.py:74
+msgid "links"
+msgstr "enlaces"
+
+#: views.py:66
+msgid "URL"
+msgstr "URL"
+
+#: views.py:70
+msgid "site"
+msgstr "sitio"
+
+#: views.py:94
+msgid "add new intercepted link"
+msgstr "agregar nuevo enlace interceptado"
+
+#: views.py:100
+#, python-format
+msgid "Intercepted link \"%s\" created successfully."
+msgstr "enlace interceptado \"%s\" creado exitosamente."
+
+#: views.py:109 views.py:132 views.py:167
+msgid "intercepted link"
+msgstr "enlace interceptado"
+
+#: views.py:122
+#, python-format
+msgid "Intercepted link \"%s\" updated successfully."
+msgstr "enlace interceptado \"%s\" actualizado exitosamente."
+
+#: views.py:129
+#, python-format
+msgid "edit intercepted link: %s"
+msgstr "editar enlace interceptado: %s"
+
+#: views.py:147
+msgid "Must provide at least one link."
+msgstr "Debe proporcionar al menos un enlace."
+
+#: views.py:157
+#, python-format
+msgid "Intercepted link \"%s\" deleted successfully."
+msgstr "Enlace interceptado \"%s\" eliminado exitosamente."
+
+#: views.py:159
+#, python-format
+msgid "Error deleting intercepted link \"%(link)s\": %(error)s"
+msgstr "Error al eliminar el enlace interceptado \"%(link)s\": %(error)s"
+
+#: views.py:175
+#, python-format
+msgid "Are you sure you wish to delete the intercepted link: %s?"
+msgstr "¿Está seguro que desea eliminar el enlace interceptado: %s?"
+
+#: views.py:177
+#, python-format
+msgid "Are you sure you wish to delete the intercepted links: %s?"
+msgstr "¿Está seguro que desea eliminar los enlaces interceptados: %s?"
+
+#~ msgid "intercepted URLs"
+#~ msgstr "URL interceptado"
+
+#~ msgid "Intercepted URL"
+#~ msgstr "URL interceptado"
+
+#~ msgid "intercepted URL"
+#~ msgstr "URL interceptado"
