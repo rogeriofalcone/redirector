@@ -63,18 +63,14 @@ class Link(models.Model):
     enabled = models.BooleanField(default=True, verbose_name=_(u'enabled'))
     
     def __unicode__(self):
-        return '%s: %s [%s]' % (
-            self.title,
-            self.site,
-            'x' if self.enabled else u' ',
-        )
+        return self.title
 
     @models.permalink
     def get_absolute_url(self):
         return ('fetch', [self.site, self.url])
 
     class Meta:
-        verbose_name = _(u'link')
-        verbose_name_plural = _(u'links')
+        verbose_name = _(u'intercepted link')
+        verbose_name_plural = _(u'intercepted links')
         ordering = ['title', 'site', 'url'] 
     

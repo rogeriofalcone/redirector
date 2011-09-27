@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'common',
     'mechanic',
     'menu_manager',
+    'static_urls',
     'webtheme',
     'main',
     'sentry',
