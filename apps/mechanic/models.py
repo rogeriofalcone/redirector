@@ -70,7 +70,7 @@ class Link(models.Model):
         return ('fetch', [self.site, self.url])
 
     class Meta:
-        verbose_name = _(u'link')
-        verbose_name_plural = _(u'links')
+        verbose_name = _(u'intercepted link')
+        verbose_name_plural = _(u'intercepted links')
         ordering = ['title', 'site', 'url'] 
     

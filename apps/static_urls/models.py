@@ -20,6 +20,6 @@ class URL(models.Model):
         return self.url
 
     class Meta:
-        verbose_name = _(u'URL')
-        verbose_name_plural = _(u'URLs')
+        verbose_name = _(u'static url')
+        verbose_name_plural = _(u'static urls')
         ordering = ['title', 'url']

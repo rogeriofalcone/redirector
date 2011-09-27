@@ -10,7 +10,6 @@ from permissions.api import check_permissions
 from common.utils import generate_choices_w_labels, encapsulate
 from common.widgets import two_state_template
 from common.views import assign_remove
-
 #from user_management import PERMISSION_USER_VIEW, \
 #    PERMISSION_USER_EDIT, PERMISSION_USER_CREATE, \
 #    PERMISSION_USER_DELETE, PERMISSION_GROUP_CREATE, \
@@ -74,7 +73,9 @@ def menu_edit(request, menu_entry_id):
     if request.method == 'POST':
         form = MenuEntryForm(instance=menu_entry, data=request.POST)
         if form.is_valid():
-            menu_entry = form.save()
+            menu_entry = form.save(commit=False)
+            menu_entry.content_object = form.cleaned_data['destination']
+            menu_entry.save()
             messages.success(request, _(u'Menu entry "%s" updated successfully.') % menu_entry)
             if menu_entry.parent:
                 return HttpResponseRedirect(reverse('menu_details', args=[menu_entry.parent.pk]))
@@ -108,6 +109,7 @@ def menu_add(request, parent_menu_entry_id=None):
         if form.is_valid():
             menu_entry = form.save(commit=False)
             menu_entry.parent = parent_menu_entry
+            menu_entry.content_object = form.cleaned_data['destination']
             menu_entry.save()
             messages.success(request, _(u'Menu entry "%s" created successfully.') % menu_entry)
             if parent_menu_entry:
@@ -200,4 +202,4 @@ def menu_demote(request, menu_entry_id):
     if menu_entry.parent:
         return HttpResponseRedirect(reverse('menu_details', args=[menu_entry.parent.pk]))
     else:
-        return HttpResponseRedirect(reverse('menu_list'))    
+        return HttpResponseRedirect(reverse('menu_list'))
