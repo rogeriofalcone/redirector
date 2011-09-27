@@ -70,6 +70,10 @@ TEMPLATE_VIEW_MODES = {
         'url_add': TEMPLATE_VIEW_MODE_PLAIN,
         'url_edit': TEMPLATE_VIEW_MODE_PLAIN,
         'url_delete': TEMPLATE_VIEW_MODE_PLAIN,
-        
+
+        'link_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'link_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'link_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'link_delete': TEMPLATE_VIEW_MODE_PLAIN,
     }    
 }

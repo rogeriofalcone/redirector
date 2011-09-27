@@ -1,9 +1,9 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from main.models import URL
+from mechanic.models import Link
 
 
-class URLForm(forms.ModelForm):
+class LinkForm(forms.ModelForm):
     class Meta:
-        model = URL
+        model = Link
