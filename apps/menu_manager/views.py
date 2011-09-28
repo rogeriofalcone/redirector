@@ -45,7 +45,7 @@ def menu_list(request, parent_menu_entry_id=None):
             },
             {
                 'name': _(u'destination'),
-                'attribute': 'content_object',
+                'attribute': 'destination',
             },
             {
                 'name': _(u'enabled'),
