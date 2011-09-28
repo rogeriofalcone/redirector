@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 05:24-0400\n"
-"PO-Revision-Date: 2011-09-23 05:25\n"
+"POT-Creation-Date: 2011-09-28 00:57-0400\n"
+"PO-Revision-Date: 2011-09-28 00:59\n"
 "Last-Translator:   <x@x.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,91 +43,115 @@ msgstr "nueva entrada de menú"
 msgid "menus"
 msgstr "menús"
 
-#: models.py:15
+#: __init__.py:27
+msgid "up"
+msgstr "subir"
+
+#: __init__.py:28
+msgid "down"
+msgstr "bajar"
+
+#: forms.py:24
+msgid "static links"
+msgstr "enlaces estáticos"
+
+#: forms.py:25
+msgid "intercepted links"
+msgstr "enlaces interceptado"
+
+#: forms.py:36
+msgid "Destination"
+msgstr "Destino"
+
+#: models.py:16
 msgid "title"
 msgstr "título"
 
-#: models.py:16 views.py:39
+#: models.py:17 views.py:43
 msgid "internal name"
 msgstr "nombre interno"
 
-#: models.py:17
+#: models.py:18
 msgid "description"
 msgstr "descripción"
 
-#: models.py:18 views.py:47
+#: models.py:19 views.py:51
 msgid "enabled"
 msgstr "activado"
 
-#: models.py:22
+#: models.py:23
 msgid "order"
 msgstr "orden"
 
-#: models.py:46 views.py:53 views.py:82 views.py:152
+#: models.py:43
+msgid "none"
+msgstr "ninguno"
+
+#: models.py:73 views.py:57 views.py:92 views.py:127 views.py:168
 msgid "menu entry"
 msgstr "entrada de menú"
 
-#: models.py:47
+#: models.py:74
 msgid "menu entries"
 msgstr "entradas de menú"
 
-#: views.py:29
+#: views.py:33
 #, python-format
 msgid "menu entries for: %s"
 msgstr "entradas de menú para: %s"
 
-#: views.py:32
+#: views.py:36
 msgid "root menu entries"
 msgstr "entradas de menú principal"
 
-#: views.py:43
+#: views.py:47
 msgid "destination"
 msgstr "destino"
 
-#: views.py:72
+#: views.py:79
 #, python-format
 msgid "Menu entry \"%s\" updated successfully."
 msgstr "Entrada de menú \"%s\" ha actualizada correctamente."
 
-#: views.py:79
-#, fuzzy, python-format
+#: views.py:89
+#, python-format
 msgid "edit menu entry: %s"
-msgstr "nueva entrada de menú"
+msgstr "editar entrada de menú: %s"
 
-#: views.py:92
+#: views.py:102
 #, python-format
 msgid "create new menu entry for: %s"
 msgstr "crear nueva entrada para el menú: %s"
 
-#: views.py:95
+#: views.py:105
 msgid "create new root menu entry"
 msgstr "crear nueva entrada menú principal"
 
-#: views.py:103
+#: views.py:114
 #, python-format
 msgid "Menu entry \"%s\" created successfully."
 msgstr "Entrada de menú \"%s\" creada exitosamente."
 
-#: views.py:132
+#: views.py:148
 msgid "Must provide at least one menu entry."
 msgstr "Debe proporcionar al menos una entrada de menú."
 
-#: views.py:142
+#: views.py:158
 #, python-format
 msgid "Menu entry \"%s\" deleted successfully."
 msgstr "Entrada de menú \"%s\" eliminada exitosamente."
 
-#: views.py:144
+#: views.py:160
 #, python-format
 msgid "Error deleting menu entry \"%(menu_entry)s\": %(error)s"
 msgstr "Error al eliminar la entrada de menú \"%(menu_entry)s\": %(error)s"
 
-#: views.py:160
+#: views.py:176
 #, python-format
 msgid "Are you sure you wish to delete the menu entry: %s?"
 msgstr "¿Está seguro que desea eliminar la entrada de menú: %s?"
 
-#: views.py:162
+#: views.py:178
 #, python-format
 msgid "Are you sure you wish to delete the menu entries: %s?"
 msgstr "¿Está seguro que desea eliminar las entradas de menú: %s?"
