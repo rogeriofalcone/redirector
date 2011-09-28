@@ -313,7 +313,7 @@ def parse_range(astr):
 def generate_choices_w_labels(choices, display_object_type=True):
     results = []
     for choice in choices:
-        ct_label = ContentType.objects.get_for_model(choice).name
+        ct_label = ContentType.objects.get_for_model(choice).model
         label = unicode(choice)
         if isinstance(choice, User):
             label = choice.get_full_name() if choice.get_full_name() else choice
