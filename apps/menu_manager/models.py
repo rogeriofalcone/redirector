@@ -38,6 +38,10 @@ class MenuEntry(MPTTModel):
            
         super(MenuEntry, self).save(*args, **kwargs)
 
+    @property
+    def destination(self):
+        return self.content_object if self.content_object else _(u'none')        
+
     def promote(self):
         if self.order > 1:
             siblings = MenuEntry.objects.filter(parent=self.parent)
