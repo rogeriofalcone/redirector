@@ -33,12 +33,18 @@ class MenuEntryForm(forms.ModelForm):
         exclude = ('content_type', 'object_id', 'parent', 'order')
 
     destination = forms.ChoiceField(required=False,
-        label=_(u'Destination'),
-        choices=get_destinations()
+        label=_(u'Destination')
     )
 
+    def __init__(self, *args, **kwargs):
+        super(MenuEntryForm, self).__init__(*args, **kwargs)
+        self.fields['destination'].choices = get_destinations()
+
     def clean_destination(self):
-        data = self.cleaned_data['destination']
+        destination = self.cleaned_data['destination']
+        if destination:
+            return convert_to_object(destination)
+        else:
+            return None
         #if "fred@example.com" not in data:
         #    raise forms.ValidationError("You have forgotten about Fred!")
-        return convert_to_object(data)
