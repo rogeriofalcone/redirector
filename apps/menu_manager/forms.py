@@ -17,8 +17,8 @@ def convert_to_object(selection):
 
         
 def get_destinations():
-    urls = URL.objects.all(enabled=True)
-    links = Link.objects.all(enabled=True)
+    urls = URL.objects.filter(enabled=True)
+    links = Link.objects.filter(enabled=True)
    
     MEDIA_CHOICES = (
         (capfirst(_(u'static links')), generate_choices_w_labels(urls, display_object_type=False),),
