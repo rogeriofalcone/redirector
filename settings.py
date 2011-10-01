@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'menu_manager',
     'static_urls',
     'webtheme',
+    'cms',
     'main',
     'sentry',
     'sentry.client',
