@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'menu_manager',
     'static_urls',
     'webtheme',
+    'markitup',
     'cms',
     'main',
     'sentry',
@@ -192,7 +193,6 @@ LOGIN_EXEMPT_URLS = (
 )
 #--------- Pagination ----------------
 PAGINATION_INVALID_PAGE_RAISES_404 = True
-
 try:
     from settings_local import *
 except ImportError:
