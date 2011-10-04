@@ -19,8 +19,8 @@ class Page(models.Model):
     markup = models.CharField(max_length=16, choices=MARKUP_CHOICES, default=MARKUP_RESTRUCTUREDTEXT)
     
     class Meta:
-        verbose_name = _(u'page')
-        verbose_name_plural = _(u'pages')
+        verbose_name = _(u'CMS page')
+        verbose_name_plural = _(u'CMS pages')
         ordering = ('title',)
 
     def __unicode__(self):
@@ -42,12 +42,14 @@ class Page(models.Model):
         return self.active
     is_active.short_description = _('is active')
 
-    #    @models.permalink
-    #    def get_absolute_url(self):
-    #        """
-    #        Return the absolute URL of this page.
-    #        """
-    def render(self, **kwargs):
+    @models.permalink
+    def get_absolute_url(self):
+       """
+       Return the URL to render this page.
+       """
+       return self.render()
+              
+    def render(self):
         #render_fn = getattr(self, 'render_%s' % self.region, None)
 
         #if render_fn:
