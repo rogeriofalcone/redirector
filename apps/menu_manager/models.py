@@ -40,7 +40,7 @@ class MenuEntry(MPTTModel):
 
     @property
     def destination(self):
-        return self.content_object if self.content_object else _(u'none')        
+        return '%s: %s' % (unicode(getattr(self.content_type.model_class()._meta, u'verbose_name', self.content_type.name)), self.content_object) if self.content_object else _(u'none')        
 
     def promote(self):
         if self.order > 1:
