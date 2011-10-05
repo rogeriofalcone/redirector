@@ -2,7 +2,6 @@ from types import UnicodeType
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-#from django.template.defaultfilters import slugify
 from django.contrib.markup.templatetags.markup import restructuredtext
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import capfirst
@@ -31,9 +30,11 @@ creole_parser = Parser(
         creole11_base,
         wiki_links_path_func=internal_link_url,
         wiki_links_class_func=internal_link_class,
-        simple_markup=[("''", 'em'), ("'''", 'strong'),]
+        #simple_markup=[("'''", 'strong'), ("''", 'em'),],
+        #simple_markup=[("'''", 'strong')],
     ),
 method='xhtml')
+
 
 def make_wiki_slug(text):
     if type(text) != UnicodeType:
@@ -42,6 +43,15 @@ def make_wiki_slug(text):
     text = capfirst(text.replace(u' ', u'_'))
     
     return text       
+
+
+def render(content, markup):        
+    if markup == MARKUP_RESTRUCTUREDTEXT:
+        return restructuredtext(content)
+    elif markup == MARKUP_CREOLE:
+        return creole_parser(content)
+    
+    raise NotImplementedError
         
 
 class Page(models.Model):
@@ -63,6 +73,7 @@ class Page(models.Model):
         return self.short_title()
 
     def save(self, *args, **kwargs):
+        self.convert_from_wiki()
         if not self.slug:
             self.slug = make_wiki_slug(self.title)
         else:
@@ -92,12 +103,7 @@ class Page(models.Model):
 
         #if render_fn:
         #    return render_fn(**kwargs)
-        if self.markup == MARKUP_RESTRUCTUREDTEXT:
-            return restructuredtext(self.content)
-        elif self.markup == MARKUP_CREOLE:
-            return creole_parser(self.content)
-        
-        raise NotImplementedError
+        return render(self.content, self.markup)
 
     def short_title(self):
         """
@@ -107,3 +113,7 @@ class Page(models.Model):
         return shorten_string(self.title)
     short_title.admin_order_field = 'title'
     short_title.short_description = _('title')
+
+    def convert_from_wiki(self):
+        self.content = self.content.replace('\'\'\'\'\'', '**//').replace('\'\'\'', '**').replace('\'\'', '//')
+        self.content = self.content.replace('<br />', '\\\\')
