@@ -9,6 +9,7 @@ urlpatterns = patterns('cms.views',
     #url(r'^(?P<page_name>\w+)/render/$', 'page_view', {'preview':False}, 'page_render'),
     #url(r'^(?P<page_name>[A-Z0-9][a-zA-Z0-9-]+)/render/$', 'page_view', {'preview':False}, 'page_render'),
     #url(r'^(?P<slugs>[a-zA-Z0-9-_]+)/render/$', 'page_view', {'preview':False}, 'page_render'),
-    url(r'^render/(?P<slug>.*)$', 'page_view', {'preview':False}, 'page_render'),
+    url(r'^render/by/name/(?P<slug>.*)$', 'page_view', {'preview':False}, 'page_render'),
+    url(r'^render/by/id/(?P<page_id>\d+)$', 'page_view', {'preview':False}, 'page_render'),
     url(r'^(?P<page_id>\d+)/preview/$', 'page_view', {'preview':True}, 'page_preview'),
 )
