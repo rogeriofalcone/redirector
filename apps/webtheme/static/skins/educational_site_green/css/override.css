@@ -85,12 +85,15 @@ div.timer {
     
 }
 
-/*
+
 #id_content {
-    width: 300px;
-    height: 200px;
+    width: 198%;
+    height: 100%;
 }
-*/
+
+.markItUpPreviewFrame {
+    width: 198% !important;
+}
 
 
 a.cms_link_error {
