@@ -80,6 +80,7 @@ TEMPLATE_VIEW_MODES = {
         'crud_add': TEMPLATE_VIEW_MODE_PLAIN,
         'crud_edit': TEMPLATE_VIEW_MODE_PLAIN,
         'crud_delete': TEMPLATE_VIEW_MODE_PLAIN,        
-        'crud_view': TEMPLATE_VIEW_MODE_PLAIN,        
+        'crud_view': TEMPLATE_VIEW_MODE_PLAIN,
+        'cms_render': TEMPLATE_VIEW_MODE_BARE,
     }    
 }
