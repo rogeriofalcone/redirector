@@ -21,17 +21,62 @@ def internal_link_class(slug):
             return 'cms_link_error'
     except Page.DoesNotExist: 
         return 'cms_link_error'
-    
+
+
 def internal_link_url(slug):
     return reverse('page_render', args=[make_wiki_slug(slug)])
+
+
+def macro_otheruses(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_side_bar_file(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_listen(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_reference(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_wikitable(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_main_article(*args, **kwargs):
+    print 'macro'
+    return u''
+
+
+def macro_listreferences(*args, **kwargs):
+    return u''
     
+
 creole_parser = Parser(
     dialect=create_dialect(
         creole11_base,
         wiki_links_path_func=internal_link_url,
         wiki_links_class_func=internal_link_class,
-        #simple_markup=[("'''", 'strong'), ("''", 'em'),],
-        #simple_markup=[("'''", 'strong')],
+        non_bodied_macros={
+            'otrosusos':macro_otheruses,
+            'Archivo':macro_side_bar_file,
+            'listen':macro_listen,
+            'AP':macro_main_article,
+            'listaref':macro_listreferences,
+        },
+        bodied_macros={
+            'ref':macro_reference,
+            'wikitable':macro_wikitable,
+        }
     ),
 method='xhtml')
 
@@ -117,3 +162,6 @@ class Page(models.Model):
     def convert_from_wiki(self):
         self.content = self.content.replace('\'\'\'\'\'', '**//').replace('\'\'\'', '**').replace('\'\'', '//')
         self.content = self.content.replace('<br />', '\\\\')
+        self.content = self.content.replace('{{otrosusos}}', '<<otrosusos>>')
+        #self.content = self.content.replace('{{listen', '<<listen')
+        #self.content = self.content.replace('}}' '>>')
