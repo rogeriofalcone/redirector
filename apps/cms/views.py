@@ -23,10 +23,10 @@ def page_list(request):
         'template_id': u'crud_list',
         'title': _(u'CMS pages'),
         'extra_columns': [
-        #    {
-        #        'name': _(u'site'),
-        #        'attribute': 'site'
-        #    },            
+            {
+                'name': _(u'title'),
+                'attribute': 'title'
+            },            
             {
                 'name': _(u'name'),
                 'attribute': 'slug'
@@ -37,7 +37,7 @@ def page_list(request):
             },
         ],
         'multi_select_as_buttons': True,
-        'hide_link': True,
+        'hide_object': True,
         'navigation_object_links': [page_edit_link, page_preview_link, page_render_link],
     }
 
@@ -161,6 +161,9 @@ def page_view(request, page_id=None, slug=None, preview=True):
         'title': page.title,
         'content': page.render(),
     }
+    
+    if not preview:
+        context['template_id'] = u'cms_render'
     
     if preview:
         context.update({
