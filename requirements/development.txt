@@ -13,3 +13,4 @@ django-sentry==1.8.10
 -e git://github.com/django-mptt/django-mptt.git@0af02a95877041b2fd6d458bd95413dc1666c321#egg=django-mptt
 docutils==0.8.1
 django-markitup==1.0.0
+Creoleparser==0.7.4
