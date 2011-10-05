@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------
 mySettings = {
     nameSpace:          "wiki", // Useful to prevent multi-instances CSS conflict
-    previewParserPath:  "/markitup/preview",
+    previewParserPath:  "/markitup/preview/",
     onShiftEnter:       {keepDefault:false, replaceWith:'\n\n'},
     markupSet:  [
         {name:'Heading 1', key:'1', openWith:'== ', closeWith:' ==', placeHolder:'Your title here...' },
