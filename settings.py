@@ -193,6 +193,7 @@ LOGIN_EXEMPT_URLS = (
 )
 #--------- Pagination ----------------
 PAGINATION_INVALID_PAGE_RAISES_404 = True
+
 try:
     from settings_local import *
 except ImportError:
@@ -236,3 +237,5 @@ if DEVELOPMENT:
         }
 
 
+#from cms.markups import render
+MARKITUP_FILTER = ('cms.models.render', {'markup': 'creole'})
