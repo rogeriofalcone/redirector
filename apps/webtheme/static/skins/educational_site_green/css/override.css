@@ -91,3 +91,19 @@ div.timer {
     height: 200px;
 }
 */
+
+
+a.cms_link_error {
+    color: #FF0000;
+}
+
+.markItUpButton {
+	background: none !important;
+	padding-left: 0px !important;
+}
+
+.markItUpSeparator {
+	background: none !important;
+    background-color: #CCCCCC !important;
+	padding-left: 0px !important;
+}

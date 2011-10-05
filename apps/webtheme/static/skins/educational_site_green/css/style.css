@@ -360,8 +360,8 @@ img.aligncenter {
 }
 
 #content ul li {
-	/*background: url(../images/bullet.jpg) 0 6px no-repeat;*/
-	/*padding-left: 15px;*/
+	background: url(../images/bullet.jpg) 0 6px no-repeat;
+	padding-left: 15px;
 }
 
 /* Back to top */
