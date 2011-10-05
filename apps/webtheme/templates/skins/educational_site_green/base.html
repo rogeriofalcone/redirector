@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/override.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/wikistyle.css" type="text/css" />
 
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.iframe-auto-height.plugin.1.5.0.min.js"></script>
@@ -249,7 +250,7 @@
 
                     
                 </div>
-                <div id="content" {% if template_view_mode == 'bare' %}style="width: 100%;"{% endif %}>
+                <div id="content" {% if template_view_mode == 'bare' %}style="width: 98%;"{% endif %}>
                     {% block content %}{% endblock %}
                 </div>            
                 {% if template_view_mode != 'bare' %}

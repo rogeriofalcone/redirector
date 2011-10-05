@@ -1,10 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib import messages
 from django.views.generic.list_detail import object_list
 from django.core.urlresolvers import reverse
+from django.template.defaultfilters import capfirst
 
 from permissions.api import check_permissions
 from common.utils import generate_choices_w_labels, encapsulate
@@ -12,7 +13,7 @@ from common.widgets import two_state_template
 from common.views import assign_remove
 
 from cms.models import Page
-from cms.forms import PageForm
+from cms.forms import PageForm_create, PageForm_edit
 from cms import page_edit_link, page_preview_link, page_render_link
 
 
@@ -22,10 +23,10 @@ def page_list(request):
         'template_id': u'crud_list',
         'title': _(u'CMS pages'),
         'extra_columns': [
-        #    {
-        #        'name': _(u'site'),
-        #        'attribute': 'site'
-        #    },            
+            {
+                'name': _(u'title'),
+                'attribute': 'title'
+            },            
             {
                 'name': _(u'name'),
                 'attribute': 'slug'
@@ -36,7 +37,7 @@ def page_list(request):
             },
         ],
         'multi_select_as_buttons': True,
-        'hide_link': True,
+        'hide_object': True,
         'navigation_object_links': [page_edit_link, page_preview_link, page_render_link],
     }
 
@@ -53,13 +54,14 @@ def page_add(request):
     title = _(u'add new CMS page')
 
     if request.method == 'POST':
-        form = PageForm(request.POST)
+        form = PageForm_create(request.POST)
         if form.is_valid():
             page = form.save()
             messages.success(request, _(u'CMS page "%s" created successfully.') % page)
-            return HttpResponseRedirect(reverse('page_list'))
+            #return HttpResponseRedirect(reverse('page_list'))
+            return HttpResponseRedirect(reverse('page_edit', args=[page.pk]))
     else:
-        form = PageForm()
+        form = PageForm_create()
 
     return render_to_response('generic_form.html', {
         'template_id': u'crud_add',
@@ -75,13 +77,13 @@ def page_edit(request, page_id):
     page = get_object_or_404(Page, pk=page_id)
 
     if request.method == 'POST':
-        form = PageForm(instance=page, data=request.POST)
+        form = PageForm_edit(instance=page, data=request.POST)
         if form.is_valid():
             page = form.save()
             messages.success(request, _(u'CMS page "%s" updated successfully.') % page)
             return HttpResponseRedirect(reverse('page_list'))
     else:
-        form = PageForm(instance=page)
+        form = PageForm_edit(instance=page)
 
     return render_to_response('generic_form.html', {
         'template_id': u'crud_edit',
@@ -145,15 +147,23 @@ def page_multiple_delete(request):
     )
 
 
-def page_view(request, page_id, preview):
+def page_view(request, page_id=None, slug=None, preview=True):
     #check_permissions(request.user, [PERMISSION_USER_EDIT])
-    page = get_object_or_404(Page, pk=page_id)
+    if page_id:
+        page = get_object_or_404(Page, pk=page_id)
+    elif slug:
+        page = get_object_or_404(Page, slug=capfirst(slug))
+    else:
+        raise Http404
 
     context = {
         'template_id': u'crud_view',
         'title': page.title,
         'content': page.render(),
     }
+    
+    if not preview:
+        context['template_id'] = u'cms_render'
     
     if preview:
         context.update({

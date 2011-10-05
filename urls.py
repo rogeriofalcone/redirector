@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     (r'^', include('webtheme.urls')),
     (r'^', include('common.urls')),
     (r'^sentry/', include('sentry.web.urls')),
+    url(r'^markitup/', include('markitup.urls'))  
 )
 
 if settings.DEVELOPMENT:
