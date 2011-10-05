@@ -14,6 +14,9 @@ from common.utils import shorten_string
 
 from cms.literals import MARKUP_MARKDOWN, MARKUP_RESTRUCTUREDTEXT, \
     MARKUP_TEXTILE, MARKUP_CREOLE, MARKUP_CHOICES
+from cms.macros import macro_side_bar_file, macro_otheruses, macro_listen, \
+    macro_reference, macro_wikitable, macro_main_article, macro_listreferences
+
     
 def internal_link_class(slug):
     try:
@@ -25,41 +28,6 @@ def internal_link_class(slug):
 
 def internal_link_url(slug):
     return reverse('page_render', args=[make_wiki_slug(slug)])
-
-
-def macro_otheruses(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_side_bar_file(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_listen(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_reference(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_wikitable(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_main_article(*args, **kwargs):
-    print 'macro'
-    return u''
-
-
-def macro_listreferences(*args, **kwargs):
-    return u''
-    
 
 creole_parser = Parser(
     dialect=create_dialect(
