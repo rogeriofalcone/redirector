@@ -12,8 +12,8 @@ from common.utils import generate_choices_w_labels, encapsulate
 from common.widgets import two_state_template
 from common.views import assign_remove
 
-from cms.models import Page
-from cms.forms import PageForm_create, PageForm_edit
+from cms.models import Page, Media
+from cms.forms import PageForm_create, PageForm_edit, MediaForm
 from cms import page_edit_link, page_preview_link, page_render_link
 
 
@@ -173,3 +173,63 @@ def page_view(request, page_id=None, slug=None, preview=True):
 
     return render_to_response('generic_template.html', context,
         context_instance=RequestContext(request))
+
+
+def media_list(request):
+#    check_permissions(request.user, [PERMISSION_USER_VIEW])
+    context = {
+        'template_id': u'crud_list',
+        'title': _(u'CMS media'),
+        'extra_columns': [
+            {
+                'name': _(u'title'),
+                'attribute': 'title'
+            },            
+            {
+                'name': _(u'name'),
+                'attribute': 'slug'
+            },
+            {
+                'name': _(u'mimetype'),
+                'attribute': 'file_mimetype'
+            },
+            #{
+            #    'name': _(u'enabled'),
+            #    'attribute': encapsulate(lambda x: two_state_template(x.enabled)),
+            #},
+        ],
+        #'multi_select_as_buttons': True,
+        'hide_object': True,
+        #'navigation_object_links': [page_edit_link, page_preview_link, page_render_link],
+    }
+
+    return object_list(
+        request,
+        queryset=Media.objects.all(),
+        template_name='generic_list.html',
+        extra_context=context
+    )
+
+    
+def media_add(request):
+    #check_permissions(request.user, [PERMISSION_USER_CREATE])
+
+    title = _(u'add new CMS media')
+
+    if request.method == 'POST':
+        form = MediaForm(request.POST, request.FILES)
+        if form.is_valid():
+            media = form.save()
+            messages.success(request, _(u'CMS media "%s" created successfully.') % media)
+            return HttpResponseRedirect(reverse('media_list'))
+            #return HttpResponseRedirect(reverse('media_edit', args=[media.pk]))
+    else:
+        form = MediaForm()
+
+    return render_to_response('generic_form.html', {
+        'template_id': u'crud_add',
+        'title': title,
+        'form': form,
+        'object_name': _(u'CMS media'),        
+    },
+    context_instance=RequestContext(request))

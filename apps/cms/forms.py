@@ -5,7 +5,7 @@ from django.conf import settings
 from markitup.widgets import MarkItUpWidget
 #from markitup import settings as markitup_settings
 
-from cms.models import Page
+from cms.models import Page, Media
 
 
 class PageForm_create(forms.ModelForm):
@@ -32,3 +32,7 @@ class PageForm_edit(forms.ModelForm):
         model = Page
         exclude = ('markup',)
 
+
+class MediaForm(forms.ModelForm):
+    class Meta:
+        model = Media
