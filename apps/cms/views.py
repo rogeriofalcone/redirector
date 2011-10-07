@@ -6,15 +6,20 @@ from django.contrib import messages
 from django.views.generic.list_detail import object_list
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import capfirst
+ 
+import sendfile
 
 from permissions.api import check_permissions
 from common.utils import generate_choices_w_labels, encapsulate
 from common.widgets import two_state_template
 from common.views import assign_remove
 
-from cms.models import Page, Media
+from cms.models import Page, Media, make_wiki_slug
 from cms.forms import PageForm_create, PageForm_edit, MediaForm
 from cms import page_edit_link, page_preview_link, page_render_link
+from cms import media_edit_link
+from cms.widgets import media_thumbnail
+from cms.conf.settings import PREVIEW_SIZE
 
 
 def page_list(request):
@@ -189,18 +194,24 @@ def media_list(request):
                 'name': _(u'name'),
                 'attribute': 'slug'
             },
+            {'name':_(u'thumbnail'), 'attribute':
+                encapsulate(lambda x: media_thumbnail(x))
+            },
             {
                 'name': _(u'mimetype'),
                 'attribute': 'file_mimetype'
             },
             #{
+            #    'name': _(u'checksum'),
+            #    'attribute': 'checksum'
+            #},            #{
             #    'name': _(u'enabled'),
             #    'attribute': encapsulate(lambda x: two_state_template(x.enabled)),
             #},
         ],
-        #'multi_select_as_buttons': True,
+        'multi_select_as_buttons': True,
         'hide_object': True,
-        #'navigation_object_links': [page_edit_link, page_preview_link, page_render_link],
+        'navigation_object_links': [media_edit_link],
     }
 
     return object_list(
@@ -233,3 +244,99 @@ def media_add(request):
         'object_name': _(u'CMS media'),        
     },
     context_instance=RequestContext(request))
+
+
+def media_edit(request, media_id):
+    #check_permissions(request.user, [PERMISSION_USER_EDIT])
+    media = get_object_or_404(Media, pk=media_id)
+
+    if request.method == 'POST':
+        form = MediaForm(request.POST, request.FILES, instance=media)
+        if form.is_valid():
+            media = form.save()
+            messages.success(request, _(u'CMS media "%s" updated successfully.') % media)
+            return HttpResponseRedirect(reverse('media_list'))
+    else:
+        form = MediaForm(instance=media)
+
+    return render_to_response('generic_form.html', {
+        'template_id': u'crud_edit',
+        'title': _(u'edit CMS media: %s') % media,
+        'form': form,
+        'object': media,
+        'object_name': _(u'CMS media'),
+    },
+    context_instance=RequestContext(request))
+
+
+def media_delete(request, media_id=None, media_id_list=None):
+    #check_permissions(request.user, [PERMISSION_USER_DELETE])
+    post_action_redirect = None
+
+    if media_id:
+        medias = [get_object_or_404(Media, pk=media_id)]
+        post_action_redirect = reverse('media_list')
+    elif media_id_list:
+        medias = [get_object_or_404(Media, pk=media_id) for media_id in media_id_list.split(',')]
+    else:
+        messages.error(request, _(u'Must provide at least one media.'))
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+    previous = request.POST.get('previous', request.GET.get('previous', request.META.get('HTTP_REFERER', '/')))
+    next = request.POST.get('next', request.GET.get('next', post_action_redirect if post_action_redirect else request.META.get('HTTP_REFERER', '/')))
+
+    if request.method == 'POST':
+        for media in medias:
+            try:
+                media.delete()
+                messages.success(request, _(u'CMS media "%s" deleted successfully.') % media)
+            except Exception, e:
+                messages.error(request, _(u'Error deleting CMS media "%(media)s": %(error)s') % {
+                    'media': media, 'error': e
+                })
+
+        return HttpResponseRedirect(next)
+
+    context = {
+        'template_id': u'crud_delete',
+        'object_name': _(u'CMS media'),
+        'delete_view': True,
+        'previous': previous,
+        'next': next,
+        'form_icon': u'drive_delete.png',
+    }
+    if len(medias) == 1:
+        context['object'] = medias[0]
+        context['title'] = _(u'Are you sure you wish to delete the CMS media: %s?') % ', '.join([unicode(d) for d in medias])
+    elif len(medias) > 1:
+        context['title'] = _(u'Are you sure you wish to delete the CMS media: %s?') % ', '.join([unicode(d) for d in medias])
+
+    return render_to_response('generic_confirm.html', context,
+        context_instance=RequestContext(request))
+
+
+def media_multiple_delete(request):
+    return media_delete(
+        request, media_id_list=request.GET.get('id_list', [])
+    )
+
+
+def get_media_image(request, media_id=None, media_name=None, size=PREVIEW_SIZE):
+    #check_permissions(request.user, [PERMISSION_DOCUMENT_VIEW])
+    if media_id:
+        media = get_object_or_404(Media, pk=media_id)
+    elif media_name:
+        media = get_object_or_404(Media, slug=make_wiki_slug(media_name))
+        
+    #page = int(request.GET.get('page', DEFAULT_PAGE_NUMBER))
+    #zoom = int(request.GET.get('zoom', DEFAULT_ZOOM_LEVEL))
+
+    #if zoom < ZOOM_MIN_LEVEL:
+    #    zoom = ZOOM_MIN_LEVEL
+
+    #if zoom > ZOOM_MAX_LEVEL:
+    #    zoom = ZOOM_MAX_LEVEL
+
+    #rotation = int(request.GET.get('rotation', DEFAULT_ROTATION)) % 360
+
+    return sendfile.sendfile(request, media.get_image(size=size))#, page=page, zoom=zoom, rotation=rotation))
