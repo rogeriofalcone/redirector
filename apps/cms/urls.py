@@ -1,5 +1,11 @@
 from django.conf.urls.defaults import patterns, url
 
+from cms.conf.settings import PREVIEW_SIZE
+#from cms.conf.settings import PRINT_SIZE
+from cms.conf.settings import THUMBNAIL_SIZE
+from cms.conf.settings import DISPLAY_SIZE
+#from cms.conf.settings import MULTIPAGE_PREVIEW_SIZE
+
 urlpatterns = patterns('cms.views',
     url(r'^page/list/$', 'page_list', (), 'page_list'),
     url(r'^page/add/$', 'page_add', (), 'page_add'),
@@ -15,7 +21,18 @@ urlpatterns = patterns('cms.views',
     
     url(r'^media/list/$', 'media_list', (), 'media_list'),
     url(r'^media/add/$', 'media_add', (), 'media_add'),
-    #url(r'^media/(?P<media_id>\d+)/edit/$', 'media_edit', (), 'media_edit'),
-    #rl(r'^media/(?P<media_id>\d+)/delete/$', 'media_delete', (), 'media_delete'),
-    #url(r'^media/multiple/delete/$', 'media_multiple_delete', (), 'media_multiple_delete'),    
+    url(r'^media/(?P<media_id>\d+)/edit/$', 'media_edit', (), 'media_edit'),
+    url(r'^media/(?P<media_id>\d+)/delete/$', 'media_delete', (), 'media_delete'),
+    url(r'^media/multiple/delete/$', 'media_multiple_delete', (), 'media_multiple_delete'),    
+    url(r'^media/(?P<media_id>\d+)/edit/$', 'media_edit', (), 'media_edit'),
+    url(r'^media/(?P<media_name>.*)/display/preview/by/name/$', 'get_media_image', {'size': PREVIEW_SIZE}, 'media_preview'),
+    url(r'^media/(?P<media_id>\d+)/display/preview/by/id/$', 'get_media_image', {'size': PREVIEW_SIZE}, 'media_preview'),
+    url(r'^media/(?P<media_name>.*)/display/thumbnail/by/name/$', 'get_media_image', {'size': THUMBNAIL_SIZE}, 'media_thumbnail'),
+    url(r'^media/(?P<media_id>\d+)/display/thumbnail/by/id/$', 'get_media_image', {'size': THUMBNAIL_SIZE}, 'media_thumbnail'),
+
+    url(r'^media/(?P<media_name>.*)/display/by/name/$', 'get_media_image', {'size': DISPLAY_SIZE}, 'media_display'),
+    url(r'^media/(?P<media_id>\d+)/display/by/id/$', 'get_media_image', {'size': DISPLAY_SIZE}, 'media_display'),
+
+#    url(r'^media/(?P<media_id>\d+)/display/preview/multipage/$', 'get_media_image', {'size': MULTIPAGE_PREVIEW_SIZE}, 'media_preview_multipage'),
+
 )

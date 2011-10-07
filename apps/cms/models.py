@@ -1,3 +1,4 @@
+import os
 from types import UnicodeType
 import hashlib
 import uuid
@@ -9,16 +10,22 @@ from django.contrib.markup.templatetags.markup import restructuredtext
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import capfirst
 
+import sendfile
+
 from creoleparser import text2html
 from creoleparser.dialects import create_dialect, creole10_base, creole11_base
 from creoleparser.core import Parser
 
 from common.utils import shorten_string
+from common.conf.settings import TEMPORARY_DIRECTORY
 
 from dynamic_search.api import register
 from converter.api import convert
 from converter.exceptions import UnknownFileFormat, UnkownConvertError
-from mimetype.api import get_document_mimetype, get_icon_file_path, \
+from converter.literals import DEFAULT_ZOOM_LEVEL, DEFAULT_ROTATION, \
+    DEFAULT_PAGE_NUMBER
+
+from mimetype.api import get_mimetype, get_icon_file_path, \
     get_error_icon_file_path
 
 from cms.literals import MARKUP_MARKDOWN, MARKUP_RESTRUCTUREDTEXT, \
@@ -31,11 +38,13 @@ from cms.conf.settings import STORAGE_BACKEND
 from cms.conf.settings import PREVIEW_SIZE
 from cms.conf.settings import DISPLAY_SIZE
 from cms.conf.settings import CACHE_PATH
-
     
 def internal_link_class(slug):
     try:
-        if Page.objects.filter(slug=make_wiki_slug(slug)).filter(enabled=True).count() == 0:
+        # Have to make two queries, because iexact doesn't understand 
+        # unicode, and doesn't match accented lowercase to accented 
+        # uppercase characters
+        if Page.objects.filter(slug=make_wiki_slug(slug)).filter(enabled=True).count() == 0 and Page.objects.filter(slug=make_wiki_slug(slug, capitalize=True)).filter(enabled=True).count() == 0:
             return 'cms_link_error'
     except Page.DoesNotExist: 
         return 'cms_link_error'
@@ -64,11 +73,14 @@ creole_parser = Parser(
 method='xhtml')
 
 
-def make_wiki_slug(text):
+def make_wiki_slug(text, capitalize=False):
     if type(text) != UnicodeType:
         text = unicode(text, 'utf-8', 'ignore')
-        
-    text = capfirst(text.replace(u' ', u'_'))
+    
+    text = text.replace(u' ', u'_')
+    
+    if capitalize:
+        text = capfirst(text)
     
     return text       
 
@@ -241,7 +253,17 @@ class Media(models.Model):
         """
         if self.exists():
             try:
-                self.file_mimetype, self.mime_encoding = get_document_mimetype(self)
+                source = open(self.file.path, 'rb')
+                mimetype, mime_encoding = get_mimetype(source, self.file_filename)
+                if mimetype:
+                    self.file_mimetype = mimetype
+                else:
+                    self.file_mimetype = u''
+
+                if mime_encoding:
+                    self.file_mime_encoding = mime_encoding
+                else:
+                    self.file_mime_encoding = u''
             except:
                 self.file_mimetype = u''
                 self.file_mime_encoding = u''
@@ -274,10 +296,12 @@ class Media(models.Model):
         exists in storage
         """
         return self.file.storage.exists(self.file.path)
-    '''    
+        
     def get_cached_image_name(self, page):
-        document_page = self.documentpage_set.get(page_number=page)
-        transformations, warnings = document_page.get_transformation_list()
+        #document_page = self.documentpage_set.get(page_number=page)
+        #transformations, warnings = document_page.get_transformation_list()
+        transformations = ''
+        page = 1
         hash_value = HASH_FUNCTION(u''.join([self.checksum, unicode(page), unicode(transformations)]))
         return os.path.join(CACHE_PATH, hash_value), transformations
 
@@ -286,8 +310,8 @@ class Media(models.Model):
         if os.path.exists(cache_file_path):
             return cache_file_path
         else:
-            document_file = document_save_to_temp_dir(self, self.checksum)
-            return convert(document_file, output_filepath=cache_file_path, page=page, transformations=transformations)
+            media_file = self.save_to_temp_dir(self.checksum)
+            return convert(media_file, output_filepath=cache_file_path, page=page, transformations=transformations)
 
     def get_image(self, size=DISPLAY_SIZE, page=DEFAULT_PAGE_NUMBER, zoom=DEFAULT_ZOOM_LEVEL, rotation=DEFAULT_ROTATION):
         try:
@@ -305,8 +329,29 @@ class Media(models.Model):
             os.unlink(self.get_cached_image_name(page)[0])
         except OSError:
             pass
-    '''
+    
     def delete(self, *args, **kwargs):
         super(Media, self).delete(*args, **kwargs)
         return self.file.storage.delete(self.file.path)
 
+    def save_to_file(self, filepath, buffer_size=1024 * 1024):
+        """
+        Save a copy of the media file from the storage backend
+        to the local filesystem
+        """
+        input_descriptor = self.open()
+        output_descriptor = open(filepath, 'wb')
+        while True:
+            copy_buffer = input_descriptor.read(buffer_size)
+            if copy_buffer:
+                output_descriptor.write(copy_buffer)
+            else:
+                break
+
+        output_descriptor.close()
+        input_descriptor.close()
+        return filepath
+
+    def save_to_temp_dir(self, filename, buffer_size=1024 * 1024):
+        temporary_path = os.path.join(TEMPORARY_DIRECTORY, filename)
+        return self.save_to_file(temporary_path, buffer_size)
