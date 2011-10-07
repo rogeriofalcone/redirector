@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2011-09-29 18:45-0400\n"
+"PO-Revision-Date: 2011-09-30 05:09+0000\n"
+"Last-Translator: rosarior <roberto.rosario.gonzalez@gmail.com>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/mayan-edms/team/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: __init__.py:5
+msgid "search"
+msgstr "búsqueda"
+
+#: __init__.py:6 views.py:72
+msgid "advanced search"
+msgstr "búsqueda avanzada"
+
+#: __init__.py:7
+msgid "search again"
+msgstr "buscar de nuevo"
+
+#: forms.py:8
+msgid "Search terms"
+msgstr "Términos de búsqueda"
+
+#: models.py:18
+msgid "user"
+msgstr ""
+
+#: models.py:19
+msgid "query"
+msgstr ""
+
+#: models.py:20
+msgid "datetime created"
+msgstr ""
+
+#: models.py:21
+msgid "hits"
+msgstr ""
+
+#: models.py:59
+msgid "recent search"
+msgstr ""
+
+#: models.py:60
+msgid "recent searches"
+msgstr ""
+
+#: views.py:33
+#, python-format
+msgid "results, (showing only %(shown_result_count)s out of %(result_count)s)"
+msgstr ""
+"resultados, (mostrando solamente %(shown_result_count)s de %(result_count)s)"
+
+#: views.py:37
+msgid "results"
+msgstr "resultados"
+
+#: views.py:56
+#, python-format
+msgid "Search error: %s"
+msgstr "Error de búsqueda: %s"
+
+#: views.py:60
+msgid "type"
+msgstr "tipo"
+
+#: views.py:76 views.py:86 views.py:88 templatetags/search_tags.py:19
+#: templatetags/search_tags.py:20
+msgid "Search"
+msgstr "Búsqueda"
+
+#: conf/settings.py:12
+msgid "Maximum amount search hits to fetch and display."
+msgstr "La cantidad máxima de resultados de búsqueda a buscar y mostrar."
+
+#: conf/settings.py:13
+msgid "Maximum number of search queries to remember per user."
+msgstr ""
+
+#: templates/search_help.html:3
+msgid "Help"
+msgstr "Ayuda"
+
+#: templates/search_help.html:4
+#, python-format
+msgid ""
+"Enter the desired search keywords separated by space.  Only the top "
+"%(search_results_limit)s results will be available."
+msgstr ""
+"Introduzca las palabras clave de búsqueda que desee separadas por un "
+"espacio.  Sólo los primeros %(search_results_limit)s resultados estarán "
+"disponibles."
+
+#: templates/search_results.html:3
+msgid "Search results"
+msgstr "Resultados de la búsqueda"
+
+#: templates/search_results.html:19
+#, python-format
+msgid "Elapsed time: %(time_delta)s seconds"
+msgstr "Tiempo transcurrido: %(time_delta)s segundos"
+
+#: templatetags/search_tags.py:33
+#, python-format
+msgid "recent searches (maximum of %d)"
+msgstr ""
+
+

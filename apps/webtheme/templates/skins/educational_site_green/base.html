@@ -36,12 +36,16 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/override.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}css/wikistyle.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.iframe-auto-height.plugin.1.5.0.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ current_skin }}/js/jquery.dropdownPlain.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.easing-1.3.pack.js"></script>
+
         <script type="text/javascript">
             //var iframeHeightDifference;
 
@@ -123,6 +127,38 @@
                     $('#contents').hide();
                     return false;
                 });
+                
+                $("a.fancybox").fancybox({
+                'titleShow'     : false,
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic',
+                'easingIn'      : 'easeOutBack',
+                'easingOut'     : 'easeInBack',
+                'type'          : 'image',
+                'autoScale'     : true
+                });
+                $("a.fancybox-noscaling").fancybox({
+                'titleShow'     : false,
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic',
+                'easingIn'      : 'easeOutBack',
+                'easingOut'     : 'easeInBack',
+                'type'          : 'image',
+                'autoScale'     : false
+                });
+                $("a.fancybox-iframe").fancybox({
+                    'titleShow'     : false,
+                    'transitionIn'  : 'elastic',
+                    'transitionOut' : 'elastic',
+                    'easingIn'      : 'easeOutBack',
+                    'easingOut'     : 'easeInBack',
+                    'type'          : 'iframe',
+                    'autoScale'     : false,
+                    'width'         : '99%',
+                    'height'        : '99%',
+                    'showNavArrows' : false,
+                    'margin'        : 20
+                });    
             });
         </script>
     </head>

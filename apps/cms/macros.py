@@ -9,20 +9,23 @@ from django import forms
 from django.forms.util import flatatt
 from django.utils.html import conditional_escape
 from django.utils.encoding import force_unicode
-
+from django.core.urlresolvers import reverse
 
 def macro_side_bar_file(macro, environ, *args, **kwargs):
     image = args[0]
     width = args[1]
     caption = args[2]
-   
+
     return tag.div(
         tag.div(
             tag.a(
                 tag.img(
-                    width=width, class_='thumbimage', src='http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Herz-Heart.jpg/350px-Herz-Heart.jpg'
+                    #width=width, class_='thumbimage', src='http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Herz-Heart.jpg/350px-Herz-Heart.jpg'
+                    width=width, class_='thumbimage', src=reverse('media_preview', args=[image])
                 ),
-                href='http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Herz-Heart.jpg/350px-Herz-Heart.jpg', class_='image'
+                #href='http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Herz-Heart.jpg/350px-Herz-Heart.jpg', class_='image'
+                #href=reverse('media_display', args=[image]), class_='image fancybox-iframe'
+                href=reverse('media_display', args=[image]), class_='image'
             ),
             tag.div(
                 caption, class_='thumbcaption'

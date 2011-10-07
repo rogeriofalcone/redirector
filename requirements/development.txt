@@ -14,3 +14,7 @@ django-sentry==1.8.10
 docutils==0.8.1
 django-markitup==1.0.0
 Creoleparser==0.7.4
+Pillow==1.7.5
+slate==0.3
+ghostscript==0.4.1
+-e git://github.com/rosarior/django-sendfile.git@f85a1737ebf6464c85c81d75dfeda03efe691b7e#egg=django-sendfile
