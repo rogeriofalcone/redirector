@@ -25,14 +25,14 @@ media_multiple_delete_link = {u'text': _('delete'), 'view': 'media_multiple_dele
 media_preview_link = {'text': _(u'preview'), 'view': 'media_preview', 'args': 'object.id', 'famfam': 'zoom'}#, 'permissions': [PERMISSION_USER_EDIT]}
 
 
-register_links(Page, [page_preview_link, page_edit_link, page_delete_link])
+register_links(Page, [page_preview_link, page_edit_link, page_delete_link, page_render_link])
 register_links(['page_list', 'page_add', 'page_edit', 'page_delete', 'page_multiple_delete'], [page_list_link, page_add_link], menu_name=u'sidebar')
 register_multi_item_links(['page_list'], [page_multiple_delete_link])
 
 register_setup(page_setup_link)
 
-#register_links(Media, [media_preview_link, media_edit_link, media_delete_link])
+register_links(Media, [media_edit_link, media_delete_link])
 register_links(['media_list', 'media_add', 'media_edit', 'media_delete', 'media_multiple_delete'], [media_list_link, media_add_link], menu_name=u'sidebar')
-#register_multi_item_links(['media_list'], [media_multiple_delete_link])
+register_multi_item_links(['media_list'], [media_multiple_delete_link])
 
 register_setup(media_setup_link)
