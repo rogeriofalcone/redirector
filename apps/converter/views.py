@@ -3,13 +3,15 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from common.utils import encapsulate
+from permissions.api import check_permissions
 
 from converter.api import get_format_list
 from converter.conf.settings import GRAPHICS_BACKEND
+from converter import CONVERTER_FORMAT_LIST_VIEW
 
 
 def formats_list(request):
-    #check_permissions(request.user, [PERMISSION_DOCUMENT_VIEW])
+    check_permissions(request.user, [CONVERTER_FORMAT_LIST_VIEW])
 
     context = {
         'title': _(u'suported file formats'),
