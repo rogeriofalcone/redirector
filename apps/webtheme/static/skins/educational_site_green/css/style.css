@@ -4,9 +4,6 @@ Author: Jeremie Tisseau
 Last update: Feb 28, 2008 by Jeremie
 */
 
-@import url(dropdown_menu.css);
-@import url(form.css);
-
 html, body {border: 0; margin: 0; padding: 0;}
 
 body {

@@ -11,6 +11,7 @@ def tools_list(request):
     context = {
         'object_list': [button_navigation_widget(request, item) for item in tool_items],
         'title': _(u'tools'),
+        'template_id': u'crud_list',
     }
 
     return render_to_response('generic_list_horizontal.html', context,

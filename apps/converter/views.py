@@ -26,6 +26,7 @@ def formats_list(request):
             }
         ],
         'backend': GRAPHICS_BACKEND,
+        'template_id': u'crud_list',
     }
 
     return render_to_response('generic_list.html', context,
