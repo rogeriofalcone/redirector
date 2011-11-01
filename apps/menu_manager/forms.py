@@ -6,6 +6,7 @@ from django.utils.text import capfirst
 from common.utils import generate_choices_w_labels
 from static_urls.models import URL
 from mechanic.models import Link
+from cms.models import Page
 
 from menu_manager.models import MenuEntry
 
@@ -17,10 +18,12 @@ def convert_to_object(selection):
 
         
 def get_destinations():
+    pages = Page.objects.filter(enabled=True)
     urls = URL.objects.filter(enabled=True)
     links = Link.objects.filter(enabled=True)
    
     MEDIA_CHOICES = (
+        (capfirst(_(u'CMS pages')), generate_choices_w_labels(pages, display_object_type=False),),
         (capfirst(_(u'static links')), generate_choices_w_labels(urls, display_object_type=False),),
         (capfirst(_(u'intercepted links')), generate_choices_w_labels(links, display_object_type=False),),
     )    

@@ -75,5 +75,12 @@ TEMPLATE_VIEW_MODES = {
         'link_add': TEMPLATE_VIEW_MODE_PLAIN,
         'link_edit': TEMPLATE_VIEW_MODE_PLAIN,
         'link_delete': TEMPLATE_VIEW_MODE_PLAIN,
+        
+        'crud_list': TEMPLATE_VIEW_MODE_PLAIN,
+        'crud_add': TEMPLATE_VIEW_MODE_PLAIN,
+        'crud_edit': TEMPLATE_VIEW_MODE_PLAIN,
+        'crud_delete': TEMPLATE_VIEW_MODE_PLAIN,        
+        'crud_view': TEMPLATE_VIEW_MODE_PLAIN,
+        'cms_render': TEMPLATE_VIEW_MODE_BARE,
     }    
 }

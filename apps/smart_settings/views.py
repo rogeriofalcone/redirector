@@ -23,6 +23,7 @@ def setting_list(request):
                     'default': sub_setting['default'],
                     })
     context = {
+        'template_id': u'crud_list',
         'title': _(u'settings'),
         'object_list': new_settings,
         'hide_link': True,

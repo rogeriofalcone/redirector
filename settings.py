@@ -131,18 +131,26 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'converter',
     'mptt',
+    'compressor',
     'pagination',
+    'dynamic_search',
     'permissions',
     'navigation',
     'user_management',
     'project_setup',
+    'project_tools',
     'smart_settings',
     'common',
     'mechanic',
     'menu_manager',
     'static_urls',
     'webtheme',
+    'markitup',
+    'mimetype',
+    'storage',
+    'cms',
     'main',
     'sentry',
     'sentry.client',
@@ -155,6 +163,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'webtheme.context_processors.current_skin',
     'common.context_processors.current_site',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
 )
 
 #=================================
@@ -185,6 +200,7 @@ LOGIN_EXEMPT_URLS = (
     r'^home/$',
     r'^/$',
     r'^$',
+    r'^mechanic/',
     r'^about/$',
     r'^contact/$',
     r'^top_redirect',
@@ -235,3 +251,5 @@ if DEVELOPMENT:
         }
 
 
+#from cms.markups import render
+MARKITUP_FILTER = ('cms.models.render', {'markup': 'creole'})

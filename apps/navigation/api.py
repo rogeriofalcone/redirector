@@ -71,6 +71,8 @@ def register_top_menu(name, link, children_views=None,
 
     sort_menu_entries()
 
+    return entry
+    
 
 def sort_menu_entries():
     global top_menu_entries

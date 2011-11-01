@@ -4,7 +4,7 @@
 {% load navigation_tags %}
 {% load template_view_mode_tags %}
 {% load variable_tags %}
-
+{% load compress %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -25,22 +25,32 @@
         <link rel="shorcut icon" href="/favicon.ico" />
 
         <title>{{ current_site.name }}{{ request.new_window_url }}{% block title %}{% endblock %}</title>
-        
+
+{% compress css %}
         <link rel="stylesheet" href="{{ STATIC_URL }}css/famfamfam-silk-sprite.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/base.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/green.css" type="text/css" />
 
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/dropdown_menu.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/form.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/dropdown_jquery.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/orbit-1.2.3/orbit-1.2.3.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}skins/{{ current_skin }}/css/override.css" type="text/css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/wikistyle.css" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+{% endcompress %}
 
+{% compress js %}
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.iframe-auto-height.plugin.1.5.0.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}skins/{{ current_skin }}/js/jquery.dropdownPlain.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/orbit-1.2.3/jquery.orbit-1.2.3.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery-loadmask-0.4/jquery.loadmask.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}packages/jquery.fancybox-1.3.4/fancybox/jquery.easing-1.3.pack.js"></script>
+
         <script type="text/javascript">
             //var iframeHeightDifference;
 
@@ -50,14 +60,14 @@
         
             function loadingAnimationShow() {
                 $('#center_logo_wrapper').mask('{% trans "Loading..." %}');
-                $('body').css('cursor', 'progress');
-                $('#iframe_portal').contents().find('body').css('cursor', 'progress');
+                {#$('body').css('cursor', 'progress');#}
+                {#$('#iframe_portal').contents().find('body').css('cursor', 'progress');#}
             }
 
             function loadingAnimationHide() {
                 $('#center_logo_wrapper').unmask();
-                $('body').css('cursor', 'auto');
-                $('#iframe_portal').contents().find('body').css('cursor', 'auto');
+                {#$('body').css('cursor', 'auto');#}
+                {#$('#iframe_portal').contents().find('body').css('cursor', 'auto');#}
             }
 
             $(window).load(function() {
@@ -75,7 +85,7 @@
                 iframeHeight = $(window).height()-iframeHeightDifference;
                 
                 // Automatically resize iframe height on new content
-                $('iframe').iframeAutoHeight({minHeight: iframeHeight});
+                {#$('iframe').iframeAutoHeight({minHeight: iframeHeight});#}
                 
                 //
                 $('.button_link').click(function(){
@@ -115,15 +125,54 @@
                 });
                    
                 $('a.redirected').live('click', function() {
-                    loadingAnimationShow();
+                    if ($(this).is('.iframescroll')) {
+                        $('#iframe_portal').attr('scrolling', 'auto');
+                    } else {
+                        $('#iframe_portal').attr('scrolling', 'no');
+                    }
                     resizeIframeToWindow();
+                    //loadingAnimationShow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
                     $('#contents').hide();
                     return false;
                 });
+                
+                $("a.fancybox").fancybox({
+                'titleShow'     : false,
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic',
+                'easingIn'      : 'easeOutBack',
+                'easingOut'     : 'easeInBack',
+                'type'          : 'image',
+                'autoScale'     : true
+                });
+                $("a.fancybox-noscaling").fancybox({
+                'titleShow'     : false,
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic',
+                'easingIn'      : 'easeOutBack',
+                'easingOut'     : 'easeInBack',
+                'type'          : 'image',
+                'autoScale'     : false
+                });
+                $("a.fancybox-iframe").fancybox({
+                    'titleShow'     : false,
+                    'transitionIn'  : 'elastic',
+                    'transitionOut' : 'elastic',
+                    'easingIn'      : 'easeOutBack',
+                    'easingOut'     : 'easeInBack',
+                    'type'          : 'iframe',
+                    'autoScale'     : false,
+                    'width'         : '99%',
+                    'height'        : '99%',
+                    'showNavArrows' : false,
+                    'margin'        : 20
+                });    
             });
         </script>
+{% endcompress %}
+        
     </head>
     <body>
         <div id="wrapper">
@@ -197,9 +246,9 @@
                         <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
-                           <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
-                           <li><a class="redirected" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
-                           <li><a class="redirected" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
+                           <li><a class="redirected iframescroll" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
+                           <li><a class="redirected iframescroll" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
+                           <li><a class="redirected iframescroll" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
                         </ul>
                     </li>
                     <li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
@@ -249,7 +298,7 @@
 
                     
                 </div>
-                <div id="content" {% if template_view_mode == 'bare' %}style="width: 100%;"{% endif %}>
+                <div id="content" {% if template_view_mode == 'bare' %}style="width: 98%;"{% endif %}>
                     {% block content %}{% endblock %}
                 </div>            
                 {% if template_view_mode != 'bare' %}

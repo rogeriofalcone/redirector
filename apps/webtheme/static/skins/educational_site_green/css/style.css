@@ -4,9 +4,6 @@ Author: Jeremie Tisseau
 Last update: Feb 28, 2008 by Jeremie
 */
 
-@import url(dropdown_menu.css);
-@import url(form.css);
-
 html, body {border: 0; margin: 0; padding: 0;}
 
 body {
@@ -332,11 +329,12 @@ img.aligncenter {
 }
 
 #content h3 {
-	font-size: 1.4em;
-	color: #4A4A4A;
+	border: #EEEEDF 1px solid;
+	font-size: 1.3em;
 	font-weight: bold;
 	margin: 30px 0 10px 0;
-	padding: 5px 0;
+	padding: 5px 0 0 30px;
+	color: #55980B;
 }
 
 #content h4 {
