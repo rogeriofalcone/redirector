@@ -43,7 +43,7 @@ def register_permission(permission):
         # Special for DjangoZoom, which executes collectstatic media
         # doing syncdb and creating the database tables
     except Exception, e:
-        print 'unhandled exception: %s'  e
+        print 'unhandled exception: %s' % e
         transaction.rollback()
         
 
