@@ -172,6 +172,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+COMPRESS_PARSER = 'compressor.parser.HtmlParser'
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
+
 #=================================
 SENDFILE_BACKEND = 'sendfile.backends.simple'
 GRAPPELLI_ADMIN_TITLE = PROJECT_TITLE
