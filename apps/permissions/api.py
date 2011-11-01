@@ -34,6 +34,7 @@ def register_permission(permission):
             namespace=permission['namespace'], name=permission['name'])
         permission_obj.label = unicode(permission['label'])
         permission_obj.save()
+        transaction.commit()
     except DatabaseError:
         transaction.rollback()
         # Special case for ./manage.py syncdb
@@ -41,9 +42,10 @@ def register_permission(permission):
         transaction.rollback()
         # Special for DjangoZoom, which executes collectstatic media
         # doing syncdb and creating the database tables
-    else:
-        transaction.commit()
-
+    except Exception, e:
+        print 'unhandled exception: %s'  e
+        transaction.rollback()
+        
 
 def check_permissions(requester, permission_list):
     for permission_item in permission_list:
