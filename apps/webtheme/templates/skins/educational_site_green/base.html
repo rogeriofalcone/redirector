@@ -60,14 +60,14 @@
         
             function loadingAnimationShow() {
                 $('#center_logo_wrapper').mask('{% trans "Loading..." %}');
-                $('body').css('cursor', 'progress');
-                $('#iframe_portal').contents().find('body').css('cursor', 'progress');
+                {#$('body').css('cursor', 'progress');#}
+                {#$('#iframe_portal').contents().find('body').css('cursor', 'progress');#}
             }
 
             function loadingAnimationHide() {
                 $('#center_logo_wrapper').unmask();
-                $('body').css('cursor', 'auto');
-                $('#iframe_portal').contents().find('body').css('cursor', 'auto');
+                {#$('body').css('cursor', 'auto');#}
+                {#$('#iframe_portal').contents().find('body').css('cursor', 'auto');#}
             }
 
             $(window).load(function() {
@@ -85,7 +85,7 @@
                 iframeHeight = $(window).height()-iframeHeightDifference;
                 
                 // Automatically resize iframe height on new content
-                $('iframe').iframeAutoHeight({minHeight: iframeHeight});
+                {#$('iframe').iframeAutoHeight({minHeight: iframeHeight});#}
                 
                 //
                 $('.button_link').click(function(){
@@ -125,8 +125,13 @@
                 });
                    
                 $('a.redirected').live('click', function() {
-                    loadingAnimationShow();
+                    if ($(this).is('.iframescroll')) {
+                        $('#iframe_portal').attr('scrolling', 'auto');
+                    } else {
+                        $('#iframe_portal').attr('scrolling', 'no');
+                    }
                     resizeIframeToWindow();
+                    //loadingAnimationShow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
                     $('#iframe_portal').show();
                     $('#contents').hide();
@@ -241,9 +246,9 @@
                         <a href="#" title="">Repasos<img src="{{ STATIC_URL }}skins/{{ current_skin }}/images/nav_bullet.png" alt="" /></a>
                         <!-- submenu -->
                         <ul>
-                           <li><a class="redirected" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
-                           <li><a class="redirected" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
-                           <li><a class="redirected" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
+                           <li><a class="redirected iframescroll" href="http://salonhogar.net/Enciclopedia_Ilustrada/Cuarto_Ano/Index2_barquin.htm" target="" title="">Repaso 4to año</a></li>
+                           <li><a class="redirected iframescroll" href="http://cursos.salonhogar.net/course/category.php?id=22" target="" title="">College Board</a></li>
+                           <li><a class="redirected iframescroll" href="http://1roeducate.com/examen/login.php" target="" title="">Otros</a></li>
                         </ul>
                     </li>
                     <li><a href="{% url about %}" target="" title="">Sobre nosotros</a></li>
