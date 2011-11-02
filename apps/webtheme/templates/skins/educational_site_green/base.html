@@ -125,11 +125,11 @@
                 });
                    
                 $('a.redirected').live('click', function() {
-                    if ($(this).is('.iframescroll')) {
-                        $('#iframe_portal').attr('scrolling', 'auto');
-                    } else {
-                        $('#iframe_portal').attr('scrolling', 'no');
-                    }
+                    //if ($(this).is('.iframescroll')) {
+                    //    $('#iframe_portal').attr('scrolling', 'auto');
+                    //} else {
+                    //    $('#iframe_portal').attr('scrolling', 'no');
+                    //}
                     resizeIframeToWindow();
                     //loadingAnimationShow();
                     $('#iframe_portal').attr('src', $(this).attr('href'));
@@ -272,7 +272,7 @@
                 <!-- / END MAIN NAVIGATION -->
 
                 <div id="iframe-container" style="margin: auto; width: 100%; z-index:998;">
-                    <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999; display: none;" scrolling="no">You need a Frames Capable browser to view this content.</iframe> 
+                    <iframe class="" src="" name="iframe_portal" id="iframe_portal" frameborder="0" width="100%" style="width: 100%; z-index:999; display: none;" scrolling="auto">You need a Frames Capable browser to view this content.</iframe> 
                 </div>
             {% endif %}
 
