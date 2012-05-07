@@ -5,6 +5,7 @@ from webtheme.models import SiteSkin
    
 
 class SiteSkinAdmin(admin.ModelAdmin):
+    change_list_template = 'smuggler/change_list.html'
     model = SiteSkin
     list_display = ('pk', 'site', 'skin')
     list_display_links = ('pk',)
