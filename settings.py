@@ -82,8 +82,7 @@ STATIC_URL = '/%s-static/' % PROJECT_NAME
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 #ADMIN_MEDIA_PREFIX = '/media/'
-#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 #ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Make this unique, and don't share it with anybody.
@@ -122,7 +121,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'grappelli',
+    # Django
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -131,10 +130,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'converter',
-    'mptt',
-    'compressor',
+    # 3rd party
+    'sentry',
+    'sentry.client',
     'pagination',
+    'compressor',
+    'mptt',
+    'smuggler',
+    # Common
+    'converter',
     'dynamic_search',
     'permissions',
     'navigation',
@@ -143,17 +147,16 @@ INSTALLED_APPS = (
     'project_tools',
     'smart_settings',
     'common',
+    'mimetype',
+    # Project
     'mechanic',
     'menu_manager',
     'static_urls',
     'webtheme',
     'markitup',
-    'mimetype',
     'storage',
     'cms',
     'main',
-    'sentry',
-    'sentry.client',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
