@@ -206,7 +206,7 @@ LOGIN_EXEMPT_URLS = (
     r'^home/$',
     r'^/$',
     r'^$',
-    r'^mechanic/',
+    r'^mechanic/$',
     r'^about/$',
     r'^contact/$',
     r'^top_redirect',
