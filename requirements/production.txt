@@ -16,3 +16,4 @@ ghostscript==0.4.1
 django-compressor==1.1
 pdfminer==20110515
 cssmin==0.1.4
+django-smuggler==0.3
