@@ -5,9 +5,9 @@ from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^admin/', include('smuggler.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
-    (r'^grappelli/', include('grappelli.urls')),
     (r'^mechanic/', include('mechanic.urls')),
     (r'^smart_settings/', include('smart_settings.urls')),
     (r'^user_management/', include('user_management.urls')),
@@ -23,7 +23,6 @@ urlpatterns = patterns('',
     url(r'^markitup/', include('markitup.urls')),
     (r'^converter/', include('converter.urls')),
     (r'^search/', include('dynamic_search.urls')),
-
 )
 
 if settings.DEVELOPMENT:

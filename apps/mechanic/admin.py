@@ -12,6 +12,7 @@ class ElementComparisonInline(admin.StackedInline):
     
 
 class TransformationRuleAdmin(admin.ModelAdmin):
+    change_list_template = 'smuggler/change_list.html'
     model = TransformationRule
     radio_fields = {'action': admin.VERTICAL}
     inlines = [
@@ -40,6 +41,7 @@ class TransformationRuleAdmin(admin.ModelAdmin):
     )
 ''' 
 class LinkAdmin(admin.ModelAdmin):
+    change_list_template = 'smuggler/change_list.html'
     model = Link
     list_display = ('title', 'site', 'url', 'enabled')
     #list_editable = ('title', 'action',)

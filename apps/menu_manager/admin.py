@@ -7,6 +7,7 @@ from menu_manager.models import MenuEntry
 
    
 class MenuEntryAdmin(MPTTModelAdmin):
+    change_list_template = 'smuggler/change_list.html'
     model = MenuEntry
     list_display = ('pk', 'title', 'slug', 'order', 'content_type', 'object_id', 'enabled')
     list_display_links = ('pk',)

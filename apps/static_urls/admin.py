@@ -6,6 +6,7 @@ from static_urls.models import URL
 
 class URLAdmin(admin.ModelAdmin):
     model = URL
+    change_list_template = 'smuggler/change_list.html'
     list_display = ('title', 'url', 'enabled')
 
 
